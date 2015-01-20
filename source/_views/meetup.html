@@ -17,7 +17,7 @@
         <li class="one-third column">
             <h3>{{ talk.title }}</h3>
             <p class="meta">{{ talk.speaker }}</p>
-            <p>{{ talk.description }}</p>
+            <p>{{ talk.description|raw}}</p>
         </li>
         {% endfor %}
     </ul>
@@ -25,7 +25,7 @@
 <section class="location container clearfix">
   <h1 class="meeting-box">Gdzie się spotykamy?</h1>
   <div class="ten columns meeting-description meeting-box">
-      {{ page.venue.description }}
+      {{ page.venue.description|raw}}
   </div>
 </section>
 <section id="map" class="clearfix">
@@ -48,7 +48,7 @@
         <div class="description five columns">
             <h1><a href="{{ sponsor.site }}">{{ sponsor.name }}</a></h1>
             <div><a href="{{ sponsor.site }}"><img src="{{ sponsor.logo }}" /></a></div>
-            <p class="meeting-description">{{ sponsor.description }}</p>
+            <p class="meeting-description">{{ sponsor.description|raw}}</p>
         </div>
         {% endfor %}
     </div><!-- END CONTAINER -->
