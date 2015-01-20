@@ -1,0 +1,57 @@
+{% extends "no-cta" %}
+{% block precontent %}
+<section id="title" class="container clearfix">
+    <!-- Title -->
+    <h1 class="meeting-box">{{ page.title }}</h1>
+    <div class="ten columns meeting-description">
+        <p>{{ page.date|date("Y-m-d") }}, godz. {{ page.time }}</p>
+        <div>{{ page.venue.short }}</div>
+    </div>
+    <!-- End Title -->
+</section><!-- END CONTAINER -->
+
+<section class="work container clearfix">
+    <h1 class="meeting-box">Wykłady</h1>
+    <ul id="portfolio">
+        {% for talk in page.talks %}
+        <li class="one-third column">
+            <h3>{{ talk.title }}</h3>
+            <p class="meta">{{ talk.speaker }}</p>
+            <p>{{ talk.description }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+<section class="location container clearfix">
+  <h1 class="meeting-box">Gdzie się spotykamy?</h1>
+  <div class="ten columns meeting-description meeting-box">
+      {{ page.venue.description }}
+  </div>
+</section>
+<section id="map" class="clearfix">
+        <!-- Map -->
+        <div id="map_canvas" style="width:100%;height:300px;"></div>
+
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?language=en&sensor=false"></script>
+        <script type="text/javascript">
+         var map_545b78b925333 = new google.maps.Map(document.getElementById("map_canvas"), {"mapTypeId":google.maps.MapTypeId.ROADMAP,"zoom":17,"disableDefaultUI":true,"disableDoubleClickZoom":true});
+         map_545b78b925333.setCenter(new google.maps.LatLng({{ page.venue.location }}, true));
+         var closable_info_windows = Array();
+        </script>
+        <!-- End Map -->
+</section><!-- END CONTAINER -->
+{% if page.sponsors.size > 0 %}
+<section class="sponsors showcase-entry dark">
+    <div class="container clearfix">
+        <h1 class="meeting-box">Sponsorzy</h1>
+        {% for sponsor in page.sponsors %}
+        <div class="description five columns">
+            <h1><a href="{{ sponsor.site }}">{{ sponsor.name }}</a></h1>
+            <div><a href="{{ sponsor.site }}"><img src="{{ sponsor.logo }}" /></a></div>
+            <p class="meeting-description">{{ sponsor.description }}</p>
+        </div>
+        {% endfor %}
+    </div><!-- END CONTAINER -->
+</section>
+{% endif %}
+{% endblock %}

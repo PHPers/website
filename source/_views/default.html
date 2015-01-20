@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{% block title %}PHPers - Otwarte spotkania dla developerów i architektów PHP{% endblock %}</title>
+    <meta name="description" content="PHPers to ogólnopolska inicjatywa darmowych meetupów dla programistów PHP i osób chcących rozpocząć profesjonalną
+    pracę w tym języku. Przyjdź na nasze spotkania, podziel się swoją wiedzą lub porozmawiać z bardziej doświadczonymi
+    developerami."/>
+    <meta name="keywords" content="PHP, PHPers, programowanie, development, webdevelopment, developer, język PHP, aplikacje internetowe,
+    spotkania, konferencja, design patterns, web, JavaScript, NoSQL, HTML"/>
+    <meta property="og:title" content="PHPers - Otwarte spotkania dla developerów i architektów PHP"/>
+    <meta property="og:description" content="PHPers to ogólnopolska inicjatywa darmowych meetupów dla programistów PHP i osób chcących rozpocząć profesjonalną
+    pracę w tym języku. Przyjdź na nasze spotkania, podziel się swoją wiedzą lub porozmawiać z bardziej doświadczonymi
+    developerami."/>
+    <meta property="og:image" content="http://phpers.pl/img/logo_full.png"/>
+    <meta property="og:type" content="website"/>
+    <meta name="twitter:site" content="@PHPersPL"/>
+    <meta name="twitter:url" content="http://phpers.pl/"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="PHPers - Otwarte spotkania dla developerów i architektów PHP"/>
+    <meta name="twitter:description" content="PHPers to ogólnopolska inicjatywa darmowych meetupów dla programistów PHP i osób chcących rozpocząć profesjonalną
+    pracę w tym języku. Przyjdź na nasze spotkania, podziel się swoją wiedzą lub porozmawiać z bardziej doświadczonymi
+    developerami."/>
+    <meta name="twitter:image" content="http://phpers.pl/img/logo_full.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Retina Images -->
+    <script>
+        if ((window.devicePixelRatio === undefined ? 1 : window.devicePixelRatio) > 1) {
+            document.cookie = 'HTTP_IS_RETINA=1;path=/';
+        }
+    </script>
+    <!-- End Retina Images -->
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,300,900&subset=latin,latin-ext' rel='stylesheet'
+          type='text/css'>
+    <!-- End Fonts -->
+
+    <link rel="stylesheet" href="/css/style.css" media="screen"/>
+</head>
+<body>
+<header class="container clearfix">
+    <!-- Logo -->
+    <div id="logo" class="two columns clearfix">
+        <a href="/">
+            <img src="/img/logo.png" alt="logo"/>
+        </a>
+    </div>
+    <!-- End Logo -->
+
+    <!-- Navigation -->
+    <nav id="nav" class="fourteen columns clearfix">
+        <ul id="navigation">
+            <li class="drop first"><a href="/idea-spotkan/">O projekcie</a>
+                <ul class="dropdown clearfix menu_level_1">
+                    <li class="first"><a href="/idea-spotkan/">Idea spotkań</a>
+                    </li>
+                    <li class="last"><a href="/organizatorzy/">Organizatorzy</a>
+                    </li>
+                </ul>
+
+            </li>
+
+            <li class="drop"><a href="#" onClick="return false;">Spotkania</a>
+                <ul class="dropdown clearfix menu_level_1">
+                    <li class="first"><a href="/meetup/krakow/">Kraków</a></li>
+                    <li><a href="/meetup/slask/">Śląsk</a></li>
+                    <li><a href="/meetup/trojmiasto/">Trójmiasto</a></li>
+                    <li><a href="/meetup/warszawa/">Warszawa</a></li>
+                    <li class="last"><a href="/meetup/wroclaw/">Wrocław</a></li>
+                </ul>
+            </li>
+
+            <li class="last"><a href="/zglos-swoja-prezentacje/">Zgłoś się!</a>
+            </li>
+            
+        </ul>
+
+    </nav>
+    <!-- End Navigation -->
+</header>
+<!-- END CONTAINER -->
+
+{% block precontent %}{% endblock %}
+
+{% block content %}{% endblock %}
+
+{% block morecontent %}{% endblock %}
+
+{% block cta %}
+<section id="call-to-action">
+    <div class="container clearfix">
+        <!-- Call to action -->
+        <div class="sixteen columns">
+            <h1>Programujesz w PHP?</h1>
+
+            <h2>Podziel się z nami swoją wiedzą i doświadczeniem</h2>
+            <a class="button dark" href="/zglos-swoja-prezentacje/">Zgłoś swoją
+                prezentację!</a>
+        </div>
+        <!-- Call to action -->
+    </div>
+    <!-- END CONTAINER -->
+</section>
+{% endblock %}
+
+<footer class="container clearfix">
+    <!-- Navigation -->
+    <div id="foot-nav" class="six columns">
+        <ul>
+            <li class="first"><a href="/idea-spotkan/">O projekcie</a>
+            </li>
+
+            <li class="last"><a href="/napisz-do-nas/">Kontakt</a>
+            </li>
+
+
+        </ul>
+
+    </div>
+    <!-- End Navigation -->
+
+    <!-- Copyright -->
+    <div id="copyright" class="seven columns">
+        <p>
+            <a href="http://phpers.pl/">PHPers</a> &copy; copyright 2013 - {{ site.time }}
+        </p>
+    </div>
+    <!-- End Copyright -->
+
+    <div class="three columns">
+        <a href="http://facebook.com/PHPersPL" target="_blank">
+            <img src="/img/social/grey-facebook.png" alt="PHPers na Facebooku"/>
+            <a/>
+            <a href="http://twitter.com/PHPersPL" target="_blank">
+                <img src="/img/social/grey-twitter.png" alt="PHPers na Twitterze"/>
+            </a>
+    </div>
+</footer>
+<!-- END CONTAINER -->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="/js/phpers.js"></script>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39086135-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

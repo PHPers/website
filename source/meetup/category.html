@@ -1,0 +1,44 @@
+---
+layout: default
+title: Category Archive
+generator: posts_category_index
+pagination:
+    provider: page.category_posts
+
+---
+{% block title %}{{ page.title }} "{{ page.category }}"{% endblock %}
+{% block content %}
+ <section id="title">
+    <div class="container clearfix">
+        {% if date(page.category_posts|first.date) >= date('now') %}
+    	<h1>Najbliższe spotkanie:</h1>
+        {% else %}
+        <h1>Ostatnie spotkanie:</h1>
+        {% endif %}
+    </div>
+</section>
+<section id="work">
+    <div class="container clearfix">
+    	<h1 class="meeting-box"><a href="{{ page.category_posts|first.url }}">{{ page.category_posts|first.title }} - {{ page.category_posts|first.date|date('Y-m-d') }}, godz. {{ page.category_posts|first.time }}</a></h1>
+    	<div class="meeting-description meeting-box">{{ page.category_posts|first.venue.description|raw }}</div>
+		{% if page.category_posts|first.facebook %}
+    		<div class="meeting-box">≫ <a href="{{ page.category_posts|first.facebook }}">Facebook</a></div>
+		{% endif %}
+    </div>
+</section>
+
+{% if page.category_posts|length > 1 %}
+  <section class="showcase-entry dark">
+  	<div class="container clearfix">
+  		<h1>Wcześniejsze spotkania: </h1>
+        <br />
+        {% for post in page.category_posts %}
+        <div class="container clearfix">
+            <h1 class="meeting-box"><a href="{{ post.url }}">{{ post.title }} - {{ post.date|date("Y-m-d")}}</a></h1>
+        </div>
+        {% endfor %}
+  	</div>
+  </section>
+{% endif %}
+
+{% endblock %}

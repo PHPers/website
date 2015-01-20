@@ -1,0 +1,35 @@
+---
+layout: default
+---
+      <section id="title" class="container clearfix">
+        <!-- Title -->
+        <div class="ten columns">
+            <h1>Napisz do nas</h1>
+            <h2>
+                Chcesz pomóc przy organizacji PHPers lub chciałbyś z nami współpracować w inny sposób?
+                Napisz do nas, chętnie o tym porozmawiamy.
+            </h2>
+        </div>
+        <!-- End Title -->
+    </section><!-- END CONTAINER -->
+
+    
+    <section id="contact" class="container clearfix">
+        <div class="two-thirds column">
+            <!-- Form -->
+            <form method="post" action="">
+                <fieldset>
+                    <div class="form-field"><label for="contact_name" class="required">Imię i nazwisko</label><span><input type="text" id="contact_name" name="contact[name]" required="required" /></span></div><div class="form-field"><label for="contact_email" class="required">Adres e-mail</label><span><input type="text" id="contact_email" name="contact[email]" required="required" /></span></div><input type="hidden" id="contact_email_confirmation" name="contact[email_confirmation]" /><div class="form-field"><label for="contact_message" class="required">Wiadomość</label><span><textarea id="contact_message" name="contact[message]" required="required"></textarea></span></div><input type="hidden" id="contact__token" name="contact[_token]" value="488d1a998ccdd2d2a0979e05d11dec4af8296c90" />
+                </fieldset>
+                <div class="form-click">
+                    <span><input type="submit" name="submit" value="Wyślij wiadomość" id="submit" /></span>
+                </div>
+            </form>
+            <!-- End Form -->
+            <div id="alert"></div>
+        </div>
+
+        <aside class="one-third column">
+
+        </aside>
+    </section>
