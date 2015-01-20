@@ -1,5 +1,10 @@
 ---
+generator: pagination
+pagination:
+   max_per_page: 10
 layout: default
+use:
+   - posts
 ---
 <!-- Entry -->
 <section class="showcase-entry light">
@@ -32,19 +37,22 @@ layout: default
             <h1>Najbliższe spotkania:</h1>
         </div>
 
-{% for post in items  %}
+{% set showedMeetingQuantity = 0 %}
+{% for post in page.pagination.items | reverse %}
+   {% if date(post.date) >= date('now') and showedMeetingQuantity < 3 %}
+      {% set showedMeetingQuantity = showedMeetingQuantity + 1 %}
         <div class="list-one four columns">
             <h1>{{ post.title }}</h1>
-            <h2>{{ post.date }}, godz. {{ post.time }}</h2>
+            <h2>{{ post.date | date('Y-m-d') }}, godz. {{ post.time }}</h2>
             <p>
-                {{ post.venue.description }}
+                {{ post.venue.description|raw }}
             </p>
 
             <p>
                 <a class="button" href="{{ post.url }}">Zobacz agendę</a>
             </p>
         </div>
-
+   {% endif %}
 {% endfor %}
 
     </div>
