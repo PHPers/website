@@ -47,7 +47,9 @@
         {% for sponsor in page.sponsors %}
         <div class="description five columns">
             <h1><a href="{{ sponsor.site }}">{{ sponsor.name }}</a></h1>
+            {% if sponsor.logo %}
             <div><a href="{{ sponsor.site }}"><img src="{{ sponsor.logo }}" /></a></div>
+            {% endif %}
             <p class="meeting-description">{{ sponsor.description|raw}}</p>
         </div>
         {% endfor %}
