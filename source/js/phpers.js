@@ -526,33 +526,78 @@ jQuery(document).ready(function(){
 
 });
 
-//RESPONSIVE VIDEO
-
-jQuery(document).ready(function(){
-    // Target your .container, .wrapper, .post, etc.
-    jQuery('.video.entry').fitVids();
-  });
+// //RESPONSIVE VIDEO
+// 
+// jQuery(document).ready(function(){
+//     // Target your .container, .wrapper, .post, etc.
+//     jQuery('.video.entry').fitVids();
+//   });
   
 //PLUGINS
 
-jQuery(document).ready(function() {
+//jQuery(document).ready(function() {
+//
+//	jQuery('#tweets').tweetable({
+//			username: 'username', // Set your twitter username here
+//			time: true,
+//			limit: 2,
+//			position: 'append'
+//				
+//		});
+//		 
+//		$('#flickrs').jflickrfeed({
+//			limit: 6,
+//			qstrings: {
+//				id: '52617155@N08' // Set your flickr ID here
+//			},
+//			itemTemplate: 
+//			'<li>' +
+//				'<a class="screen-roll" href="{{image_b}}"><span></span><img src="{{image_s}}" alt="{{title}}" /></a>' +
+//			'</li>'});
+//		
+//});  
 
-	jQuery('#tweets').tweetable({
-			username: 'username', // Set your twitter username here
-			time: true,
-			limit: 2,
-			position: 'append'
-				
-		});
-		 
-		$('#flickrs').jflickrfeed({
-			limit: 6,
-			qstrings: {
-				id: '52617155@N08' // Set your flickr ID here
-			},
-			itemTemplate: 
-			'<li>' +
-				'<a class="screen-roll" href="{{image_b}}"><span></span><img src="{{image_s}}" alt="{{title}}" /></a>' +
-			'</li>'});
-		
-});  
+// Contact form
+
+jQuery(function($)  
+{
+    $("#contact_form").submit(function()
+    {
+        var email = $("#contact_email").val(); // get email field value
+        var name = $("#contact_name").val(); // get name field value
+        var msg = $("#contact_message").val(); // get message field value
+        $.ajax(
+        {
+            type: "POST",
+            url: "https://mandrillapp.com/api/1.0/messages/send.json",
+            data: {
+                'key': 'MBqj_q5SdFzpS-i4FNu_OA',
+                'message': {
+                    'from_email': email,
+                    'from_name': name,
+                    'headers': {
+                        'Reply-To': email
+                    },
+                    'subject': 'Website Contact Form Submission',
+                    'text': msg,
+                    'to': [
+                    {
+                        'email': 'leafnode+contact@gmail.com',
+                        'name': 'phpers contact',
+                        'type': 'to'
+                    }]
+                }
+            }
+        })
+        .done(function(response) {
+            alert('Your message has been sent. Thank you!'); // show success message
+            $("#contact_name").val(''); // reset field after successful submission
+            $("#contact_email").val(''); // reset field after successful submission
+            $("#contact_message").val(''); // reset field after successful submission
+        })
+        .fail(function(response) {
+            alert('Error sending message.');
+        });
+        return false; // prevent page refresh
+    });
+});
