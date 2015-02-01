@@ -590,13 +590,13 @@ jQuery(function($)
             }
         })
         .done(function(response) {
-            alert('Your message has been sent. Thank you!'); // show success message
+            alert('Wiadomość została wysłana. Odezwiemy się wkrótce!'); // show success message
             $("#contact_name").val(''); // reset field after successful submission
             $("#contact_email").val(''); // reset field after successful submission
             $("#contact_message").val(''); // reset field after successful submission
         })
         .fail(function(response) {
-            alert('Error sending message.');
+            alert('Bład przy wysyłaniu wiadomości.');
         });
         return false; // prevent page refresh
     });
