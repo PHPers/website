@@ -18,6 +18,9 @@
             <h3>{{ talk.title }}</h3>
             <p class="meta">{{ talk.speaker }}</p>
             <p>{{ talk.description|raw}}</p>
+            {% if talk.youtube_url %}
+                <a target="_blank" href="{{ talk.youtube_url }}" title="Youtube Video">Nagranie prezentacji</a>
+            {% endif %}
         </li>
         {% endfor %}
     </ul>
