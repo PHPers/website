@@ -29,26 +29,26 @@ Author URI: http://www.aetherdesign.net
 ================================================== */
 
 	body { font-family: 'Lato', helvetica, arial, sans-serif; color: #221e1e; font-weight: 300; line-height: 150%; }
-	
+
 	strong { font-weight: 900; }
 	small { font-size: 0.75em; }
-	
+
 	a, a:visited { color: #221e1e; text-decoration: none; }
 	a:hover { color: #ff2a00; text-decoration: none; }
 	a:hover, a:active { outline: 0; }
 	input:focus { outline: none; }
-	
+
 /* #Navigation
 ================================================== */
 
 	#logo {
-		margin-top: 30px;
+		margin-top: 10px;
 		line-height: 40px;
 	}
 
 
 	#navigation { float: right; }
-	
+
 	#navigation li {
 		display: block;
 		float: left;
@@ -56,7 +56,7 @@ Author URI: http://www.aetherdesign.net
 		margin-right: 20px;
 		line-height: 100%;
 	}
-	
+
 	#navigation a {
 		display: block;
 		padding: 8px 17px 11px 17px;
@@ -64,26 +64,26 @@ Author URI: http://www.aetherdesign.net
 		-moz-border-radius: 3px;
 		border-radius: 3px;
 	}
-	
+
 	#navigation li.last { margin-right: 0px; }
-	
+
 	#navigation li:hover a {
 		color: white;
 		background: #221e1e;
 	}
-	
+
 	#navigation li.active {
 		padding-bottom: 7px!important;
 		background: url('../img/nav-arrow.png') no-repeat bottom center;
 	}
-	
+
 	#navigation li.active a, #navigation li.active a:hover {
 		color: white;
 		background: #ff2a00;
 	}
-	
+
 	/* Dropdown */
-	
+
 	#navigation .dropdown {
 		display: none;
 		margin: 0;
@@ -98,48 +98,48 @@ Author URI: http://www.aetherdesign.net
 		-moz-border-radius: 3px;
 		border-radius: 3px;
 	}
-	
+
 	#navigation .dropdown li { float: none; margin: 0; padding: 0; }
-	
+
 	#navigation li.drop { padding-bottom: 30px; }
-	
+
 	#navigation li.drop:hover { cursor: pointer; background: url('../img/nav-drop.png') no-repeat bottom center; padding-bottom: 30px!important; }
-	
-	#navigation .dropdown li a { 
+
+	#navigation .dropdown li a {
 		color: white;
 		font-size: 0.875em; /* 14/16 */
 		background: transparent;
 		margin: 0;
-		padding: 15px 80px 15px 37px;  
+		padding: 15px 80px 15px 37px;
 	}
-	
+
 	#navigation .dropdown li a:hover {
 		color: white;
 		background: #ff2a00;
 	}
-	
+
 	/* Mobile */
-	
+
 	#mobile-nav {
 		display: none;
 		width: 100%;
 		background: #221e1e;
 	}
-	
+
 	#mobile-nav .navigationButton img { margin: 15px 0px; }
-	
+
 	#mobile-nav .navigationButton img:hover { cursor: pointer; }
-	
+
 	#mobile-nav .navigationContent { padding-bottom: 15px; }
-	
+
 	#mobile-nav .navigationContent .dropdown { margin-left: 15px; font-size: 0.875em; /* 14/16 */ }
-	
+
 	#mobile-nav .navigationContent a { display: block; color: white; padding: 7px 0px;  border-bottom: 1px solid #333; }
-	
+
 	#mobile-nav .navigationContent a.active { font-weight: 400; }
-	
+
 	#mobile-nav .navigationContent a:hover { color: #ff2a00; }
-	
+
 
 /* #Clients
 ================================================== */
@@ -150,13 +150,13 @@ Author URI: http://www.aetherdesign.net
 		width: 100%;
 		background: #444444;
 	}
-	
-	#clients img { width: 100%; }	
-	
-	
+
+	#clients img { width: 100%; }
+
+
 /* #Call-To-Action
 ================================================== */
-	
+
 	#call-to-action {
 		padding-top: 80px;
 		padding-bottom: 80px;
@@ -164,18 +164,18 @@ Author URI: http://www.aetherdesign.net
 		background: #ff2a00;
 		text-align: center;
 	}
-	
+
 	#call-to-action h1 {
 		color: #fff;
 		padding-bottom: 20px;
 	}
-	
+
 	#call-to-action h2 {
 		color: #ffc6bb;
 		padding-bottom: 35px;
-	} 
-		
-	
+	}
+
+
 /* #Footer
 ================================================== */
 
@@ -183,22 +183,22 @@ Author URI: http://www.aetherdesign.net
 		padding-top: 80px!important;
 		padding-bottom: 80px!important;
 		font-size: 0.8125em; /* 13 / 16 */
-	}	
-	
+	}
+
 	#copyright a { font-weight: 400; }
-	
+
 	#foot-nav, #foot-nav ul { float: right; }
-	
-	
+
+
 	#foot-nav li { float: left; padding: 0px 15px; }
-	
+
 	#foot-nav li.first { padding-left: 0px; }
-	
+
 	#foot-nav li.last { padding-right: 0px; }
-	
+
 	#foot-nav a.active { font-weight: 400; }
-	
-	
+
+
 
 /***********************
 	-	HOME PAGE 	-
@@ -216,9 +216,9 @@ Author URI: http://www.aetherdesign.net
 		padding-top: 60px;
 		padding-bottom: 80px;
 	}
-	
+
 	#features h2 { color: #221e1e; padding-bottom: 15px; }
-	
+
 	#features .feature { padding-top: 20px; }
 
 
@@ -226,9 +226,9 @@ Author URI: http://www.aetherdesign.net
 ================================================== */
 
 	#gallery { padding-top: 80px; padding-bottom: 40px; }
-	
+
 	#gallery .intro h2, #gallery .intro p { padding-top: 25px; }
-	
+
 	#gallery .intro .button { margin-top: 40px; }
 
 
@@ -247,20 +247,20 @@ Author URI: http://www.aetherdesign.net
 	.showcase-entry h2 { padding-bottom: 25px; }
 	.showcase-entry p { padding-bottom: 40px; }
 	.showcase-entry .button { margin-bottom: 40px; }
-	
-	
+
+
 	.showcase-entry.light .screen { float: left; }
 	.showcase-entry.light .description { float: right; }
-	
+
 	.showcase-entry.dark {
 		width: 100%;
 		background: #444444;
 		color: white;
 		padding-bottom: 80px;
 	}
-	
+
 	.showcase-entry.dark h1 { color: white; }
-	
+
 
 
 /***********************
@@ -271,22 +271,22 @@ Author URI: http://www.aetherdesign.net
 ================================================== */
 
 	#title { padding-top: 50px; padding-bottom: 30px; }
-	
+
 	#title h1 { padding-bottom: 20px; }
-	
+
 
 /* #Team
 ================================================== */
 
 	#team { padding-bottom: 80px; text-align: center; }
-	
+
 	#team .members h2  { padding-top: 20px; }
-	
+
 	#team .members a { color: #ff2a00; }
 	#team .members a:hover { color: #221e1e; }
-	
+
 	#team .members p { padding-top: 30px; }
-	
+
 /* #Services
 ================================================== */
 
@@ -296,50 +296,50 @@ Author URI: http://www.aetherdesign.net
 		padding-top: 80px;
 		padding-bottom: 80px;
 	}
-	
+
 	#services h1 { color: #fff; padding-bottom: 20px; }
-	
+
 	#services h2 { padding-bottom: 40px; }
-	
+
 	#services h4 {
 		color: #fff;
 		line-height: 16px;
 		padding-left: 24px;
 	}
-	
+
 	#services ul, #services p {
 		font-size: 0.875em; /* 14 / 16 */
 		color: #bdbdbd;
 		padding-top: 30px;
 	}
-	
+
 	#services .list-one h4 { background: url('../img/lightning.png') no-repeat top left; }
 	#services .list-two h4 { background: url('../img/lightbulb.png') no-repeat top left; }
 	#services .list-three h4 { background: url('../img/coffeecup.png') no-repeat top left; }
-	
+
 	#services .list-three a { color: #ff2a00; }
 	#services .list-three a:hover { color: #221e1e; }
-	
-	
+
+
 /***********************
 	- PORTFOLIO PAGE  -
 ***********************/
 
 /* #Filters
 ================================================== */
-	
+
 	#filters {
 		padding-top: 40px;
 		padding-bottom: 40px;
 		width: 100%;
 		background: #444444;
 	}
-	
+
 	#filters h2 {
 		color: #fff;
 		padding-bottom: 20px;
 	}
-	
+
 	#filter li {
 		display: block;
 		float: left;
@@ -349,21 +349,21 @@ Author URI: http://www.aetherdesign.net
 		-moz-border-radius: 3px;
 		border-radius: 3px;
 	}
-	
-	#filter li.current { background: #ff2a00; }
-	
-	#filter li.last { margin-right: 0px; }
-	
-	#filter li:hover { background: #ff2a00; } 
 
-	
-	#filter a { 
-		display: block; 
+	#filter li.current { background: #ff2a00; }
+
+	#filter li.last { margin-right: 0px; }
+
+	#filter li:hover { background: #ff2a00; }
+
+
+	#filter a {
+		display: block;
 		line-height: 100%;
-		padding: 8px 20px 11px 20px; 
-		color: #fff; 
+		padding: 8px 20px 11px 20px;
+		color: #fff;
 	}
-	
+
 /* #Work
 ================================================== */
 
@@ -371,7 +371,7 @@ Author URI: http://www.aetherdesign.net
 		padding-top: 40px;
 		padding-bottom: 60px;
 	}
-	
+
 	.switch ul  { float: right; }
 	.switch li { float: left; }
 	.switch a {
@@ -379,49 +379,49 @@ Author URI: http://www.aetherdesign.net
 		text-indent: -999em;
 		width: 34px;
 		height: 34px;
-	}		
+	}
 
 	.switch .prev {
 		margin-right: 10px;
 		background: url('../img/arrow_large_left.png') no-repeat top left;
 		background-position: top;
 	}
-	
+
 	.switch .next {
 		background: url('../img/arrow_large_right.png') no-repeat top left;
 		background-position: top;
 	}
-	
+
 	.switch .prev:hover, .switch .next:hover { background-position: bottom; }
-	
+
 	#project { padding-bottom: 80px; }
-	
+
 	#project .overview h2 { padding-bottom: 40px; }
 	#project .overview p { padding-bottom: 25px; }
-	
+
 
 /***********************
 	- FEATURES PAGE  -
-***********************/	
-	
+***********************/
+
 	#elements { padding-bottom: 80px; }
-	
+
 	#accordion, #tabs, #alerts, #infobox, #lists, #dropcaps, #quote { padding-top: 20px; padding-bottom: 20px; }
-	
+
 	#accordion .title, #tabs .title, #infobox .title, #lists .title, #quote .title { padding-bottom: 20px; }
-		
-	#alerts p { margin-top: 10px; }	
-		
+
+	#alerts p { margin-top: 10px; }
+
 	#dropcaps p { padding-top: 20px; font-size: 0.875em; }
-	
+
 	#lists ul {
 		border-bottom: 1px dotted #d0d0d0;
 		margin-bottom: 5px;
 		padding-bottom: 5px;
 	}
-	
+
 	#lists .list.dash { border-bottom: none; }
-	
+
 	.grid {
 		margin-top: 20px;
 		text-align: center;
@@ -429,11 +429,11 @@ Author URI: http://www.aetherdesign.net
 		height: 40px;
 		background: #d0d0d0;
 	}
-	
+
 	.grid:hover { background: #ececec; }
-	
-	
-	
+
+
+
 /***********************
 	- CONTACT PAGE  -
 ***********************/
@@ -442,39 +442,39 @@ Author URI: http://www.aetherdesign.net
 ================================================== */
 
 	#contact { padding-bottom: 80px; }
-	
+
 	#alert {
 		display: none;
 		padding-top: 20px;
 		padding-bottom: 20px;
 		width: 100%;
 	}
-	
-	
+
+
 /* #Sidebar
 ================================================== */
 
 	#contact aside { padding-left: 40px; }
-	
+
 	#contact aside h3 {
 		padding-bottom: 20px;
 		padding-top: 40px;
 	}
-	
+
 	#contact aside h3.first { padding-top: 0px; }
-	
+
 	#contact aside span.telephone {
 		font-weight: 900;
 		font-size: 1.2em;
 	}
-	
+
 	#contact aside .social li {
 		float: left;
 		margin-right: 10px;
 		margin-bottom: 10px;
 	}
-	
-	
+
+
 /***********************
 		- BLOG -
 ***********************/
@@ -482,9 +482,9 @@ Author URI: http://www.aetherdesign.net
 
 
 	.content { width: 100%; background: #f1f1f1; }
-	
-	
-			
+
+
+
 /* #Entries
 ================================================== */
 
@@ -493,100 +493,100 @@ Author URI: http://www.aetherdesign.net
 	.entry { padding-top: 80px; padding-bottom: 80px; border-bottom: 1px solid #cecece; }
 
 	.entry img { width: 100%; }
-	
+
 	.entry h1 {
 		margin: 30px 0px;
 		-webkit-transition: color ease .33s;
 		-moz-transition: color ease .33s;
 		transition: color ease .33s;
 	}
-	
+
 	.entry h1:hover {
 		color: #ff2a00;
 		-webkit-transition: color ease .33s;
 		-moz-transition: color ease .33s;
 		transition: color ease .33s;
 	}
-	
+
 	.entry .meta { display: block; padding-bottom: 30px; }
 	.entry .meta li {
 		display: inline-block;
 		font-size: 0.875em;
 		color: rgb(157, 160, 164);
 	}
-	
+
 	.entry .meta li a { color: rgb(157, 160, 164); }
 	.entry .meta li a:hover { color: #221e1e; }
-	
+
 	.entry .button { margin-top: 30px; }
-	
-	
+
+
 	/* Link */
-	
+
 	.entry.link { text-align: center; }
-	
+
 	.entry.link h1 {
 		text-decoration: underline;
 		line-height: 110%;
 	}
-	
+
 	/* Audio */
-	
+
 	#blog .entry audio { width: 100%; }
-	
+
 	/* Quote */
-	
+
 	.entry.quote h1 { line-height: 110%; }
 	.entry.quote h1:hover { color: #221e1e; }
 	.entry.quote { text-align: center; }
-	
+
 	#blog .switch ul {
 		margin-top: 80px;
 		padding-bottom: 80px;
 	}
-	
+
 /* #Single-post
 ================================================== */
-	
-	
+
+
 	.entry.standard.full .content { padding-bottom: 30px; }
 	.entry.standard.full blockquote { margin-bottom: 30px; }
 	.entry.standard.full .content a { font-weight: 400; }
-	
-	
+
+
 	/* Comments */
-	
-	
+
+
 	#comments { padding-top: 30px; }
-	
+
 	.comment-list {
 		margin-top: 20px;
 		margin-bottom: 30px;
 		overflow: hidden;
-	
+
 	}
-	
+
 	.comment-list .comment {
 		float: left;
 		margin-bottom: 30px;
 		padding-top: 30px;
 		border-top: 1px solid #cecece;
 	}
-	
+
 	.comment-list .comment:first-child { border-top: none; }
-	
+
 	.comment-list img {
 		float: left;
 		margin-bottom: 10px;
 	}
-	
+
 	.comment-list .comment-meta {
 		float: left;
 		padding-left: 20px;
 	}
-	
+
 	.comment-body { float: left; }
-	
+
 	ul.children .comment {
 		border-top: 1px solid #cecece!important;
 		padding-top: 15px;
@@ -594,28 +594,28 @@ Author URI: http://www.aetherdesign.net
 		margin-bottom: 0px;
 		margin-left: 55px;
 	}
-	
+
 	.date {
 		font-size: 0.875em;
 		color: rgb(157, 160, 164);
 	}
-	
+
 	.reply {
 		font-weight: 400;
 		font-size: 0.875em;
 		padding-left: 10px;
 	}
-	
+
 	/* Form */
-	
+
 	#respond { padding-bottom: 80px; }
-	
+
 	#respond form { padding-top: 30px; }
-	
+
 	#respond .form-field span input, #respond .form-field span textarea { background: #fff; }
 
-	
-	
+
+
 /* #Sidebar
 ================================================== */
 
@@ -624,135 +624,135 @@ Author URI: http://www.aetherdesign.net
 		padding-left: 40px;
 		padding-bottom: 80px;
 	}
-	
+
 	#blog aside h2 { padding-top: 80px; }
-	
+
 	/* Text Widget */
-	
+
 	#blog .text-widget p { padding: 30px 0px; }
-	
+
 	/* Tweets */
-	
+
 	.latest-tweets p { padding-top: 30px; }
-	
+
 	.latest-tweets a { font-weight: 400; }
-	
-	
+
+
 	.latest-tweets small { color: rgb(157, 160, 164); }
-	
+
 	/* Photo Stream */
-	
+
 	#flickrs {
 		display: block;
 		padding-top: 30px;
 	}
-	
+
 	#flickrs { display: block; float: left; }
-	
-	#flickrs li { 
+
+	#flickrs li {
 		display: block;
-		list-style: none; 
-		float: left; 
+		list-style: none;
+		float: left;
 		background: #e5e5e5;
 		border: 1px solid #d5d5d5;
 		padding: 5px;
 		margin-top: 10px;
 		margin-right: 10px;
 	}
-	
+
 	#flickrs a {
 		display: block;
 		position: relative;
 	}
-	
+
 	#flickrs img {
 		width: 50px;
 		height: 50px;
 	}
-	
+
 	/* Social */
-	
+
 	#blog aside .social {
 		padding-top: 30px;
 	}
-	
+
 	#blog aside .social li {
 		float: left;
 		margin-right: 10px;
 		margin-bottom: 10px;
-	}	
+	}
 
 
 
-	
+
 /*========== Media Queries ==========*/
 
 
 	/* Smaller than standard 960 (devices and browsers) */
-	@media only screen and (max-width: 959px) { 
-	
+	@media only screen and (max-width: 959px) {
+
 		#mobile-nav { display: block; }
 		#navigation { display: none; }
-		
+
 	}
-	
+
 	/* Tablet Portrait size to standard 960 (devices and browsers) */
 	@media only screen and (min-width: 768px) and (max-width: 959px) {
-	
+
 		.showcase-entry.light .description, .showcase-entry.dark .description { width: 748px; }
 		.showcase-entry.light .screen, .showcase-entry.dark .screen { width: 620px; }
-	
-		
-	
+
+
+
 	}
 
 	/* All Mobile Sizes (devices and browser) */
 	@media only screen and (max-width: 767px) {
-	
+
 		#gallery .intro .button { margin-bottom: 40px; }
-		
+
 		#foot-nav { display: none; }
-		
+
 		#copyright { text-align: center; }
-		
+
 		.showcase-entry { text-align: center; }
-		
+
 		#team .members li { padding-top: 40px }
 		#team .members li.first { padding-top: 0px; }
-		
+
 		#services .list-two, #services .list-three { padding-top: 40px; }
-		
+
 		#filters { padding-bottom: 20px; }
 		#filter li { margin-bottom: 20px; }
-	
+
 		.switch ul { float: left; margin-top: 20px; padding-bottom: 0px; }
 		#blog .switch ul { float: left; margin-top: 20px; padding-bottom: 0px; }
-		
+
 		#project .overview { padding-top: 40px; }
 		#project .overview h2 { padding-bottom: 25px; }
-		
+
 		#contact aside h3.first { padding-top: 40px; }
 		#contact aside, #blog aside { padding-left: 0px; }
-		
+
 		#respond { padding-bottom: 0px; }
-		
-	
+
+
 	}
 
 	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
-	@media only screen and (min-width: 480px) and (max-width: 767px) { 
-	
+	@media only screen and (min-width: 480px) and (max-width: 767px) {
+
 	}
 
 	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-	@media only screen and (max-width: 479px) {	
-	
-	
+	@media only screen and (max-width: 479px) {
+
+
 	}
-	
-	
+
+
 	/* Targets Retina Enabled Devices */
-	@media 
+	@media
 	  only screen and (-webkit-min-device-pixel-ratio: 2),
 	  only screen and (   min--moz-device-pixel-ratio: 2),
 	  only screen and (   -moz-min-device-pixel-ratio: 2),
@@ -760,16 +760,16 @@ Author URI: http://www.aetherdesign.net
 	  only screen and (        min-device-pixel-ratio: 2),
 	  only screen and (                min-resolution: 192dpi),
 	  only screen and (                min-resolution: 2dppx) {
-	  
-	  
+
+
 	 #navigation li.active { background: url('../img/nav-arrow@2x.png') no-repeat bottom center; -webkit-background-size: 16px 7px; -moz-background-size: 16px 7px; background-size: 16px 7px; }
 	 #navigation li.drop:hover { background: url('../img/nav-drop@2x.png') no-repeat bottom center; -webkit-background-size: 11px 20px; -moz-background-size: 11px 20px; background-size: 11px 20px; }
-	 
+
 	 #services .list-one h4 { background: url('../img/lightning@2x.png') no-repeat top left; -webkit-background-size: 16px 16px; -moz-background-size: 16px 16px; background-size: 16px 16px; }
 	 #services .list-two h4 { background: url('../img/lightbulb@2x.png') no-repeat top left; -webkit-background-size: 16px 16px; -moz-background-size: 16px 16px; background-size: 16px 16px; }
 	 #services .list-three h4 { background: url('../img/coffeecup@2x.png') no-repeat top left; -webkit-background-size: 16px 16px; -moz-background-size: 16px 16px; background-size: 16px 16px; }
-	
-	}				
+
+	}
 #clients {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -988,4 +988,3 @@ footer {
 .meeting-box {
 	padding-bottom: 20px;
 }
-
