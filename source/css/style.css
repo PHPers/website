@@ -34,7 +34,7 @@ Author URI: http://www.aetherdesign.net
 	small { font-size: 0.75em; }
 
 	a, a:visited { color: #221e1e; text-decoration: none; }
-	a:hover { color: #ff2a00; text-decoration: none; }
+	a:hover { color: #2b6ca8; text-decoration: none; }
 	a:hover, a:active { outline: 0; }
 	input:focus { outline: none; }
 
@@ -79,7 +79,7 @@ Author URI: http://www.aetherdesign.net
 
 	#navigation li.active a, #navigation li.active a:hover {
 		color: white;
-		background: #ff2a00;
+		background: #2b6ca8;
 	}
 
 	/* Dropdown */
@@ -115,7 +115,7 @@ Author URI: http://www.aetherdesign.net
 
 	#navigation .dropdown li a:hover {
 		color: white;
-		background: #ff2a00;
+		background: #2b6ca8;
 	}
 
 	/* Mobile */
@@ -138,7 +138,7 @@ Author URI: http://www.aetherdesign.net
 
 	#mobile-nav .navigationContent a.active { font-weight: 400; }
 
-	#mobile-nav .navigationContent a:hover { color: #ff2a00; }
+	#mobile-nav .navigationContent a:hover { color: #2b6ca8; }
 
 
 /* #Clients
@@ -161,7 +161,7 @@ Author URI: http://www.aetherdesign.net
 		padding-top: 80px;
 		padding-bottom: 80px;
 		width: 100%;
-		background: #ff2a00;
+		background: #2b6ca8;
 		text-align: center;
 	}
 
@@ -171,7 +171,7 @@ Author URI: http://www.aetherdesign.net
 	}
 
 	#call-to-action h2 {
-		color: #ffc6bb;
+		color: #bbc6ff;
 		padding-bottom: 35px;
 	}
 
@@ -282,7 +282,7 @@ Author URI: http://www.aetherdesign.net
 
 	#team .members h2  { padding-top: 20px; }
 
-	#team .members a { color: #ff2a00; }
+	#team .members a { color: #2b6ca8; }
 	#team .members a:hover { color: #221e1e; }
 
 	#team .members p { padding-top: 30px; }
@@ -317,7 +317,7 @@ Author URI: http://www.aetherdesign.net
 	#services .list-two h4 { background: url('../img/lightbulb.png') no-repeat top left; }
 	#services .list-three h4 { background: url('../img/coffeecup.png') no-repeat top left; }
 
-	#services .list-three a { color: #ff2a00; }
+	#services .list-three a { color: #2b6ca8; }
 	#services .list-three a:hover { color: #221e1e; }
 
 
@@ -350,11 +350,11 @@ Author URI: http://www.aetherdesign.net
 		border-radius: 3px;
 	}
 
-	#filter li.current { background: #ff2a00; }
+	#filter li.current { background: #2b6ca8; }
 
 	#filter li.last { margin-right: 0px; }
 
-	#filter li:hover { background: #ff2a00; }
+	#filter li:hover { background: #2b6ca8; }
 
 
 	#filter a {
@@ -502,7 +502,7 @@ Author URI: http://www.aetherdesign.net
 	}
 
 	.entry h1:hover {
-		color: #ff2a00;
+		color: #2b6ca8;
 		-webkit-transition: color ease .33s;
 		-moz-transition: color ease .33s;
 		transition: color ease .33s;
