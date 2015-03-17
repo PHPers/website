@@ -1,0 +1,57 @@
+---
+layout: no-cta
+---
+{% block topscripts %}
+   <script language="JavaScript" src="/js/jwplayer.js"></script>
+{% endblock %}
+
+{% block content %}
+ <section class="showcase-entry light">
+     <div class="container clearfix">
+         <div class="description four columns">
+             <h2>Usługę zapewnia</h2>
+             <p>
+                 <a href="http://megiteam.pl" target="_blank">
+                     <img src="/img/sponsor/megiteam.png" />
+                 </a>
+             </p>
+             <p>
+                 Hosting PHP wspierający MongoDB, Redisa, Memcached, Node.js i wiele innych.
+                 Wszystko wyklikasz w autoinstalatorze. Szybki start. Minimum formalności, logowanie przez Githuba, Twittera i Facebooka.
+             </p>
+             <p>
+                 <a href="http://www.megiteam.pl/hosting-php/" target="_blank" style="color: red;"> Sprawdź ofertę dla programistów PHP</a>.
+             </p>
+         </div>
+         <div class="screen twelve columns">
+             <p id="container1">Please install the Flash Plugin</p>
+
+             <script type="text/javascript">
+                 jwplayer("container1").setup({
+                     flashplayer: "/player.swf",
+                     file: "livestream",
+                     width: 640,
+                     height: 480,
+                     streamer:'rtmp://176.119.43.131/stream',
+                     autostart:'true',
+                     bufferlength:'0.1'
+                 })
+             </script>
+             <br />
+         </div>
+     </div><!-- END CONTAINER -->
+ </section>
+
+ <section id="call-to-action">
+     <div class="container clearfix">
+         <!-- Call to action -->
+         <div class="sixteen columns">
+             <h1>Freenode IRC</h1>
+             <h2>Szukaj nas na kanale #phpers</h2>
+
+             <a class="button dark" href="https://webchat.freenode.net/" target="_blank">Webchat IRC Freenode</a>
+         </div>
+         <!-- Call to action -->
+     </div><!-- END CONTAINER -->
+ </section>
+{% endblock %}
