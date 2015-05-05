@@ -38,7 +38,13 @@
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?language=en&sensor=false"></script>
         <script type="text/javascript">
          var map_545b78b925333 = new google.maps.Map(document.getElementById("map_canvas"), {"mapTypeId":google.maps.MapTypeId.ROADMAP,"zoom":17,"disableDefaultUI":true,"disableDoubleClickZoom":true});
-         map_545b78b925333.setCenter(new google.maps.LatLng({{ page.venue.location }}, true));
+         var venue_location = new google.maps.LatLng({{ page.venue.location }}, true);
+         map_545b78b925333.setCenter(venue_location);
+         var marker = new google.maps.Marker({
+               position: venue_location,
+               map: map_545b78b925333,
+               title: 'PHPers'
+            });
          var closable_info_windows = Array();
         </script>
         <!-- End Map -->
