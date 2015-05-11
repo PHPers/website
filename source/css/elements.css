@@ -371,6 +371,35 @@
 	
 	.form-click input:hover { text-decoration: none; color: #fff!important; background: #221e1e; }		
 
+
+#faq h1 {
+   margin-bottom: 20px;
+}
+
+#faq h2 {
+   color: black;
+   font-size: 2em;
+   font-weight: 600;
+   line-height: 2em;
+}
+
+#faq h3 {
+   color: black;
+   font-size: 1.25em;
+   font-weight: 600;
+   line-height: 1.5em;
+   margin-left: 15px;
+   margin-top: 15px;
+}
+
+#faq h4 {
+   color: black;
+   font-size: 1em;
+   font-weight: 600;
+   line-height: 1.5em;
+}
+
+
 /*========== Media Queries ==========*/
 
 
