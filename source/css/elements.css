@@ -399,6 +399,11 @@
    line-height: 1.5em;
 }
 
+#faq li {
+   list-style: outside;
+   margin-left: 30px;
+}
+
 
 /*========== Media Queries ==========*/
 

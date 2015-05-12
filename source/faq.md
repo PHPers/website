@@ -51,10 +51,11 @@ Zawsze chętnie witamy nowe przedstawicielstwa lokalne. Jeśli chcesz
 zorganizować spotkania w swoim mieście pod marką "PHPers" - odezwij się do nas.
 
 W kwestii organizacji oczekujemy przestrzegania kilku zasad:
-* spotkania organizują osoby prywatne, nie firmy - nie chcemy, żeby spotkania
-  służyły do promowania czyjejś firmy
-* przede wszystkim merytoryka: wykłady na spotkaniach powinny mieć poziom,
-  którego nikt się nie będzie wstydził
+
+*  spotkania organizują osoby prywatne, nie firmy - nie chcemy, żeby spotkania
+   służyły do promowania czyjejś firmy
+*  przede wszystkim merytoryka: wykłady na spotkaniach powinny mieć poziom,
+   którego nikt się nie będzie wstydził
 
 ## Dla sponsorów i firm
 
