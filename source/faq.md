@@ -5,6 +5,19 @@ layout: faq
 
 ## Dla uczestników {#dla-uczestnikow}
 
+### Jakie zasady obowiązują na spotkaniach?
+
+1.  Piwo dla każdego.
+2.  Na spotkaniach robimy zdjęcia, filmujemy wykładowców, wszystko trafia do
+    internetu. Jeśli nie chcesz, aby Twój wizerunek był upubliczniany (dot.
+    uczestników - wykładowcy przykro nam, ale nie macie wyboru), daj znać
+    wcześniej organizatorom, ew. jeśli odnajdziesz się na zdjęciach w
+    Internecie - daj nam znać, że chciałbyś usunięcia zdjęcia/zamazania twarzy.
+3.  Żartujemy wielu tematów - jesteśmy dorośli i podchodzimy do życia z
+    dystansem.
+4.  Osoby niemiłe dla otoczenia będą wypraszane.
+5.  Wszelkie problemy proszę sygnalizować organizatorom.
+
 ### Czy muszę się rejestrować?
 
 Nie, nie wymagamy rejestracji, ale bardzo prosimy o oznaczenie uczestnictwa w
