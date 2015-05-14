@@ -404,6 +404,14 @@
    margin-left: 30px;
 }
 
+#faq ol li {
+   list-style: decimal;
+}
+
+#faq p {
+   margin-bottom: 1em;
+}
+
 
 /*========== Media Queries ==========*/
 
