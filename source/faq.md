@@ -3,7 +3,7 @@ layout: faq
 ---
 # Często zadawane pytania
 
-## Dla uczestników
+## Dla uczestników {#dla-uczestnikow}
 
 ### Czy muszę się rejestrować?
 
@@ -18,7 +18,7 @@ stronie spotkania.
 
 Nie, spotkania zawsze są bezpłatne.
 
-## Dla (potencjalnych) prelegentów
+## Dla (potencjalnych) prelegentów {#dla-prelegentow}
 
 ### Jak długi wykład musze przygotować?
 
@@ -29,7 +29,6 @@ Nie, spotkania zawsze są bezpłatne.
 
 Warto o tym pomyśleć - nie są obowiązkowe, ale pomagają zarówno prowadzącemu
 jak i słuchaczom.
-
 
 ### Chciał(a)bym, ale się boję...
 
@@ -43,25 +42,33 @@ efektywna długość wykładu, w których miejscach coś warto dopowiedzieć, ja
 zrobić sobie notatki żeby nie pominąć wartościowych informacji, no i pozwoli to
 na uniknięcie przerw na zebranie myśli w docelowej prezentacji.
 
-## Dla organizatorów
+## Dla organizatorów {#dla-organizatorow}
 
 ### Chcę zorganizować spotkanie w moim mieście. Mogę?
 
 Zawsze chętnie witamy nowe przedstawicielstwa lokalne. Jeśli chcesz
 zorganizować spotkania w swoim mieście pod marką "PHPers" - odezwij się do nas.
 
-W kwestii organizacji oczekujemy przestrzegania kilku zasad:
+W kwestii organizacji oczekujemy przestrzegania kilku zasad.
 
-*  spotkania organizują osoby prywatne, nie firmy - nie chcemy, żeby spotkania
-   służyły do promowania czyjejś firmy
-*  przede wszystkim merytoryka: wykłady na spotkaniach powinny mieć poziom,
-   którego nikt się nie będzie wstydził
+1.  Spotkania organizują osoby prywatne, nie firmy - nie chcemy, żeby spotkania
+    służyły do promowania czyjejś firmy.
+2.  Przede wszystkim merytoryka: wykłady na spotkaniach powinny mieć poziom,
+    którego nikt się nie będzie wstydził.
+3.  Nie robimy prelekcji "sprzedażowych". Nie robimy demonstracji produktów. W
+    ramach barteru ze sponsorem spotkania uznajemy kilkuminutowe prezentacje
+    między wykładami.
 
-## Dla sponsorów i firm
+## Dla sponsorów i firm {#dla-sponsorow}
 
 ### Chcielibyśmy zareklamować się na spotkaniu - mogę?
 
 Jasne. Ale nie za darmo. Od komercyjnych przedsięwzięć oczekujemy czegoś w
 zamian - na przykłąd sponsorowania pospotkaniowej integracji. Skontaktuj się z
 nami, na pewno się dogadamy.
+
+### Czego potrzebujecie?
+
+Sprzętu audio/video, materiałów propagandowych (kubków, koszulek, naklejek,
+rollupów), jedzenia i picie na spotkaniach...
 
