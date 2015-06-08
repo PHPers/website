@@ -13,7 +13,7 @@ layout: faq
     uczestników - wykładowcy przykro nam, ale nie macie wyboru), daj znać
     wcześniej organizatorom, ew. jeśli odnajdziesz się na zdjęciach w
     Internecie - daj nam znać, że chciałbyś usunięcia zdjęcia/zamazania twarzy.
-3.  Żartujemy wielu tematów - jesteśmy dorośli i podchodzimy do życia z
+3.  Żartujemy z wielu tematów - jesteśmy dorośli i podchodzimy do życia z
     dystansem.
 4.  Osoby niemiłe dla otoczenia będą wypraszane.
 5.  Wszelkie problemy proszę sygnalizować organizatorom.
@@ -33,7 +33,7 @@ Nie, spotkania zawsze są bezpłatne.
 
 ## Dla (potencjalnych) prelegentów {#dla-prelegentow}
 
-### Jak długi wykład musze przygotować?
+### Jak długi wykład muszę przygotować?
 
 "Pełne" wykłady to ok. 30-45 minut. Możesz też zaproponować "lightning talk",
 5-10-minutowy.
@@ -77,7 +77,7 @@ W kwestii organizacji oczekujemy przestrzegania kilku zasad.
 ### Chcielibyśmy zareklamować się na spotkaniu - mogę?
 
 Jasne. Ale nie za darmo. Od komercyjnych przedsięwzięć oczekujemy czegoś w
-zamian - na przykłąd sponsorowania pospotkaniowej integracji. Skontaktuj się z
+zamian - na przykład sponsorowania pospotkaniowej integracji. Skontaktuj się z
 nami, na pewno się dogadamy.
 
 ### Czego potrzebujecie?
