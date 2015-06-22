@@ -39,7 +39,7 @@ use:
 
 {% set showedMeetingQuantity = 0 %}
 {% for post in page.pagination.items | reverse %}
-   {% if date(post.date) >= date('now') and showedMeetingQuantity < 3 %}
+   {% if date(post.date) >= date('today') and showedMeetingQuantity < 3 %}
       {% set showedMeetingQuantity = showedMeetingQuantity + 1 %}
         <div class="list-one four columns">
             <h1>{{ post.title }}</h1>
