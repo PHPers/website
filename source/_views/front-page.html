@@ -48,7 +48,12 @@ $('#map').vectorMap({
       e.preventDefault();
    },
    onMarkerClick: function(e, code) {
-      window.location = 'http://phpers.pl/meetup/' + phpers[code].slug + '/';
+      var url = document.location.protocol + '//' + document.domain;
+      if (document.location.port) {
+        url += ':'+document.location.port;
+      }
+      url += '/meetup/' + phpers[code].slug + '/';
+      window.location =  url;
    }
 });
 </script>
