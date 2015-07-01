@@ -14,19 +14,19 @@ var regionStyle = {
 };
 
 var phpers = [
-   { latLng: [52.13, 21.00], name: 'PHPers Warszawa', slug: 'warszawa', style: markerStyle },
-   { latLng: [54.20, 18.38], name: 'PHPers Trójmiasto', slug: 'trojmiasto', style: markerStyle },
-   { latLng: [50.17, 18.40], name: 'PHPers Śląsk', slug: 'slask', style: markerStyle },
-   { latLng: [51.06, 17.01], name: 'PHPers Wrocław', slug: 'wroclaw', style: markerStyle },
-   { latLng: [50.03, 19.56], name: 'PHPers Kraków', slug: 'krakow', style: markerStyle },
-   { latLng: [53.01, 18.36], name: 'PHPers Toruń', slug: 'torun', style: markerStyle },
-   { latLng: [52.24, 16.56], name: 'PHPers Poznań', slug: 'poznan', style: markerStyle },
-//   { latLng: [53.46, 20.28], name: 'PHPers Olsztyn', slug: 'olsztyn', style: markerStyle },
+   { latLng: [52.13, 21.00], name: 'Warszawa', slug: 'warszawa', style: markerStyle },
+   { latLng: [54.20, 18.38], name: 'Trójmiasto', slug: 'trojmiasto', style: markerStyle },
+   { latLng: [50.22, 18.40], name: 'Śląsk', slug: 'slask', style: markerStyle },
+   { latLng: [51.06, 17.01], name: 'Wrocław', slug: 'wroclaw', style: markerStyle },
+   { latLng: [49.93, 19.56], name: 'Kraków', slug: 'krakow', style: markerStyle },
+   { latLng: [53.01, 18.36], name: 'Toruń', slug: 'torun', style: markerStyle },
+   { latLng: [52.24, 16.56], name: 'Poznań', slug: 'poznan', style: markerStyle },
+   { latLng: [53.46, 20.28], name: 'Olsztyn', slug: 'olsztyn', style: markerStyle },
 ];
 
 $('#map').vectorMap({
    map: 'pl_merc_en',
-   zoomAnimate: false,
+   zoomButtons : false,
    backgroundColor: 'white',
    labels: {
       markers: {
