@@ -1,0 +1,61 @@
+{% extends "default" %}
+{% block topscripts %}
+<link rel="stylesheet" href="/js/map/jquery-jvectormap-2.0.2.css" media="screen"/>
+{% endblock %}
+
+{% block scripts %}
+<script language="javascript" src="/js/map/jquery-jvectormap-2.0.2.min.js"></script>
+<script language="javascript" src="/js/map/jquery-jvectormap-pl-merc-en.js"></script>
+<script language="javascript">
+var markerStyle = { image: '/img/elephpant-small.png', };
+var regionStyle = {
+   fill: 'silver',
+   cursor: 'arrow',
+};
+
+var phpers = [
+   { latLng: [52.13, 21.00], name: 'Warszawa', slug: 'warszawa', style: markerStyle },
+   { latLng: [54.20, 18.38], name: 'Trójmiasto', slug: 'trojmiasto', style: markerStyle },
+   { latLng: [50.22, 18.40], name: 'Śląsk', slug: 'slask', style: markerStyle },
+   { latLng: [51.06, 17.01], name: 'Wrocław', slug: 'wroclaw', style: markerStyle },
+   { latLng: [49.93, 19.56], name: 'Kraków', slug: 'krakow', style: markerStyle },
+   { latLng: [53.01, 18.36], name: 'Toruń', slug: 'torun', style: markerStyle },
+   { latLng: [52.24, 16.56], name: 'Poznań', slug: 'poznan', style: markerStyle },
+  //  { latLng: [53.46, 20.28], name: 'Olsztyn', slug: 'olsztyn', style: markerStyle },
+];
+
+$('#map').vectorMap({
+   map: 'pl_merc_en',
+   zoomButtons : false,
+   zoomOnScroll: false,
+   backgroundColor: 'white',
+   labels: {
+      markers: {
+         render: function(i) {
+            return phpers[i].name;
+         },
+      },
+   },
+   regionStyle : {
+      initial: regionStyle,
+      hover: regionStyle,
+      selected: regionStyle,
+   },
+   markers: phpers,
+   onRegionTipShow: function (e, el, code) {
+      e.preventDefault();
+   },
+   onMarkerTipShow: function(e, el, code) {
+      e.preventDefault();
+   },
+   onMarkerClick: function(e, code) {
+      var url = document.location.protocol + '//' + document.domain;
+      if (document.location.port) {
+        url += ':'+document.location.port;
+      }
+      url += '/meetup/' + phpers[code].slug + '/';
+      window.location =  url;
+   }
+});
+</script>
+{% endblock %}

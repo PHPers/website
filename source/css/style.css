@@ -221,6 +221,13 @@ Author URI: http://www.aetherdesign.net
 
 	#features .feature { padding-top: 20px; }
 
+        #map {
+            width: 620px;
+            height: 450px;
+            margin-bottom: 20px;
+            background: white;
+        }
+
 
 /* #Gallery
 ================================================== */
