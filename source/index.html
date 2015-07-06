@@ -10,16 +10,19 @@ use:
 <section class="showcase-entry light">
     <div class="container clearfix">
         <div class="description one-third column">
-            <h1>Rośniemy!!!</h1>
-
-            <h2>I na tym nie poprzestaniemy...</h2>
-
-            <p>
-                Podczas tegorocznej edycji PHPcon zapowiedzieliśmy połączenie kilku
-                lokalnych inicjatyw. Wspólnie chcemy dalej promować PHP w Polsce,
-                PHP3City, SPUG oraz PHPers łączą się więc w jedną grupę...
-                Razem chcemy osiągnąć więcej.
-            </p>
+            <h1>Najbliższe spotkania</h1>
+            {% set showedMeetingQuantity = 0 %}
+            {% for post in page.pagination.items | reverse %}
+               {% if date(post.date) >= date('today') and showedMeetingQuantity < 3 %}
+                  {% set showedMeetingQuantity = showedMeetingQuantity + 1 %}
+                    <div class="list-one four columns next-meetup">
+                      <div class="next-meetup-head"><a href="{{ post.url }}">{{ post.title }}</a></div>
+                      <div class="next-meetup-date">{{ post.date | date('Y-m-d') }}, godz. {{ post.time }}</div>
+                      <div>{{ post.venue.description|raw }}</div>
+                      <div class="next-meetup-more"><a href="{{ post.url }}">Więcej...</a></div>
+                    </div>
+               {% endif %}
+            {% endfor %}
         </div>
         <div class="screen two-thirds column">
             <div id="map"></div>
@@ -29,33 +32,31 @@ use:
 </section>
 <!-- End Entry -->
 
-
-<!-- Services -->
-<section id="services">
-    <div class="container clearfix">
-        <div class="list-one four columns">
-            <h1>Najbliższe spotkania:</h1>
-        </div>
-
-{% set showedMeetingQuantity = 0 %}
-{% for post in page.pagination.items | reverse %}
-   {% if date(post.date) >= date('today') and showedMeetingQuantity < 3 %}
-      {% set showedMeetingQuantity = showedMeetingQuantity + 1 %}
-        <div class="list-one four columns">
-            <h1>{{ post.title }}</h1>
-            <h2>{{ post.date | date('Y-m-d') }}, godz. {{ post.time }}</h2>
-            <p>
-                {{ post.venue.description|raw }}
-            </p>
-
-            <p>
-                <a class="button" href="{{ post.url }}">Zobacz agendę</a>
-            </p>
-        </div>
-   {% endif %}
-{% endfor %}
-
+<div id="buckets" class="container clearfix">
+    <div class="list-one five columns">
+        <h1>Co to PHPers?</h1>
+        <p>
+          PHPers to otwarte, darmowe spotkania dla programistów PHP (ale zapraszamy
+          oczywiście wszystkich), chcących poszerzyć swoje horozonty. Na spotkaniach
+          prezentujemy wykłady o PHP, ale też i o całym ekosystemie, jaki otacza
+          aplikacje pisane w tym języku.
+        </p>
+        <a class="button" href="/idea-spotkan/">Więcej</a>
     </div>
-    <!-- END CONTAINER -->
-</section>
-<!-- End Services -->
+    <div class="list-one five columns">
+        <h1>Kiedy odbywają się spotkania?</h1>
+        <p>
+          Organizatorzy każdego z lokalnych spotkań indywidualnie ustalają harmonogram,
+          ale staramy się organizować je nie rzadziej niż co dwa miesiące. Realia
+          oczywiście weryfikują nasze założenia.
+        </p>
+    </div>
+    <div class="list-one five columns">
+        <h1>Chcę pomóc!</h1>
+        <p>
+          Masz pomysł na prelekcję? Zgłoś ją przez <a href="/zglos-swoja-prezentacje/">formularz</a>. Chcesz
+          zorganizować spotkanie lub być sponsorem naszej działalności? Przeczytaj
+          <a href="/faq/">FAQ</a>.
+        </p>
+    </div>
+</div>

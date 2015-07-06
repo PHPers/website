@@ -221,12 +221,57 @@ Author URI: http://www.aetherdesign.net
 
 	#features .feature { padding-top: 20px; }
 
-        #map {
-            width: 620px;
-            height: 450px;
-            margin-bottom: 20px;
-            background: white;
-        }
+  #map {
+		width: 620px;
+    height: 450px;
+    margin-bottom: 20px;
+    background: white;
+  }
+
+	#buckets {
+		margin: 50px auto;
+		position: relative;
+	}
+
+	#buckets h1 {
+		font-size: 1.5em;
+		text-align: center;
+		margin-bottom: 10px;
+	}
+
+	#buckets > div {
+		height: 300px;
+		margin-right: 30px;
+	}
+
+	#buckets a {
+		font-weight: bold;
+		color: #2B6CA8;
+	}
+
+	#buckets .button {
+		position: absolute;
+		bottom: 20px;
+		width: 280px;
+		text-align: center;
+	}
+
+	.next-meetup {
+		margin-bottom: 15px;
+	}
+
+	.next-meetup-head {
+		font-weight: bold;
+		font-size: 110%;
+	}
+
+	.next-meetup-date {
+		font-weight: bold;
+	}
+
+	.next-meetup-more {
+		text-align: right;
+	}
 
 
 /* #Gallery
