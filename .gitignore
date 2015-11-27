@@ -22,9 +22,10 @@
 # Ignore assets folder
 /bower_components
 
-# Ignore compiled SCSS
-/source/css/*.css
-!/source/css/libs/*.css
+# Ignore compiled/copied files
+/source/css
+/source/js
+/source/fonts
 
 # Ignore sculpin files
 /.sculpin/
