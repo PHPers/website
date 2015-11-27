@@ -1,0 +1,26 @@
+{% if level == 1 %}
+    {% set title = 'Dla kązdego' %}
+{% endif %}
+
+{% if level == 2 %}
+    {% set title = 'Junior' %}
+{% endif %}
+
+{% if level == 3 %}
+    {% set title = 'Nie wymagająca' %}
+{% endif %}
+
+{% if level == 4 %}
+    {% set title = 'Senior' %}
+{% endif %}
+
+{% if level == 5 %}
+    {% set title = 'Dla geeków' %}
+{% endif %}
+
+{% set alt = title %}
+
+<img src="/images/smiles/phpers-difficulty_{{ level }}.svg" class=""
+     onerror="this.onerror=null; this.src='images/smiles/phpers-difficulty_{{ level }}.svg'"
+     alt="{{ alt }}"
+     title="{{ title }}">

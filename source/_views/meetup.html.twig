@@ -1,0 +1,159 @@
+{% extends "default.html.twig" %}
+
+{% block content_wrapper %}
+    <section>
+        <div class="row">
+            <div class="small-12 large-8 columns events">
+                <div class="row event js-full-height">
+                    <div class="small-12 columns">
+                        <div class="row title-row">
+                            <div class="small-9 columns">
+                                <h1>{{ page.title }}</h1>
+                            </div>
+                            <div class="small-3 columns text-right">
+                                <a href="/meetup" title="Archiwum spotkań PHPers" class="button second button-small no-margin elephant-btn">
+                                    <i class="fa fa-calendar"></i>
+                                    <span class="hide-for-small">Kalendarz</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        {% if page.venue.description %}
+                            <p>{{ page.venue.description }}</p>
+                        {% endif %}
+
+                        {{ page.blocks.content|raw }}
+
+                        <h2>Prelegenci</h2>
+
+                        {% for talk in page.talks %}
+                            <div class="row speaker">
+                                <div class="small-12 medium-4 large-3 columns">
+                                    <div class="row collapse">
+                                        <div class="small-4 medium-12 columns">
+                                            {% set photo = talk.speaker['photo']|default('/images/default_avatar_100.jpg') %}
+                                            {% set nickname = talk.speaker['nickname']|default('') %}
+                                            <img src="{{ photo }}" alt="{{ nickname }}">
+                                        </div>
+                                        <div class="small-8 columns show-for-small">
+                                            <h3 class="name">
+                                                {% if talk.speaker is iterable %}
+                                                    {{ talk.speaker['name'] }}
+                                                    {% if talk.speaker['title'] %}
+                                                        <br>
+                                                        <small>{{ talk.speaker['title'] }}</small>
+                                                    {% endif %}
+                                                {% else %}
+                                                    {{ talk.speaker }}
+                                                {% endif %}
+                                            </h3>
+                                        </div>
+                                        <div class="small-8 medium-12 columns">
+                                            <p class="social">
+                                                {% if talk.speaker['facebook'] %}
+                                                    <a href="{{ talk.speaker['facebook'] }}"><i class="fa fa-facebook-official"></i></a>
+                                                {% endif %}
+                                                {% if talk.speaker['twitter'] %}
+                                                    <a href="{{ talk.speaker['twitter'] }}"><i class="fa fa-twitter-square"></i></a>
+                                                {% endif %}
+                                                {% if talk.speaker['joind'] %}
+                                                    <a href="{{ talk.speaker['joind'] }}"><img src="https://joind.in/inc/img/event_icons/none.gif"></a>
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-8 large-9 columns">
+                                    <div class="row">
+                                        <div class="medium-12 columns hide-for-small-only">
+                                            <h3 class="name">
+                                                {% if talk.speaker is iterable %}
+                                                    {{ talk.speaker['name'] }}
+                                                    {% if talk.speaker['title'] %}
+                                                        <br>
+                                                        <small>{{ talk.speaker['title'] }}</small>
+                                                    {% endif %}
+                                                {% else %}
+                                                    {{ talk.speaker }}
+                                                {% endif %}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="row collapse">
+                                        <div class="small-9 medium-11 columns">
+                                            <h4 class="topic">
+                                                {{ talk.title }}
+                                            </h4>
+                                        </div>
+                                        <div class="small-3 medium-1 columns speach-level">
+                                            {% set speach_level = talk.difficulty|default('3') %}
+                                            {{ include('difficulty.html.twig', {'level': speach_level}) }}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="small-12 columns">
+                                            <p class="abstract">
+                                                {{ talk.description|raw}}
+                                            </p>
+                                            {% if talk.speakerdeck %}
+                                                <a href="{{ talk.speakerdeck }}">
+                                                    <img src="http://polarblau.com/images/content/contact/speakerdeck.png">
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="small-12 large-4 columns location">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <div id="locationMap" data-latlng="{{ page.venue.location }}"></div>
+                        <address>
+                            <h3>
+                                {% set gmaps_url = 'https://www.google.pl/maps/search/' ~ page.venue.name ~ ' ' ~ page.venue.address %}
+                                {% if page.venue.city %}
+                                    {% set gmaps_url = gmaps_url ~ page.venue.city %}
+                                {% endif %}
+
+                                {% if page.venue.gmaps_url %}
+                                    {% set gmaps_url = page.venue.gmaps_url %}
+                                {% endif %}
+
+                                <a href="{{ gmaps_url }}"
+                                   target="_blank" title="Zobacz na GoogleMaps">
+                                    <i class="fa fa-map-marker"></i> {{ page.venue.name }}
+                                </a>
+                            </h3>
+                            {{ page.venue.address }}
+                            {% if page.venue.zip and page.venue.city %}
+                                <br>
+                                {{ page.venue.zip }} {{ page.venue.city }}
+                            {% endif %}
+                        </address>
+
+                        {% if page.sponsors|length > 0 %}
+                            <h4>Sponsorzy</h4>
+                            <div class="row sponsors">
+                                <div class="small-12 columns owl-carousel">
+                                    {% for sponsor in page.sponsors %}
+                                        <div class="sponsor-row item">
+                                            <a href="{{ sponsor.site }}" target="_blank">
+                                                <img src="{{ sponsor.logo }}" alt="{{ sponsor.name }} - {{ sponsor.description }}">
+                                                <br>
+                                                {{ sponsor.name }}
+                                            </a>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

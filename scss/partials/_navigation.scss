@@ -1,0 +1,411 @@
+body.navigation-is-open {
+  overflow: hidden;
+}
+
+header {
+  z-index: 3;
+  @include transform(translateZ(0));
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background: $header-bg;
+  -webkit-box-shadow: 0 0 3px 1px $nav-bg-color;
+  -moz-box-shadow: 0 0 3px 1px $nav-bg-color;
+  box-shadow: 0 0 3px 1px $nav-bg-color;
+  @include transition(transform $animation-duration);
+  @include transition-timing-function(cubic-bezier(.91,.01,.6,.99));
+  @include transition(background $animation-duration);
+  .navigation-is-open & {
+    background: $nav-bg-color;
+    a.nav-trigger {
+      color: rgba($nav-font-color, .4);
+      border-color: rgba($nav-font-color, .4);
+      @include transition(color $color-animation-duration);
+      .nav-icon, .nav-sep {
+        @include transition(background $color-animation-duration);
+        background-color: rgba($nav-font-color, .4);
+      }
+      .no-touch &:hover {
+        color: $nav-font-color;
+        .nav-icon, .nav-sep {
+          background-color: $nav-font-color;
+        }
+      }
+    }
+  }
+}
+
+// Alternative header version
+
+//header {
+//  z-index: 3;
+//  @include transform(translateZ(0));
+//  -webkit-backface-visibility: hidden;
+//  backface-visibility: hidden;
+//  background: $nav-bg-color;
+//  box-shadow: 0 0 1px $nav-bg-color;
+//  @include transition(transform $animation-duration);
+//  @include transition-timing-function(cubic-bezier(.91,.01,.6,.99));
+//  @include transition(background $animation-duration);
+//  .navigation-is-open & {
+//    background: $nav-bg-color;
+//    a.nav-trigger {
+//      color: rgba($nav-font-color, .4);
+//      border-color: rgba($nav-font-color, .4);
+//      @include transition(color $color-animation-duration);
+//      .nav-icon, .nav-sep {
+//        @include transition(background $color-animation-duration);
+//        background-color: rgba($nav-font-color, .4);
+//      }
+//      .no-touch &:hover {
+//        color: $nav-font-color;
+//        .nav-icon, .nav-sep {
+//          background-color: $nav-font-color;
+//        }
+//      }
+//    }
+//  }
+//}
+//
+//.homepage {
+//  header {
+//    background: $header-bg;
+//    .nav-trigger {
+//      border-color: $anchor-font-color;
+//      color: $anchor-font-color;
+//      &:hover {
+//        color: scale-color($anchor-font-color, $lightness: -14%);
+//      }
+//      .nav-icon {
+//        background-color: $anchor-font-color;
+//      }
+//      .nav-sep {
+//        background: $anchor-font-color;
+//      }
+//    }
+//  }
+//}
+//.nav-trigger {
+//  position: relative;
+//  z-index: 3;
+//  left: 100%;
+//  top: 1em;
+//  margin-left: -(rem-calc(140px));
+//  padding-top: rem-calc(5px);
+//  padding-bottom: rem-calc(5px);
+//  padding-left: rem-calc(54px);
+//  padding-right: 1.25rem;
+//  color: $second-font-color;
+//  border: 2px solid $second-font-color;
+//  font-weight: bold;
+//  text-transform: uppercase;
+//  @include transition(transform $animation-duration - 0.2s);
+//  &:hover {
+//    color: $second-font-color;
+//  }
+//  .nav-icon {
+//    position: absolute;
+//    @include center(y);
+//    left: rem-calc(20px);
+//    @include transform(translateX(0%));
+//    width: rem-calc(20px);
+//    height: rem-calc(3px);
+//    background-color: $second-font-color;
+//    margin-top: rem-calc(-1px);
+//
+//    &::before, &:after {
+//      content: '';
+//      position: absolute;
+//      top: 0;
+//      right: 0;
+//      width: 100%;
+//      height: 100%;
+//      background-color: inherit;
+//      @include transform(translateZ(0));
+//      -webkit-backface-visibility: hidden;
+//      backface-visibility: hidden;
+//      @include transition(transform $animation-duration - 0.2s, width $animation-duration - 0.2s, top .3s);
+//    }
+//    &::before {
+//      @include transform-origin(right top);
+//      @include transform(translateY(-(rem-calc(5px))));
+//    }
+//    &::after {
+//      @include transform-origin(right bottom);
+//      @include transform(translateY(rem-calc(5px)));
+//    }
+//  }
+//
+//  .nav-sep {
+//    width: rem-calc(2px);
+//    height: rem-calc(13px);
+//    float: left;
+//    background: $second-font-color;
+//    position: absolute;
+//    left: 3.5rem;
+//    top: rem-calc(10px);
+//  }
+//
+//  .nav-text {
+//    margin-left: 1.25rem;
+//  }
+//
+//  .no-touch &:hover .nav-icon::after {
+//    top: 2px;
+//  }
+//
+//  .no-touch &:hover .nav-icon::before {
+//    top: -2px;
+//  }
+//
+//  svg {
+//    position: absolute;
+//    top: 0;
+//    left: 0;
+//  }
+//
+//  circle {
+//    @include transition(stroke-dashoffset $animation-duration - 0.3s 0s);
+//  }
+//
+//  .navigation-is-open & {
+//    .nav-icon::after,
+//    .nav-icon::before {
+//      width: 50%;
+//      @include transition(transform $animation-duration - 0.2s, width $animation-duration - 0.2s);
+//    }
+//    .nav-icon::before {
+//      @include transform(rotate(45deg));
+//    }
+//    .nav-icon::after {
+//      @include transform(rotate(-45deg));
+//    }
+//    .no-touch &:hover .nav-icon::after,
+//    .no-touch &:hover .nav-icon::before {
+//      top: 0;
+//    }
+//  }
+//}
+
+
+main, .intro {
+  position: relative;
+  z-index: 2;
+  //-webkit-backface-visibility: hidden;
+  //backface-visibility: hidden;
+
+  @include transition(transform $animation-duration);
+  @include transition-timing-function(cubic-bezier(.91,.01,.6,.99));
+
+  .navigation-is-open & {
+    @include transform(translateX(-100%));
+  }
+}
+
+main {
+  /* fix bug on iOS */
+  //height: 100vh;/*
+  //overflow-y: auto;*/
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-trigger {
+  position: relative;
+  z-index: 3;
+  left: 100%;
+  top: 1em;
+  margin-left: -(rem-calc(140px));
+  padding-top: rem-calc(5px);
+  padding-bottom: rem-calc(5px);
+  padding-left: rem-calc(54px);
+  padding-right: 1.25rem;
+  color: $anchor-font-color;
+  border: 2px solid $anchor-font-color;
+  font-weight: bold;
+  text-transform: uppercase;
+  @include transition(transform $animation-duration - 0.2s);
+  &:hover {
+    color: scale-color($anchor-font-color, $lightness: -14%);
+  }
+  .nav-icon {
+    position: absolute;
+    @include center(y);
+    left: rem-calc(20px);
+    @include transform(translateX(0%));
+    width: rem-calc(20px);
+    height: rem-calc(3px);
+    background-color: $anchor-font-color;
+    margin-top: rem-calc(-1px);
+
+    &::before, &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-color: inherit;
+      @include transform(translateZ(0));
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      @include transition(transform $animation-duration - 0.2s, width $animation-duration - 0.2s, top .3s);
+    }
+    &::before {
+      @include transform-origin(right top);
+      @include transform(translateY(-(rem-calc(5px))));
+    }
+    &::after {
+      @include transform-origin(right bottom);
+      @include transform(translateY(rem-calc(5px)));
+    }
+  }
+
+  .nav-sep {
+    width: rem-calc(2px);
+    height: rem-calc(13px);
+    float: left;
+    background: $anchor-font-color;
+    position: absolute;
+    left: 3.5rem;
+    top: rem-calc(10px);
+  }
+
+  .nav-text {
+    margin-left: 1.25rem;
+  }
+
+  .no-touch &:hover .nav-icon::after {
+    top: 2px;
+  }
+
+  .no-touch &:hover .nav-icon::before {
+    top: -2px;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  circle {
+    @include transition(stroke-dashoffset $animation-duration - 0.3s 0s);
+  }
+
+  .navigation-is-open & {
+    .nav-icon::after,
+    .nav-icon::before {
+      width: 50%;
+      @include transition(transform $animation-duration - 0.2s, width $animation-duration - 0.2s);
+    }
+    .nav-icon::before {
+      @include transform(rotate(45deg));
+    }
+    .nav-icon::after {
+      @include transform(rotate(-45deg));
+    }
+    .no-touch &:hover .nav-icon::after,
+    .no-touch &:hover .nav-icon::before {
+      top: 0;
+    }
+  }
+}
+
+@media #{$small-only} {
+  .nav-trigger {
+    top: 0;
+    font-size: rem-calc(14px);
+    margin-left: -(rem-calc(123px));
+    padding-top: rem-calc(2px);
+    padding-bottom: rem-calc(2px);
+    padding-left: rem-calc(40px);
+    padding-right: 1.05rem;
+    .nav-icon {
+      left: rem-calc(18px);
+      width: rem-calc(18px);
+      height: rem-calc(2px);
+      margin-top: rem-calc(-1px);
+    }
+    .nav-sep {
+      left: 3rem;
+      top: rem-calc(6px);
+    }
+  }
+}
+
+.nav {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: $nav-bg-color;
+  visibility: hidden;
+  padding-top: 0;
+  padding-bottom: 100px;
+  letter-spacing: 0.05rem;
+  @include transition(visibility 0s $animation-duration);
+  .header-stick & {
+    padding-top: 100px;
+    padding-bottom: 0;
+  }
+
+  .navigation-wrapper {
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 40px 5% 40px calc(5% + 80px);
+    @include transform(translateZ(0));
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    @include transform(translateX(50%));
+    @include transition(transform $animation-duration);
+    @include transition-timing-function(cubic-bezier(.86,.01,.77,.78));
+  }
+
+  .navigation-is-open & {
+    visibility: visible;
+    @include transition(visibility 0s 0s);
+
+    .navigation-wrapper {
+      @include transform(translateX(0));
+      @include transition(transform $animation-duration - 0.2s);
+      @include transition-timing-function(cubic-bezier(.82,.01,.77,.78));
+    }
+  }
+
+  a {
+    font-size: 1.4rem;
+    color: rgba($nav-font-color, .4);
+    display: inline-block;
+
+    &.selected {
+      color: $nav-font-color;
+    }
+
+    .no-touch &:hover {
+      color: $nav-font-color;
+    }
+  }
+
+  .primary-nav {
+    list-style: none;
+    a {
+      font-family: $nav-font;
+      font-size: 2rem;
+    }
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .secondary-nav {
+    margin-top: 40%;
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+}

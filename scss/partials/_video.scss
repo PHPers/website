@@ -1,0 +1,56 @@
+$ipad-width: rem-calc(500px);
+
+.ipad {
+  display: block;
+  border: 1.188rem solid white;
+  border-bottom-width: 0;
+  color: transparent;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background-color: #efefef;
+  background-size: cover;
+  box-shadow: 0 0 0.1875rem rgba(0, 0, 0, .4),
+  inset 0 0 0.1875rem 0.1875rem rgba(255, 255, 255, .2),
+  inset 0 0 0.125rem 0.125rem rgba(0, 0, 0, .35);
+  position: absolute;
+  width: $ipad-width;
+  bottom: 0;
+  left: 50%;
+  margin-left: -$ipad-width/2; /* half the width of ipad */
+  height: rem-calc(300px);
+}
+
+.ipad:after {
+  content: "►";
+  line-height: 3.25rem;
+  font-size: 2rem;
+  text-align: center;
+  text-indent: 0.25rem;
+  color: white;
+  display: block;
+  border: 0.25rem solid white;
+  box-shadow: 0 0 0.3125rem rgba(0, 0, 0, .7);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: rgba(255, 255, 255, .3);
+  width: rem-calc(60px);
+  height: rem-calc(60px);
+  margin-top: -1.875rem;
+  margin-left: -1.875rem;
+}
+
+.ipad:hover:after {
+  border-color: white;
+  color: white;
+  box-shadow: 0 0 0.75rem rgba(255, 255, 255, .3), inset 0 0 0.125rem black;
+  text-shadow: 0 0 0.3125rem black;
+  background-color: rgba(255, 255, 255, .4);
+}
+
+.video-modal {
+  background-color: $dark-bg;
+  .title {
+    color: rgba($nav-font-color, .6);
+  }
+}

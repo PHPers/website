@@ -16,9 +16,7 @@
         }
     ],
     "require": {
-        "components/bootstrap": "~2.3.1",
-        "components/jquery": "~1.9.1",
-        "components/highlightjs": "~7.3.0"
+        "mavimo/sculpin-redirect-bundle": "@dev"
     },
     "config": {
         "component-dir": "source/components"
