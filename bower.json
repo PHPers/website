@@ -13,7 +13,6 @@
     "spinkit": "~1.2.2",
     "owlcarousel": "~1.3.2",
     "jquery-countTo": "~1.2.0",
-    "jquery.appear": "*",
     "mobile-detect": "~1.3.0",
     "bourbon": "~4.2.6",
     "history.js": "~1.8.0"

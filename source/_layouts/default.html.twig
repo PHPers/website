@@ -69,7 +69,6 @@
 
     <div id="sticky-anchor"></div>
     <header>
-
         <!-- Navigation -->
         <nav class="top-bar" data-topbar>
             <ul class="title-area">
@@ -93,28 +92,36 @@
                     </div>
                 </div>
 
-                <!-- Right Nav Section -->
-                <ul class="right">
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Zgłoś się</a></li>
-                    <li><a href="#">Kontakt</a></li>
-                </ul>
-
                 <!-- Left Nav Section -->
                 <ul class="left">
                     <li class="has-dropdown">
-                        <a href="#">Spotkania</a>
+                        <a href="/meetup">Spotkania</a>
                         <ul class="dropdown">
-                            <li><a href="#">First link in dropdown</a></li>
+                            <li><a href="/meetup/krakow/">Kraków</a></li>
+                            <li><a href="/meetup/slask/">Śląsk</a></li>
+                            <li><a href="/meetup/trojmiasto/">Trójmiasto</a></li>
+                            <li><a href="/meetup/warszawa/">Warszawa</a></li>
+                            <li><a href="/meetup/wroclaw/">Wrocław</a></li>
+                            <li><a href="/meetup/torun/">Toruń</a></li>
+                            <li><a href="/meetup/poznan/">Poznań</a></li>
+                            <li><a href="/meetup/olsztyn/">Olsztyn</a></li>
+                            <li><a href="/meetup/lodz/">Łódź</a></li>
                         </ul>
                     </li>
                     <li class="has-dropdown">
                         <a href="#">O projekcie</a>
                         <ul class="dropdown">
-                            <li><a href="#">Idea spotkań</a></li>
-                            <li><a href="#">Organizatorzy</a></li>
+                            <li><a href="/idea-spotkan">Idea spotkań</a></li>
+                            <li><a href="/idea-spotkan#organizatorzy">Organizatorzy</a></li>
                         </ul>
                     </li>
+                </ul>
+
+                <!-- Right Nav Section -->
+                <ul class="right">
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/#zglos-sie">Zgłoś się</a></li>
+                    <li><a href="/napisz-do-nas">Kontakt</a></li>
                 </ul>
 
             </section>
@@ -241,7 +248,8 @@
                     <div class="small-12 medium-5 medium-pull-7 columns">
                         <p class="logo hide-for-small-only">
                             <a href="/">
-                            <img src="/images/logo-xs.png"> PHPers
+                                <img src="/images/logo-xs.svg" alt="PHPers - otwarte, darmowe spotkania dla programistów PHP" width="44px" height="34px" onerror="this.onerror=null; this.src='/images/logo-xs.png'">
+                                PHPers
                             </a>
                         </p>
 
@@ -276,46 +284,6 @@
         {% endif %}
     </main>
 
-    <div id="nav" class="nav">
-        <div class="row navigation-wrapper">
-            <div class="small-6 columns">
-                <nav>
-                    <ul class="primary-nav">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/idea-spotkan">O projekcie</a></li>
-                        <li><a href="/idea-spotkan#organizatorzy">Organizatorzy</a></li>
-                        <li><a href="/meetup">Spotkania</a></li>
-                        <li><a href="/faq">FAQ</a></li>
-                        <li><a href="#zglos-sie">Zgłoś się!</a></li>
-                        <li><a href="/napisz-do-nas">Kontakt</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="small-3 small-pull-1 columns text-right">
-                <div class="row secondary-nav">
-                    <div class="small-4 medium-12 columns">
-                        <a href="http://facebook.com/PHPersPL" target="_blank">
-                            <i class="fa fa-facebook"></i>
-                            <span class="hide-for-small">Facebook</span>
-                        </a>
-                    </div>
-                    <div class="small-4 medium-12 columns">
-                        <a href="http://twitter.com/PHPersPL" target="_blank">
-                            <i class="fa fa-twitter"></i>
-                            <span class="hide-for-small">Twitter</span>
-                        </a>
-                    </div>
-                    <div class="small-4 medium-12 columns">
-                        <a href="https://www.youtube.com/user/PHPersPL" target="_blank">
-                            <i class="fa fa-youtube"></i>
-                            <span class="hide-for-small">YouTube</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
     <script>window.jQuery || document.write('<script src="/js/jquery.js"><\/script>')</script>
@@ -331,13 +299,19 @@
     <script src="/js/jquery.countTo.js"></script>
     <script src="/js/jquery.countdown.js"></script>
     <script src="/js/jquery.mixitup.js"></script>
+    <script src="/js/jquery.appear.js"></script>
     <script src="/js/gmaps.js"></script>
     <script src="/js/jquery.jvectormap.min.js"></script>
     <script src="/js/jquery-jvectormap-pl-merc-en.js"></script>
     <script src="/js/jquery.history.js"></script>
 
     <script>
-        $(document).foundation();
+        $(document).foundation({
+            topbar: {
+                custom_back_text: true,
+                back_text: 'Wstecz'
+            }
+        });
     </script>
 
     <script>
@@ -359,6 +333,23 @@
 
     <script>window.viewportUnitsBuggyfill.init();</script>
 
+    <script>
+
+            $(window).load(function(){
+                // Remove the # from the hash, as different browsers may or may not include it
+                var hash = location.hash.replace('#','');
+                var offset = 50;
+                var el = $("[data-scroll-target='" + hash + "']");
+                if(hash != '' && el.length){
+                    // Clear the hash in the URL
+                    // location.hash = '';   // delete front "//" if you want to change the address bar
+                    var elOffset = $(el).offset().top;
+                    $('html, body').animate({ scrollTop: elOffset - offset}, 750);
+
+                }
+            });
+
+    </script>
 
     <script type="text/javascript">
         jQuery(function ($) {

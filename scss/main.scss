@@ -290,7 +290,7 @@ main {
 }
 
 .features {
-  margin-top: 50px;
+  margin-top: 25px;
   .icon-wrap {
     display: inline-block;
     width: rem-calc(140px);
@@ -303,6 +303,9 @@ main {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
+    @media #{$small-up} {
+      margin-top: 25px;
+    }
     &:hover {
       color: $background;
     }

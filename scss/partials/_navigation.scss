@@ -499,7 +499,7 @@ main {
             width: 0;
             height: 1px;
             background: $third-font-color;
-            @include transition(width left, $color-animation-duration, ease);
+            @include transition(width left color, $color-animation-duration, ease);
           }
         }
         &:hover {
@@ -512,11 +512,38 @@ main {
     }
     .dropdown {
       padding-top: $header-padding;
-      li:not(.has-form):not(.active) > a:not(.button) {
-        color: $topbar-bg;
-        font-size: rem-calc(14px);
-        letter-spacing: 0;
+      li:not(.has-form):not(.active) {
+        > a:not(.button) {
+          background: $anchor-font-color;
+          color: $topbar-bg;
+          font-size: rem-calc(14px);
+          letter-spacing: 0;
+          line-height: ($topbar-height / 2) + rem-calc(16px);
+        }
+        &:hover {
+          > a:not(.button) {
+            background: $anchor-font-color-hover;
+          }
+        }
       }
+    }
+    ul {
+      li {
+        background: $header-bg;
+        > a {
+          color: $anchor-font-color;
+        }
+        &:hover:not(.has-form) {
+          > a {
+            background: $header-bg;
+            color: $anchor-font-color-hover;
+          }
+        }
+      }
+    }
+    li:not(.has-form) a:not(.button):hover {
+      background: $header-bg;
+      color: $third-font-color;
     }
   }
 }

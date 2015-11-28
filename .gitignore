@@ -15,6 +15,7 @@
 
 # Ignore NPM debug
 .npm-debug.log
+npm-debug.log
 
 # Ignore temp directory
 .tmp
