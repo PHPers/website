@@ -136,7 +136,7 @@ header {
   display: block;
   position: absolute;
   width: 100%;
-  padding: 10px 0;
+  padding: $header-padding 0;
   margin: 0;
   .header-stick & {
     position: fixed;
@@ -146,6 +146,9 @@ header {
   #filters {
     margin-top: 10px;
     margin-bottom: -13px;
+  }
+  @media #{$small-only} {
+    padding: 0;
   }
 }
 
@@ -547,6 +550,9 @@ footer {
     @media #{$medium-up} {
       margin: 0;
     }
+    @media #{$small-only} {
+      text-align: center;
+    }
   }
   .footer-links a {
     list-style: none;
@@ -582,6 +588,13 @@ footer {
   color: $primary-footer-color;
   .thanks-for {
     text-align: right;
+    @media #{$small-only} {
+      padding: 6px 0;
+    }
+  }
+  @media #{$small-only} {
+    font-size: rem-calc(12px);
+    text-align: center;
   }
 }
 

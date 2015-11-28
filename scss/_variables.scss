@@ -84,6 +84,7 @@ $color-animation-duration: 0.2s;
 // dimenssions
 
 $header-height: 80px;
+$header-padding: 10px;
 
 // spinners
 
@@ -92,7 +93,45 @@ $spinkit-size: 260px !default;
 $spinkit-spinner-color: $primary-footer-color !default;
 
 
+//
+// Top Bar Variables
+//
 
+// Background color for the top bar
+$topbar-bg-color: $header-bg;
+$topbar-bg: $topbar-bg-color;
+
+// Height and margin
+$topbar-height: rem-calc(60);
+
+// Controlling the styles for the title in the top bar
+$topbar-title-font-size: rem-calc(17);
+
+// Style the top bar dropdown elements
+$topbar-dropdown-bg: $topbar-bg;
+$topbar-dropdown-link-color: $body-font-color;
+$topbar-dropdown-link-color-hover: $topbar-bg;
+$topbar-dropdown-link-bg: $anchor-font-color;
+$topbar-dropdown-link-bg-hover: $anchor-font-color-hover;
+
+//// Set the link colors and styles for top-level nav
+$topbar-link-color: $body-font-color;
+$topbar-link-color-hover: $third-font-color;
+$topbar-link-color-active: $topbar-bg;
+$topbar-link-color-active-hover: $topbar-bg;
+$topbar-link-font-size: rem-calc(16);
+$topbar-link-padding: $topbar-height / 2;
+
+$topbar-link-bg-hover: $topbar-bg;
+
+// Top menu icon styles
+$topbar-menu-link-color: $anchor-font-color;
+$topbar-menu-icon-color: $anchor-font-color;
+$topbar-menu-link-color-toggled: $third-font-color;
+$topbar-menu-icon-color-toggled: $third-font-color;
+
+//// Sticky Class
+$topbar-arrows: false; //Set false to remove the triangle icon from the menu item
 
 
 // faq

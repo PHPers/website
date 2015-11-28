@@ -28,9 +28,25 @@
     developerami."/>
     <meta name="twitter:image" content="http://phpers.pl/img/phpers-logo.png"/>
 
-    <!--<link rel="apple-touch-icon" href="apple-touch-icon.png">-->
-    <link rel="icon" type="image/png" href="http://phpers.pl/favicon.png" />
-
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="theme-color" content="#000000">
 
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,800,700|Oswald:400,700|Merriweather:400,700&subset=latin,latin-ext'
           rel='stylesheet'
@@ -53,21 +69,57 @@
 
     <div id="sticky-anchor"></div>
     <header>
-        <div class="row">
-            <div class="small-4 columns">
-                <a href="/">
-                    <img src="/images/logo.svg" alt="" onerror="this.onerror=null; this.src='/images/logo.png'">
-                </a>
-            </div>
-            <div class="small-8 columns menu hide">
-                <a href="#nav" class="nav-trigger js-nav-trigger">
-                    <span class="nav-icon"></span>
-                    <span class="nav-sep"></span>
-                <span class="nav-text js-nav-text" data-toggle-text="Close" data-opened="Close"
-                      data-closed="Menu">Menu</span>
-                </a>
-            </div>
-        </div>
+
+        <!-- Navigation -->
+        <nav class="top-bar" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1>
+                        <a class="logo show-for-small-only" href="/">
+                            <img src="/images/logo-xs.svg" alt="PHPers - otwarte, darmowe spotkania dla programistów PHP" onerror="this.onerror=null; this.src='/images/logo-xs.png'">
+                        </a>
+                    </h1>
+                </li>
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            </ul>
+
+            <section class="top-bar-section">
+
+                <div class="logo-wrapper hide-for-small-only">
+                    <div class="logo">
+                        <a class="" href="/">
+                            <img src="/images/logo.svg" alt="" onerror="this.onerror=null; this.src='/images/logo.png'">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Nav Section -->
+                <ul class="right">
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Zgłoś się</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                </ul>
+
+                <!-- Left Nav Section -->
+                <ul class="left">
+                    <li class="has-dropdown">
+                        <a href="#">Spotkania</a>
+                        <ul class="dropdown">
+                            <li><a href="#">First link in dropdown</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#">O projekcie</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Idea spotkań</a></li>
+                            <li><a href="#">Organizatorzy</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </section>
+        </nav><!-- /navigation -->
+
         {% if page.show_filters %}
             <div id="filters" class="clearfix">
                 <div class="filterWrapper">
@@ -167,7 +219,10 @@
                     <div class="small-12 medium-7 medium-push-5 columns">
                         <div class="row collapse">
                             <div class="small-12">
-                                <p class="logo show-for-small-only"><img src="/images/favicon.ico"> PHPers</p>
+                                <p class="logo show-for-small-only">
+                                    <img src="/images/logo-xs.svg" alt="PHPers - otwarte, darmowe spotkania dla programistów PHP" width="33px" height="26px" onerror="this.onerror=null; this.src='/images/logo-xs.png'">
+                                    PHPers
+                                </p>
                             </div>
                             <div class="small-12 medium-4 columns">
                                 <h5>Chcesz pomóc</h5>
@@ -186,7 +241,7 @@
                     <div class="small-12 medium-5 medium-pull-7 columns">
                         <p class="logo hide-for-small-only">
                             <a href="/">
-                            <img src="/images/favicon.ico"> PHPers
+                            <img src="/images/logo-xs.png"> PHPers
                             </a>
                         </p>
 

@@ -47,7 +47,7 @@ jQuery(document).ready(function($) {
             var actualText = $(this).find('.js-nav-text').text();
             $(this).find('.js-nav-text').text(textToChange).data('toggleText', actualText);
 
-            $('body').toggleClass('navigation-is-open');
+            //$('body').toggleClass('navigation-is-open');
             $('.navigation-wrapper').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
                 //animation is over
                 isLateralNavAnimating = false;
@@ -55,18 +55,18 @@ jQuery(document).ready(function($) {
         }
     });
 
-    $(document).on('click', '.primary-nav a', function(event) {
-        //stop if nav animation is running
-        if( !isLateralNavAnimating ) {
-            if($(this).parents('.csstransitions').length > 0 ) isLateralNavAnimating = true;
-
-            $('body').toggleClass('navigation-is-open');
-            $('.navigation-wrapper').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
-                //animation is over
-                isLateralNavAnimating = false;
-            });
-        }
-    });
+    //$(document).on('click', '.primary-nav a', function(event) {
+    //    //stop if nav animation is running
+    //    if( !isLateralNavAnimating ) {
+    //        if($(this).parents('.csstransitions').length > 0 ) isLateralNavAnimating = true;
+    //
+    //        $('body').toggleClass('navigation-is-open');
+    //        $('.navigation-wrapper').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+    //            //animation is over
+    //            isLateralNavAnimating = false;
+    //        });
+    //    }
+    //});
 
     // video size in device-mockup
     recalculate_video_size();
