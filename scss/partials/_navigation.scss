@@ -508,6 +508,20 @@ main {
             left: 30%;
           }
         }
+        &.active {
+          > a:after {
+            background: $anchor-font-color;
+            width: 40%;
+            left: 30%;
+          }
+          &:hover {
+            > a:after {
+              background: $anchor-font-color-hover;
+              width: 50%;
+              left: 25%;
+            }
+          }
+        }
       }
     }
     .dropdown {

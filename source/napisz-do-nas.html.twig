@@ -4,8 +4,8 @@ layout: default
 
 <section id="contact">
     <div class="row">
-        <div class="small-12 medium-10 large-8 columns content">
-            <h1><strong>Napisz do nas</strong></h1>
+        <div class="small-12 medium-10 large-6 large-push-3 columns content">
+            <h2 class="h1"><strong>Napisz do nas</strong></h2>
             <h2>
 
             </h2>
@@ -17,10 +17,24 @@ layout: default
         </div>
     </div>
     <div class="row">
-        <div class="small-12 medium-10 large-8 columns">
+        <div class="small-12 medium-10 large-6 large-push-3 columns">
             <form id="contact_form" method="post" action="">
                 <fieldset>
-                    <div class="form-field"><label for="contact_name" class="required">Imię i nazwisko</label><span><input type="text" id="contact_name" name="contact[name]" required="required" /></span></div><div class="form-field"><label for="contact_email" class="required">Adres e-mail</label><span><input type="email" id="contact_email" name="contact[email]" required="required" /></span></div><input type="hidden" id="contact_email_confirmation" name="contact[email_confirmation]" /><div class="form-field"><label for="contact_message" class="required">Wiadomość</label><span><textarea id="contact_message" name="contact[message]" required="required"></textarea></span></div><input type="hidden" id="contact__token" name="contact[_token]" value="488d1a998ccdd2d2a0979e05d11dec4af8296c90" />
+                    <div class="form-field"><label for="contact_name" class="required">Imię i
+                            nazwisko</label><span><input type="text" id="contact_name" name="contact[name]"
+                                                         required="required"/></span>
+                    </div>
+                    <div class="form-field"><label for="contact_email" class="required">Adres e-mail</label><span><input
+                                    type="email" id="contact_email" name="contact[email]" required="required"/></span>
+                    </div>
+                    <input type="hidden" id="contact_email_confirmation" name="contact[email_confirmation]"/>
+
+                    <div class="form-field">
+                        <label for="contact_message" class="required">Wiadomość</label>
+                        <span><textarea id="contact_message" name="contact[message]" required="required" rows="8"></textarea></span>
+                    </div>
+                    <input type="hidden" id="contact__token" name="contact[_token]"
+                           value="488d1a998ccdd2d2a0979e05d11dec4af8296c90"/>
                 </fieldset>
                 <div class="form-click text-right">
                     <span><input type="submit" name="submit" class="button cta-button elephant-btn" value="Wyślij wiadomość" id="submit" /></span>

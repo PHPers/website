@@ -69,6 +69,7 @@
 
     <div id="sticky-anchor"></div>
     <header>
+        {% set current_url = page['url'] | default('') %}
         <!-- Navigation -->
         <nav class="top-bar" data-topbar>
             <ul class="title-area">
@@ -94,34 +95,34 @@
 
                 <!-- Left Nav Section -->
                 <ul class="left">
-                    <li class="has-dropdown">
+                    <li class="has-dropdown {{ current_url == '/meetup' ? 'active' }}">
                         <a href="/meetup">Spotkania</a>
                         <ul class="dropdown">
-                            <li><a href="/meetup/krakow/">Kraków</a></li>
-                            <li><a href="/meetup/slask/">Śląsk</a></li>
-                            <li><a href="/meetup/trojmiasto/">Trójmiasto</a></li>
-                            <li><a href="/meetup/warszawa/">Warszawa</a></li>
-                            <li><a href="/meetup/wroclaw/">Wrocław</a></li>
-                            <li><a href="/meetup/torun/">Toruń</a></li>
-                            <li><a href="/meetup/poznan/">Poznań</a></li>
-                            <li><a href="/meetup/olsztyn/">Olsztyn</a></li>
-                            <li><a href="/meetup/lodz/">Łódź</a></li>
+                            <li><a href="/meetup?c=krakow">Kraków</a></li>
+                            <li><a href="/meetup?c=slask">Śląsk</a></li>
+                            <li><a href="/meetup?c=trojmiasto">Trójmiasto</a></li>
+                            <li><a href="/meetup?c=warszawa">Warszawa</a></li>
+                            <li><a href="/meetup?c=wroclaw">Wrocław</a></li>
+                            <li><a href="/meetup?c=torun">Toruń</a></li>
+                            <li><a href="/meetup?c=poznan">Poznań</a></li>
+                            <li><a href="/meetup?c=olsztyn">Olsztyn</a></li>
+                            <li><a href="/meetup?c=lodz">Łódź</a></li>
                         </ul>
                     </li>
-                    <li class="has-dropdown">
-                        <a href="#">O projekcie</a>
+                    <li class="has-dropdown {{ current_url == '/idea-spotkan' ? 'active' }}">
+                        <a href="/idea-spotkan">O projekcie</a>
                         <ul class="dropdown">
                             <li><a href="/idea-spotkan">Idea spotkań</a></li>
-                            <li><a href="/idea-spotkan#organizatorzy">Organizatorzy</a></li>
+                            <li><a href="/idea-spotkan#organizatorzy" data-scroll-to>Organizatorzy</a></li>
                         </ul>
                     </li>
                 </ul>
 
                 <!-- Right Nav Section -->
                 <ul class="right">
-                    <li><a href="/faq">FAQ</a></li>
-                    <li><a href="/#zglos-sie">Zgłoś się</a></li>
-                    <li><a href="/napisz-do-nas">Kontakt</a></li>
+                    <li class="{{ current_url == '/faq' ? 'active' }}"><a href="/faq">FAQ</a></li>
+                    <li><a href="/#zglos-sie" data-scroll-to>Zgłoś się</a></li>
+                    <li class="{{ current_url == '/napisz-do-nas' ? 'active' }}"><a href="/napisz-do-nas">Kontakt</a></li>
                 </ul>
 
             </section>
@@ -232,9 +233,9 @@
                                 </p>
                             </div>
                             <div class="small-12 medium-4 columns">
-                                <h5>Chcesz pomóc</h5>
                             </div>
                             <div class="small-12 medium-8 columns">
+                                <h5>Chcesz pomóc</h5>
                                 <p>
                                     Masz pomysł na prelekcję? Zgłoś ją przez <a href="#">formularz</a>.
                                     <br>
@@ -335,19 +336,44 @@
 
     <script>
 
+        var scrollToElement = function(element){
+            var offset = 50;
+            if (typeof element == 'string') {
+                element = $("[data-scroll-target='" + element + "']");
+            }
+            if(element.length){
+                // Clear the hash in the URL
+                // location.hash = '';   // delete front "//" if you want to change the address bar
+                var elOffset = $(element).offset().top;
+                $('html, body').animate({ scrollTop: elOffset - offset}, 750);
+            }
+        };
+
             $(window).load(function(){
                 // Remove the # from the hash, as different browsers may or may not include it
                 var hash = location.hash.replace('#','');
-                var offset = 50;
-                var el = $("[data-scroll-target='" + hash + "']");
-                if(hash != '' && el.length){
-                    // Clear the hash in the URL
-                    // location.hash = '';   // delete front "//" if you want to change the address bar
-                    var elOffset = $(el).offset().top;
-                    $('html, body').animate({ scrollTop: elOffset - offset}, 750);
-
+                if(hash != '') {
+                    scrollToElement(hash);
                 }
             });
+
+        jQuery(document).ready(function(){
+            $("[data-scroll-to]").each( function(index, element) {
+                $(element).on('click', function(e){
+                    e.preventDefault();
+                    var href = $(this).attr('href');
+                    var locator = href.split("#").slice(-1)[0];
+                    var el = $("[data-scroll-target='" + locator + "']");
+
+                    if(el.length) {
+                        return scrollToElement(locator);
+                    } else {
+                        return window.location = href;
+                    }
+                });
+            });
+        });
+
 
     </script>
 

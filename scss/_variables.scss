@@ -117,12 +117,14 @@ $topbar-height: rem-calc(60);
 ////// Set the link colors and styles for top-level nav
 //$topbar-link-color: $body-font-color;
 //$topbar-link-color-hover: $third-font-color;
-//$topbar-link-color-active: $topbar-bg;
-//$topbar-link-color-active-hover: $topbar-bg;
+$topbar-link-color-active: $anchor-font-color;
+$topbar-link-color-active-hover: $anchor-font-color-hover;
 $topbar-link-font-size: rem-calc(16);
 $topbar-link-padding: $topbar-height / 2;
 
 //$topbar-link-bg-hover: $topbar-bg;
+ $topbar-link-bg-active: $topbar-bg;
+ $topbar-link-bg-active-hover: $topbar-bg;
 
 //// Top menu icon styles
 $topbar-menu-link-color: $anchor-font-color;
