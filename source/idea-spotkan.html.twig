@@ -1,7 +1,14 @@
 ---
 layout: default
+generator: pagination
+pagination:
+  max_per_page: 10
+use:
+  - posts
 ---
 
+{% block title %}O projekcie - PHPers | Idea spotkań | Organizatorzy{% endblock %}
+{% block content %}
     <section id="about" class="fullscreen alternative">
         <div class="row">
             <div class="small-12 medium-7 large-6 columns content">
@@ -43,7 +50,7 @@ layout: default
                 <p>
                     Chcemy zmienić postrzeganie PHP jako języka programowania, bo zasługuje na więcej. Od dawna nie jest
                     to prosty język skryptowy, ale narzędzie, w którym można zaimplementować zaawansowane aplikacje.
-                    <a href="meetup.html">Przed nami wiele mitów</a> do rozwiania.
+                    <a href="/meetup">Przed nami wiele mitów</a> do rozwiania.
                 </p>
             </div>
             <div class="small-12 medium-4 columns">
@@ -58,6 +65,8 @@ layout: default
                     <b>CodeIgniter</b>. Nie wahach się ani chwili dłużej. <a href="#" data-reveal-id="wantBeSpeaker">Przyjdz
                     i podziel się</a> z nami swoją wiedzą.
                 </p>
+
+                {{ include('want-be-speaker.html.twig') }}
             </div>
             <div class="small-12 medium-4 columns">
                 <div class="icon-wrap">
@@ -77,9 +86,13 @@ layout: default
                     - Performance tuning
                     - PSR
 
-                    Jeśli nie wiesz co to oznacza, to oznacza to jedno. <strong>Musisz</strong> pojawić się na naszym
-                    <a href="event.html">najbliższym spotkaniu</a>. Dowiesz się jak wykorzystywać powyższe techniki w
-                    Twoich aplikacjach.
+                    {% for post in page.pagination.items | reverse %}
+                        {% if date(post.date) >= date('today') and loop.last %}
+                            Jeśli nie wiesz co to oznacza, to oznacza to jedno. <strong>Musisz</strong> pojawić się na naszym
+                            <a href="{{ post.url }}">najbliższym spotkaniu</a>. Dowiesz się jak wykorzystywać powyższe techniki w
+                            Twoich aplikacjach.
+                        {% endif %}
+                    {% endfor %}
                 </p>
             </div>
         </div>
@@ -87,8 +100,8 @@ layout: default
     <section id="organizers" data-scroll-target="organizatorzy" class="alternative">
 
         <div class="row">
-            <div class="small-12 medium-7 large-8 columns">
-                <h4 class="headline">Organizatorzy</h4>
+            <div class="small-12 medium-10 columns">
+                <h3 class="headline">Organizatorzy</h3>
                 <h5 class="subhead">
                     Za przygotowanie PHPers odpowiada kilka osób, choć jeśli chcesz, możesz nas wspomóc swoją wiedzą i
                     możliwościami.
@@ -342,3 +355,4 @@ layout: default
         </div>
 
     </section>
+{% endblock content %}

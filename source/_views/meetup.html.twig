@@ -1,5 +1,6 @@
 {% extends "default.html.twig" %}
 
+{% block title %}{{ page.title }} | {{ page.date | date('d M Y') }} {{ page.time }} | {{ page.venue.name }} - {{ page.venue.city }}{% endblock %}
 {% block content_wrapper %}
     <section>
         <div class="row">
