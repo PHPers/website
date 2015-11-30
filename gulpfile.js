@@ -135,13 +135,16 @@ gulp.task('js:watch', function () {
     return gulp.watch(options.src + '/js/**/*.js', ['javascript']);
 });
 
+gulp.task('watch', [
+    'js:watch',
+    'sass:watch'
+]);
+
 gulp.task('build', [
     'bower',
     'fonts',
     'javascript',
     'styles',
-    'js:watch',
-    'sass:watch'
 ]);
 
 gulp.task('default', function () {
