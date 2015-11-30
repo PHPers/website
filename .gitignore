@@ -1,0 +1,48 @@
+# Ignore bundler config
+/.bundle
+
+# Ignore the build directory
+/build
+
+# Ignore Sass' cache
+/.sass-cache
+
+# Ignore .DS_store file
+.DS_Store
+
+# Ignore node modules
+/node_modules
+
+# Ignore NPM debug
+.npm-debug.log
+npm-debug.log
+
+# Ignore temp directory
+.tmp
+
+# Ignore assets folder
+/bower_components
+
+# Ignore compiled/copied files
+/source/css
+/source/js
+/source/fonts
+
+# Ignore sculpin files
+/.sculpin/
+
+# Ignore cache
+/app/cache/*
+
+# Ignore config
+/app/config/sculpin_kernel_*.yml
+/app/config/sculpin_site_*.yml
+
+# Ignore logs
+/app/logs/*
+
+# Ignore dev
+/output_*/
+
+# Ignore others
+s3.conf

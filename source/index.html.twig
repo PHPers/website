@@ -1,0 +1,345 @@
+---
+layout: default
+homepage: true
+generator: pagination
+pagination:
+  max_per_page: 10
+use:
+  - posts
+---
+
+{% block intro %}
+    {% for post in page.pagination.items | reverse %}
+        {% if date(post.date) >= date('today') and loop.last %}
+            <section class="intro">
+                <div class="row banner">
+                    <div class="small-12 columns">
+                        <p class="h1">Kolejny meetup za</p>
+                        <ul id="counter" class="row" data-date="{{ post.date | date('Y-m-d') }}" data-time="{{ post.time }}">
+                            <li>
+                                <a href="{{ post.url }}">
+                                    <span id="days" class="time-counter">&nbsp;</span>dni
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ post.url }}">
+                                    <span id="hours" class="time-counter">&nbsp;</span>godz<span class="ending">in</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ post.url }}">
+                                    <span id="minutes" class="time-counter">&nbsp;</span>min<span class="ending">ut</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ post.url }}">
+                                    <span id="seconds" class="time-counter">&nbsp;</span>sek<span class="ending">und</span>
+                                </a>
+                            </li>
+                        </ul>
+                        {% if post.venue['city'] %}
+                            {% set city = post.venue['city'] %}
+                        {% elseif post.city %}
+                            {% set city = post.city %}
+                        {% endif %}
+
+                        {% if city is defined %}
+                            <p class="h2 meetup-location">{{ city }}</a>
+                        {% endif %}
+                        {#<p class="h2 meetup-location">Rawa Mazowiecka</a>#}
+                        </p>
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+{% block content %}
+            <section id="about">
+                <div class="row">
+                    <div class="medium-3 columns text-right hide-for-small">
+                        <a href="/idea-spotkan" title="Dowiedz się więcej o PHPers">
+                            <img src="images/noun_16184_cc.svg" class="blue-svg margin-top-50"
+                                 onerror="this.onerror=null; this.src='images/noun_16184_cc.png'" alt="">
+                        </a>
+                    </div>
+                    <div class="medium-8 columns">
+                        <h1 class="headline"><strong>Czym są spotkania PHPers</strong></h1>
+
+                        <h3>Na których nie może Cię zabraknąć</h3>
+                        <br>
+
+                        <p>
+                            PHPers to four loko whatever cronut, occupy offal cray drinking vinegar lomo ramps dreamcatcher.
+                            Food truck cardigan schlitz, distillery gastropub hoodie stumptown single-origin coffee selvage
+                            pickled. Distillery bicycle rights selfies blog occupy, post-ironic single-origin coffee. VHS
+                            truffaut freegan single-origin coffee, godard cray mlkshk.
+                        </p>
+                        <h5>Kiedy odbywają się spotkania</h5>
+
+                        <p>Organizatorzy każdego z lokalnych spotkań indywidualnie ustalają harmonogram, ale staramy się
+                            organizować je nie rzadziej niż co dwa miesiące. Realia oczywiście weryfikują nasze założenia.</p>
+                        <br>
+                        <a href="/meetup" title="Archiwum spotkań PHPers"
+                           class="button second elephant-btn no-margin-left">
+                            <i class="fa fa-calendar"></i>
+                            Kalendarz
+                        </a>
+                        <a href="/idea-spotkan" title="Dowiedz się więcej o PHPers"
+                           class="button cta-button elephant-btn">Więcej</a>
+                    </div>
+                </div>
+            </section>
+            <section id="numbers" class="alternative parallax"
+                     style="background-image: url(images/rsz_111390200_858481340897942_2873684353396501587_n_o.jpg);">
+                <div class="row counters">
+                    <div class="small-6 medium-3 columns left">
+                        <div class="counter text-center">
+                            <i class="fa fa-2x fa fa-map-marker"></i>
+                            <br>
+                            <b class="timer" data-to="9" data-speed="2500">9</b>
+                            <br>
+                            <span>miast</span>
+                        </div>
+                    </div>
+                    <div class="small-6 medium-3 columns">
+                        <div class="counter text-center">
+                            <i class="fa fa-2x fa-table"></i>
+                            <br>
+                            <b class="timer" data-to="20" data-speed="1750">20</b>
+                            <br>
+                            <span>spotkań</span>
+                        </div>
+                    </div>
+                    <div class="small-6 medium-3 columns">
+                        <div class="counter text-center">
+                            <i class="fa fa-2x fa-users"></i>
+                            <br>
+                            <b class="timer" data-to="66" data-speed="1250">66</b>
+                            <br>
+                            <span>prelegentów</span>
+                        </div>
+                    </div>
+                    <div class="small-6 medium-3 columns right">
+                        <div class="counter text-center">
+                            <i class="fa fa-2x fa-microphone"></i>
+                            <br>
+                            <b class="timer" data-to="180" data-speed="750">180</b>
+                            <br>
+                            <span>tematów</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="row title-row ">
+                    <div class="small-12 medium-10 columns">
+                        <h3 class="headline">Nadchodzące spotkania</h3>
+                    </div>
+                    <div class="medium-2 columns hide-for-small-only">
+                        <a href="/meetup" title="Archiwum spotkań PHPers"
+                           class="button second button-small elephant-btn no-margin-left">
+                            <i class="fa fa-calendar"></i>
+                            <span class="hide-for-small">Kalendarz</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 medium-6 large-7 columns">
+                        <div id="map"></div>
+                    </div>
+                    <div class="small-12 medium-6 large-5 columns">
+                        <div class="row">
+                            <div class="small-12 medium-9 columns">
+                                {% set showed_meeting_qty = 0 %}
+                                {% for post in page.pagination.items %}
+                                    {% if showed_meeting_qty < 3 %}
+                                        {% set showed_meeting_qty = showed_meeting_qty + 1 %}
+                                        {% set next_meetup_class = '' %}
+                                        {% if date(post.date) >= date('today') %}
+                                            {% set next_meetup_class = 'next-meetup' %}
+                                        {% endif %}
+                                        <div class="meetup-event {{ next_meetup_class }}">
+                                            <div class="meetup-head"><a href="{{ post.url }}">{{ post.title }}</a></div>
+                                            <div class="meetup-date">{{ post.date | date('Y-m-d') }}, godz. {{ post.time }}</div>
+                                            {% if post.abstract %}
+                                                <div>{{ post.abstract }}</div>
+                                            {% else  %}
+                                                {{ post.venue['description']|length > 100 ? post.venue['description']|slice(0, 100) ~ '...' : post.venue['description']  }}
+                                            {% endif %}
+                                            <div class="meetup-more"><a href="{{ post.url }}">Więcej...</a></div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="apply" data-scroll-target="zglos-sie" class="alternative">
+                <div class="row">
+                    <div class="small-12 medium-7 medium-push-1 large-8 large-push-2 columns text-center">
+                        <h3 class="headline">Zgłoś się</h3>
+                        <h4 class="subhead">Podziel się z nami swoją wiedzą i doświadczeniem</h4>
+                        <a href="#" class="button elephant-btn elephant-slant-btn" data-reveal-id="wantBeSpeaker">Zgłoś swoją
+                            prezentację!</a>
+
+                        {{ include('want-be-speaker.html.twig') }}
+                    </div>
+                    <div class="hide-for-small medium-4 columns">
+                        <img src="images/mic24-01.png" alt="Chcesz zostać prelegentem?" class="translucent-image">
+                    </div>
+                </div>
+            </section>
+
+            <section class="social">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <h3 class="headline">W mediach</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-10 small-push-1 medium-reset-order medium-6 large-5 columns">
+                        <a class="twitter-timeline" href="https://twitter.com/PHPersPL" data-widget-id="646003991520911360">
+                            Tweety użytkownika @PHPersPL
+                        </a>
+                        <script>!function (d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                            if (!d.getElementById(id)) {
+                                js = d.createElement(s);
+                                js.id = id;
+                                js.src = p + "://platform.twitter.com/widgets.js";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }
+                        }(document, "script", "twitter-wjs");
+                        </script>
+                    </div>
+                    <div class="small-12 medium-6 large-7 columns ">
+                        <div class="row">
+                            <div class="small-12 medium-10 medium-push-1 columns">
+                                <p>Bushwick Echo Park paleo small batch, VHS American Apparel cronut twee listicle drinking
+                                    vinegar fingerstache pour-over meditation tousled Schlitz. Flannel post-ironic paleo
+                                    Thundercats, small batch put a bird on it aesthetic kitsch polaroid Vice Carles
+                                    salvia.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="small-12 columns">
+                                <div class="device-mockup" data-device="macbook" data-orientation="landscape"
+                                     data-color="white">
+                                    <div class="device">
+                                        <div class="screen">
+                                            <iframe width="468" height="292" src="https://www.youtube.com/embed/LpnVG1JbHS0"
+                                                    frameborder="0" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="ytModal" class="video-modal reveal-modal large" data-reveal
+                             aria-labelledby="videoModalTitle"
+                             aria-hidden="true" role="dialog">
+                            <h2 class="title">This modal has video</h2>
+
+                            <div class="flex-video widescreen vimeo">
+                                <iframe width="1280" height="720" src="https://www.youtube.com/embed/LpnVG1JbHS0"
+                                        frameborder="0" allowfullscreen></iframe>
+                            </div>
+
+                            <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="gallery" class="alternative">
+                <h2>Galerry</h2>
+            </section>
+
+            <section id="sponsors">
+                <div class="row">
+                    <div class="small-12 medium-10 large-8 columns">
+                        <h3 class="headline">Dumnie sponsorowane przez</h3>
+
+                        <p>Za fakt, że spotkania PHPers są darmowe należy podziękować naszym sponsorom. Pabst mixtape echo park,
+                            slow-carb crucifix humblebrag chicharrones. Swag umami franzen, street art actually 8-bit trust fund
+                            YOLO dreamcatcher. Jean shorts pabst tacos, mlkshk humblebrag godard wolf crucifix fixie whatever
+                            vice. Kale chips typewriter seitan franzen pinterest. </p>
+                    </div>
+                </div>
+                <br>
+
+                <div class="row sponsors owl-carousel">
+                    <div class="sponsor-row item">
+                        <a href="#">
+                            <img src="http://cocoders.com/img/logo.png" alt="PHP and Symfony developers">
+                            <br>
+                            Cocoders
+                        </a>
+                    </div>
+                    <div class="sponsor-row item">
+                        <a href="#">
+                            <img src="http://www.megiteam.pl/wp-content/themes/megiteam/img/logo.png"
+                                 alt="platformy hostingowej, serwery dedykowane">
+                            <br>
+                            MEgiTeam
+                        </a>
+                    </div>
+                    <div class="sponsor-row item">
+                        <a href="#">
+                            <img src="http://ventureday.pl/wp-content/uploads/2014/10/gpnt-logo-kolor.png"
+                                 alt="platformy hostingowej, serwery dedykowane">
+                            <br>
+                            GPNT
+                        </a>
+                    </div>
+                    <div class="sponsor-row item">
+                        <a href="#">
+                            <img src="http://cocoders.com/img/logo.png" alt="PHP and Symfony developers">
+                            <br>
+                            Cocoders
+                        </a>
+                    </div>
+                    <div class="sponsor-row item">
+                        <a href="#">
+                            <img src="http://www.megiteam.pl/wp-content/themes/megiteam/img/logo.png"
+                                 alt="platformy hostingowej, serwery dedykowane">
+                            <br>
+                            MEgiTeam
+                        </a>
+                    </div>
+                    <div class="sponsor-row item">
+                        <a href="#">
+                            <img src="http://ventureday.pl/wp-content/uploads/2014/10/gpnt-logo-kolor.png"
+                                 alt="platformy hostingowej, serwery dedykowane">
+                            <br>
+                            GPNT
+                        </a>
+                    </div>
+                    <div class="sponsor-row item">
+                        <a href="#">
+                            <img src="http://cocoders.com/img/logo.png" alt="PHP and Symfony developers">
+                            <br>
+                            Cocoders
+                        </a>
+                    </div>
+                    <div class="sponsor-row item">
+                        <a href="#">
+                            <img src="http://www.megiteam.pl/wp-content/themes/megiteam/img/logo.png"
+                                 alt="platformy hostingowej, serwery dedykowane">
+                            <br>
+                            MEgiTeam
+                        </a>
+                    </div>
+                    <div class="sponsor-row item">
+                        <a href="#">
+                            <img src="http://ventureday.pl/wp-content/uploads/2014/10/gpnt-logo-kolor.png"
+                                 alt="platformy hostingowej, serwery dedykowane">
+                            <br>
+                            GPNT
+                        </a>
+                    </div>
+                </div>
+            </section>
+{% endblock %}

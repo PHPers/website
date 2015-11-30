@@ -1,0 +1,63 @@
+---
+layout: default
+disable_newsletter: true
+show_filters: true
+generator: pagination
+pagination:
+  max_per_page: -1
+use:
+  - posts
+---
+
+{% block title %}Kalendarz spotkań - PHPers{% endblock %}
+{% block content %}
+    <section id="meetups">
+        <div id="pushs" class="clearfix">
+            {% for post in page.pagination.items %}
+                {% set post_category = post.meta['categories'][0] %}
+                {% set upcoming_class = '' %}
+                {% set img = '/images/warsaw-meetup.jpg' %}
+                {% if date(post.date) >= date('now') %}
+                    {% set upcoming_class = 'upcoming' %}
+                    {% set img = '/images/trojmiasto-meetup.jpg' %}
+                {% endif %}
+                <a href="{{ post.url }}" class="mix meetup {{ upcoming_class }} city_{{ post_category }} month_{{ post.date | date('Y-m') }}">
+                    <span class="flip">
+                        <span class="text">
+                            <span class="middleBlock">
+                                <span class="date"><strong>{{ post.date | date('d') }}/</strong>{{ post.date | date('M') }}. {{ post.date | date('Y') }}</span>
+                                <span class="title">{{ post.title }}</span>
+                                <span class="place">
+                                    <i class="fa fa-map-marker"></i>
+                                    {{ post.venue.name }}
+                                </span>
+                            </span>
+                        </span>
+                        <span class="hover">
+                            <img alt="Gdańsk panorama" src="{{ img }}">
+                            <span class="textHover">
+                                <span class="center">
+                                    <span>Więcej</span>
+                                </span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+            {% endfor %}
+        </div>
+        <div class="fail-message clearfix"></div>
+        <div class="loading-message clearfix">
+            <div class="sk-cube-grid">
+                <div class="sk-cube sk-cube1"></div>
+                <div class="sk-cube sk-cube2"></div>
+                <div class="sk-cube sk-cube3"></div>
+                <div class="sk-cube sk-cube4"></div>
+                <div class="sk-cube sk-cube5"></div>
+                <div class="sk-cube sk-cube6"></div>
+                <div class="sk-cube sk-cube7"></div>
+                <div class="sk-cube sk-cube8"></div>
+                <div class="sk-cube sk-cube9"></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
