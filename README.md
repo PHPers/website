@@ -21,8 +21,9 @@ $ node_modules/gulp/bin/gulp.js
 
 > If You have Gulp.js installed globally You can use 'gulp' instead
 
+First make sure you have [sculpin installed](https://sculpin.io/getstarted/) on your system
 ```bash
-$ sculpin generate --watch --serer
+$ sculpin generate --watch --server
 ```
 
 http://localhost:8000
