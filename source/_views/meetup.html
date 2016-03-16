@@ -6,6 +6,14 @@
     <div class="ten columns meeting-description">
         <p>{{ page.date|date("Y-m-d") }}, godz. {{ page.time }}</p>
         <div>{{ page.venue.short }}</div>
+
+    </div>
+    <div class="two columns">
+        {% if page.facebook is not empty %}
+            <a href="{{ page.facebook }}" target="_blank">
+                <img src="/img/social/grey-facebook.png" alt="{{ page.title }} na Facebooku"/>
+            </a>
+        {% endif %}
     </div>
     <!-- End Title -->
 </section><!-- END CONTAINER -->
