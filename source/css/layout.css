@@ -231,8 +231,8 @@
     .clearfix {
       zoom: 1; }
 
-    /* You can also use a <br class="clear" /> to clear columns */
-    .clear {
+    /* You can also use a <br class="clearColumn" /> to clear columns */
+    .clearColumn {
       clear: both;
       display: block;
       overflow: hidden;
