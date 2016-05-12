@@ -6,6 +6,7 @@ var bower = require('gulp-bower');
 var mainBowerFiles = require('main-bower-files');
 var concat = require('gulp-concat');
 var minifyCss = require('gulp-minify-css');
+var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 
 var options = {
@@ -81,8 +82,11 @@ gulp.task('javascript', ['earlyJS', 'vendorJS', 'concatJs'], function() {
 // CSS
 gulp.task('sass', function () {
     return gulp.src(options.src + '/scss/**/*.scss')
-        .pipe($.sass().on('error', $.sass.logError))
-        .pipe($.sass({
+        .pipe(sass({
+            includePaths: [].concat(['bower_components/foundation/scss'])
+        }))
+        .pipe(sass().on('error', $.sass.logError))
+        .pipe(sass({
             outputStyle: 'expanded',
             sourceComments: 'normal'
         }))

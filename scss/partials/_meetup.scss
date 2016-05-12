@@ -271,13 +271,13 @@ html.no-touch {
       }
     }
   }
-  @media #{$landscape} {
-    #pushs {
-      .meetup {
-        width: (100%/3);
-      }
-    }
-  }
+  //@media #{$landscape} {
+  //  #pushs {
+  //    .meetup {
+  //      width: (100%/3);
+  //    }
+  //  }
+  //}
 }
 
 @media #{$medium-up} {
@@ -286,13 +286,13 @@ html.no-touch {
       width: 25%;
     }
   }
-  @media #{$portrait} {
-    #pushs {
-      .meetup {
-        width: (100%/3);
-      }
-    }
-  }
+  //@media #{$portrait} {
+  //  #pushs {
+  //    .meetup {
+  //      width: (100%/3);
+  //    }
+  //  }
+  //}
   #meetups {
     min-height: 330px;
   }

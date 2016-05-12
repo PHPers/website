@@ -1,7 +1,10 @@
+@import "mixins";
 @import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
 @import "../bower_components/foundation/scss/foundation/functions";
+
 @import "variables";
 @import "reset";
+
 @import "../bower_components/foundation/scss/foundation";
 @import "../bower_components/fontawesome/scss/font-awesome";
 @import "partials/mixins";
