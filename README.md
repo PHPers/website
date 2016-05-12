@@ -35,7 +35,7 @@ Running
 sculpin generate --watch --server --port=8080
 ```
 
-and development server should run at http://localhost:8080
+and development server should run at [http://localhost:8080](http://localhost:8080)
 
 
 Running using docker
