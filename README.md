@@ -6,7 +6,9 @@ PHPers website
 Requirements
 ====================
 
-You must have node > 4 & npm > 2.
+You must have
+ - [Node.js](https://nodejs.org/en/) - The version should be higher than **0.10.32**.
+ - [npm](https://docs.npmjs.com/getting-started/installing-node) - The version should be higher than **2.1.8**.
 
 Installing
 ====================
