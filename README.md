@@ -19,7 +19,7 @@ Install dependencies
 $ npm run dependencies
 ```
 
-Run default gulp task. It download dependencies using Bower, compile SCSS and do some other stuff.
+Run default gulp task. It download (if needed) dependencies, compile SCSS and do some other stuff.
 Last task run sass:watch
 
 ```bash
