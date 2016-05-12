@@ -4,18 +4,25 @@
   "description": "PHPers group website",
   "keywords": "php, meetups, developers, website, programming",
   "homepage": "http://phpers.pl/",
-  "contributors": {
-    "name": "Paweł Tekliński",
-    "email": "pawel@teklinski.info",
-    "homepage": "http://teklinski.info"
+  "scripts": {
+    "gulp": "gulp",
+    "bower": "bower",
+    "dependencies": "npm install && npm run bower install"
   },
+  "contributors": [
+    {
+      "name": "Paweł Tekliński",
+      "email": "pawel@teklinski.info",
+      "homepage": "http://teklinski.info"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/PHPers/website"
   },
-  "dependencies": {
+  "devDependencies": {
     "bower": "1.4.1",
-    "gulp": "^3.8.11",
+    "gulp": "^3.9.1",
     "gulp-bower": "0.0.10",
     "gulp-concat": "^2.6.0",
     "gulp-filter": "^2.0.2",

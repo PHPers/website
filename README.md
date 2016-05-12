@@ -3,22 +3,37 @@ website
 
 PHPers website
 
+Requirements
+====================
+
+You must have node > 4 & npm > 2.
+
 Installing
 ====================
 
-Install node dependencies
+Install dependencies
 
 ```bash
-$ npm install
+$ npm run dependencies
 ```
 
 Run default gulp task. It download dependencies using Bower, compile SCSS and do some other stuff.
+Last task run sass:watch
 
 ```bash
-$ node_modules/gulp/bin/gulp.js
+$ npm run gulp
 ```
 
 > If You have Gulp.js installed globally You can use 'gulp' instead
+
+Running
+====================
+
+```bash
+sculpin generate --watch --server --port=8080
+```
+
+and development server should run at http://localhost:8080
 
 
 Running using docker

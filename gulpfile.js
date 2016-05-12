@@ -140,10 +140,9 @@ gulp.task('build', [
     'fonts',
     'javascript',
     'styles',
-    'js:watch',
-    'sass:watch'
+    'js:watch'
 ]);
 
 gulp.task('default', function () {
-    gulp.start('build');
+    gulp.start('build', ['sass:watch']);
 });
