@@ -154,9 +154,18 @@
                         </div>
                         <ul class="menu-dropdown">
                             <li data-id="all" class="default"><span class="link">Wszystkie</span></li>
-                            <li data-id="2015-11" ><span class="link">Listopad 2015</span></li>
-                            <li data-id="2015-10" ><span class="link">Październik 2015</span></li>
-                            <li data-id="2015-09" ><span class="link">Wrzesień 2015</span></li>
+                            {% set postMonths = [] %}
+                            {% for post in data.posts  %}
+                                {% set currentMonth = post.date | date('Y-m') %}
+                                {% if currentMonth not in postMonths %}
+                                    {% set postMonths = postMonths | merge([currentMonth]) %}
+                                {% endif %}
+                            {% endfor %}
+                            {% for date in postMonths %}
+                                <li data-id="{{ date }}" >
+                                    <span class="link">{{ date | localizeddate('none', 'none', 'pl', null, 'MMMM YY') }}</span>
+                                </li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
