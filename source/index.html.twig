@@ -9,50 +9,56 @@ use:
 ---
 
 {% block intro %}
+    {% set upcommingMeetups = [] %}
     {% for post in page.pagination.items | reverse %}
-        {% if date(post.date) >= date('today') and loop.last %}
-            <section class="intro">
-                <div class="row banner">
-                    <div class="small-12 columns">
-                        <p class="h1">Kolejny meetup za</p>
-                        <ul id="counter" class="row" data-date="{{ post.date | date('Y-m-d') }}" data-time="{{ post.time }}">
-                            <li>
-                                <a href="{{ post.url }}">
-                                    <span id="days" class="time-counter">&nbsp;</span>dni
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ post.url }}">
-                                    <span id="hours" class="time-counter">&nbsp;</span>godz<span class="ending">in</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ post.url }}">
-                                    <span id="minutes" class="time-counter">&nbsp;</span>min<span class="ending">ut</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ post.url }}">
-                                    <span id="seconds" class="time-counter">&nbsp;</span>sek<span class="ending">und</span>
-                                </a>
-                            </li>
-                        </ul>
-                        {% if post.venue['city'] %}
-                            {% set city = post.venue['city'] %}
-                        {% elseif post.city %}
-                            {% set city = post.city %}
-                        {% endif %}
-
-                        {% if city is defined %}
-                            <p class="h2 meetup-location">{{ city }}</a>
-                        {% endif %}
-                        {#<p class="h2 meetup-location">Rawa Mazowiecka</a>#}
-                        </p>
-                    </div>
-                </div>
-            </section>
+        {% if date(post.date) >= date('today') %}
+            {% set upcommingMeetups = upcommingMeetups | merge([post]) %}
         {% endif %}
     {% endfor %}
+
+    {% set nextUpcommingMeetup = upcommingMeetups | first %}
+    {% if nextUpcommingMeetup %}
+        <section class="intro">
+            <div class="row banner">
+                <div class="small-12 columns">
+                    <p class="h1">Kolejny meetup za</p>
+                    <ul id="counter" class="row" data-date="{{ nextUpcommingMeetup.date | date('Y-m-d') }}" data-time="{{ nextUpcommingMeetup.time }}">
+                        <li>
+                            <a href="{{ nextUpcommingMeetup.url }}">
+                                <span id="days" class="time-counter">&nbsp;</span>dni
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ nextUpcommingMeetup.url }}">
+                                <span id="hours" class="time-counter">&nbsp;</span>godz<span class="ending">in</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ nextUpcommingMeetup.url }}">
+                                <span id="minutes" class="time-counter">&nbsp;</span>min<span class="ending">ut</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ nextUpcommingMeetup.url }}">
+                                <span id="seconds" class="time-counter">&nbsp;</span>sek<span class="ending">und</span>
+                            </a>
+                        </li>
+                    </ul>
+                    {% if nextUpcommingMeetup.venue['city'] %}
+                        {% set city = nextUpcommingMeetup.venue['city'] %}
+                    {% elseif nextUpcommingMeetup.city %}
+                        {% set city = nextUpcommingMeetup.city %}
+                    {% endif %}
+
+                    {% if city is defined %}
+                        <p class="h2 meetup-location">{{ city }}</a>
+                    {% endif %}
+                    {#<p class="h2 meetup-location">Rawa Mazowiecka</a>#}
+                    </p>
+                </div>
+            </div>
+        </section>
+    {% endif %}
 {% endblock %}
 {% block content %}
             <section id="about">
@@ -97,7 +103,9 @@ use:
                         <div class="counter text-center">
                             <i class="fa fa-2x fa fa-map-marker"></i>
                             <br>
-                            <b class="timer" data-to="9" data-speed="2500">9</b>
+                            <b class="timer" data-to="{{ data.posts | cities | length }}" data-speed="2500">
+                                {{ data.posts | cities | length }}
+                            </b>
                             <br>
                             <span>miast</span>
                         </div>
@@ -106,7 +114,7 @@ use:
                         <div class="counter text-center">
                             <i class="fa fa-2x fa-table"></i>
                             <br>
-                            <b class="timer" data-to="20" data-speed="1750">20</b>
+                            <b class="timer" data-to="{{ data.posts | length }}" data-speed="1750">data.posts | length </b>
                             <br>
                             <span>spotkań</span>
                         </div>
@@ -115,7 +123,7 @@ use:
                         <div class="counter text-center">
                             <i class="fa fa-2x fa-users"></i>
                             <br>
-                            <b class="timer" data-to="66" data-speed="1250">66</b>
+                            <b class="timer" data-to="{{ data.posts | speakers | length }}" data-speed="1250">{{ data.posts | speakers | length }}</b>
                             <br>
                             <span>prelegentów</span>
                         </div>
@@ -124,7 +132,7 @@ use:
                         <div class="counter text-center">
                             <i class="fa fa-2x fa-microphone"></i>
                             <br>
-                            <b class="timer" data-to="180" data-speed="750">180</b>
+                            <b class="timer" data-to="{{ data.posts | talks | length }}" data-speed="750">{{ data.posts | talks | length }}</b>
                             <br>
                             <span>tematów</span>
                         </div>
@@ -152,7 +160,13 @@ use:
                         <div class="row">
                             <div class="small-12 medium-9 columns">
                                 {% set showed_meeting_qty = 0 %}
-                                {% for post in page.pagination.items %}
+                                {% set upcommingMeetups = [] %}
+                                {% for post in page.pagination.items | reverse %}
+                                    {% if date(post.date) >= date('today') %}
+                                        {% set upcommingMeetups = upcommingMeetups | merge([post]) %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% for post in upcommingMeetups %}
                                     {% if showed_meeting_qty < 3 %}
                                         {% set showed_meeting_qty = showed_meeting_qty + 1 %}
                                         {% set next_meetup_class = '' %}

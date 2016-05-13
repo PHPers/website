@@ -98,15 +98,9 @@
                     <li class="has-dropdown {{ current_url == '/meetup' ? 'active' }}">
                         <a href="/meetup">Spotkania</a>
                         <ul class="dropdown">
-                            <li><a href="/meetup?c=krakow">Kraków</a></li>
-                            <li><a href="/meetup?c=slask">Śląsk</a></li>
-                            <li><a href="/meetup?c=trojmiasto">Trójmiasto</a></li>
-                            <li><a href="/meetup?c=warszawa">Warszawa</a></li>
-                            <li><a href="/meetup?c=wroclaw">Wrocław</a></li>
-                            <li><a href="/meetup?c=torun">Toruń</a></li>
-                            <li><a href="/meetup?c=poznan">Poznań</a></li>
-                            <li><a href="/meetup?c=olsztyn">Olsztyn</a></li>
-                            <li><a href="/meetup?c=lodz">Łódź</a></li>
+                            {%  for city in data.posts | cities  %}
+                                <li><a href="/meetup?c={{ city.normalizedName }}">{{ city }}</a></li>
+                            {% endfor %}
                         </ul>
                     </li>
                     <li class="has-dropdown {{ current_url == '/idea-spotkan' ? 'active' }}">
@@ -142,10 +136,9 @@
                         </div>
                         <ul class="menu-dropdown">
                             <li data-id="all" class="default"><span class="link">Wszystkie</span></li>
-                            <li data-id="trojmiasto" ><span class="link">Trójmiast</span></li>
-                            <li data-id="poznan" ><span class="link">Poznań</span></li>
-                            <li data-id="warszawa" ><span class="link">Warszawa</span></li>
-                            <li data-id="krakow" ><span class="link">Kraków</span></li>
+                            {%  for city in data.posts | cities  %}
+                                <li data-id="{{ city.normalizedName }}" ><span class="link">{{ city }}</span></li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -410,15 +403,9 @@
             };
 
             var phpers = [
-                {latLng: [52.13, 21.00], name: 'Warszawa', slug: 'warszawa', style: markerStyle},
-                {latLng: [54.20, 18.38], name: 'Trójmiasto', slug: 'trojmiasto', style: markerStyle},
-                {latLng: [50.22, 18.40], name: 'Śląsk', slug: 'slask', style: markerStyle},
-                {latLng: [51.06, 17.01], name: 'Wrocław', slug: 'wroclaw', style: markerStyle},
-                {latLng: [49.93, 19.56], name: 'Kraków', slug: 'krakow', style: markerStyle},
-                {latLng: [53.01, 18.36], name: 'Toruń', slug: 'torun', style: markerStyle},
-                {latLng: [52.24, 16.56], name: 'Poznań', slug: 'poznan', style: markerStyle},
-                {latLng: [53.46, 20.28], name: 'Olsztyn', slug: 'olsztyn', style: markerStyle},
-                {latLng: [51.77, 19.48], name: 'Łódź', slug: 'lodz', style: markerStyle},
+                {% for city in data.posts | cities %}
+                    {latLng: [{{ city.latitude }}, {{ city.longitude }}], name: '{{ city }}', slug: '{{ city.normalizedName }}', style: markerStyle},
+                {% endfor %}
             ];
 
             $('#map').vectorMap({

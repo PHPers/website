@@ -9,6 +9,15 @@ Requirements
 You must have
  - [Node.js](https://nodejs.org/en/) - The version should be higher than **0.10.32**.
  - [npm](https://docs.npmjs.com/getting-started/installing-node) - The version should be higher than **2.1.8**.
+ - [php](http://php.net) - The version should be >= 5.6 but not 7.0 cause sculpin have problems with 7.0: https://github.com/sculpin/sculpin/issues/297.
+ - [php intl extension](http://php.net/manual/en/intl.setup.php) - **Intl** php extension is required
+ - [sculpin](https://sculpin.io/getstarted/) - You can download sculpin using `curl -O https://download.sculpin.io/sculpin.phar`
+
+If you use docker:
+ - Please build image from project root directory `docker build -t php5 .`
+ - can add such aliases to your .bash_aliases or .bashrc:
+     `alias php='docker run --rm --name php -it -v "$PWD":/usr/src/app -w /usr/src/app php5 php'`
+     `alias npm='docker run --rm --name node -it -v "$PWD":/usr/src/app -w /usr/src/app node:4.4.4 npm'`
 
 Installing
 ====================
@@ -32,14 +41,18 @@ Running
 ====================
 
 ```bash
+sculpin install
 sculpin generate --watch --server --port=8080
 ```
 
 and development server should run at [http://localhost:8080](http://localhost:8080)
 
 
-Running using docker
-====================
+Running Tests
+==============
 
-You can run watcher server using docker by: `./sculpin-docker.sh generate --watch --server` (sudo may be required)
+```bash
+sculpin install --dev
+php bin/phpunit tests
+```
 

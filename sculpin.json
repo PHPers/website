@@ -1,24 +1,27 @@
 {
-    "name": "sculpin/blog-skeleton",
-    "description": "A Skeleton for a Sculpin Based Blog",
-    "type": "sculpin-skeleton",
+    "name": "phpers/website",
+    "description": "Phpers.pl website",
     "license": "MIT",
     "authors": [
         {
-            "name": "Dragonfly Development Inc.",
-            "email": "info@dflydev.com",
-            "homepage": "http://dflydev.com"
-        },
-        {
-            "name": "Beau Simensen",
-            "email": "beau@dflydev.com",
-            "homepage": "http://beausimensen.com"
+            "name": "Phpers",
+            "homepage": "https://github.com/PHPers/website/graphs/contributors"
         }
     ],
     "require": {
-        "mavimo/sculpin-redirect-bundle": "@dev"
+        "mavimo/sculpin-redirect-bundle": "@dev",
+        "ext-intl": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Phpers\\": ["src/Phpers/", "tests/Phpers/"]
+        }
     },
     "config": {
-        "component-dir": "source/components"
+        "component-dir": "source/components",
+        "bin-dir": "bin"
     }
 }

@@ -2,3 +2,171 @@
 # via `site.*`. So for example, {{ site.title }} can be used
 # in a template to get the contents of the `title` key.
 title: PHPers
+organizers:
+  karolSojko:
+    firstName: Karol
+    lastName: Sójko
+    title: PHP developer & Team Leader
+    twitter: karolsojko
+    speakerDeck: https://speakerdeck.com/karolsojko
+    linkedIn: http://www.linkedin.com/in/karolsojko/
+    description: >
+      Programista, architekt i team leader.
+      Na co dzień gorący orędownik BDD i pasjonat usprawniania pracy w zespołach.
+      Odpowiedzialny za spotkania w Trójmieście.
+    image: /images/staff/karol_sojko.jpg
+  leszekPrabucki:
+    firstName: Leszek
+    lastName: Prabucki
+    title: PHP developer
+    twitter: l3l0
+    speakerDeck: https://speakerdeck.com/l3l0
+    linkedIn: https://www.linkedin.com/in/l3l0able
+    description: >
+      Leszek jest programistą PHP od 2007 roku.
+      Uczestnik ruchu Open Source i ruchu w kierunku dobrego piwa.
+      Zainteresowany jest standardami i technologiami związanymi z jakością oprogamowania które zazwyczaj kończą się dwiema literami DD.
+      Czasem występuje jako prelegent albo zorganizuje jakieś szkolenie. Mieszka i pracuje w Gdańsku. Jeden z cocodersów.
+      Odpowiedzialny za spotkania w Trójmieście.
+    image: /images/staff/leszek_prabucki.jpg
+  mariuszGil:
+    firstName: Mariusz
+    lastName: Gil
+    title: PHP developer & architect
+    twitter: mariuszgil
+    speakerDeck: https://speakerdeck.com/mariuszgil
+    linkedIn: http://pl.linkedin.com/in/mariuszgil/
+    description: >
+      Architekt, tech-lead i developer z wieloletnim doświadczeniem w projektowaniu i implementacji skalowalnych
+      i wydajnych aplikacji webowych, także z wykorzystaniem PHP.
+      Odpowiedzialny za spotkania we Wrocławiu.
+    image: /images/staff/mariusz_gil.jpeg
+  leszekKurpiński:
+    firstName: Leszek
+    lastName: Kurpiński
+    title: PHP developer
+    twitter: mariuszgil
+    blog: http://devplant.net/
+    linkedIn: http://www.linkedin.com/in/leszekkrupinski
+    description: >
+      Programista PHP od roku 2000, autor kursu PHP i kilku artykułów na tematy związane z PHP.
+      Organizator i prelegent konferencji WebClusters (pierwsza polska konferencja na temat web scalability).
+      Uczestnik kilku projektów open-source.
+      Architekt rozwiązań wysokowydajnych, analityk bezpieczeństwa aplikacji sieciowych, konsultant.
+      Odpowiedzialny za spotkania w Warszawie.
+    image: /images/staff/leszek_krupinski.jpg
+  tytusCiunelis:
+    firstName: Tytus
+    lastName: Ciunelis
+    title: PHP developer
+    twitter: tciunelis
+    speakerDeck: https://speakerdeck.com/tciunelis
+    linkedIn: http://www.linkedin.com/in/tciunelis
+    description: >
+      Tytus jest pasjonatem kawy i programowania. Pracuje jako starszy programista PHP w firmie Polcode.
+      Odpowiedzialny za spotkania w Warszawie.
+    image: /images/staff/tytus_ciunelis.png
+  alicjaGil:
+    firstName: Alicja
+    lastName: Gil
+    title: Organizatorka eventów
+    description: >
+       Organizatorka, wysłanniczka do zadań specjalnych.
+       Koordynuje wszystkie aspekty PHPers, abyśmy mieli gdzie, kiedy i przy czym się spotkać.
+    image: /images/staff/alicja_gil.jpg
+  michalPipa:
+    firstName: Michał
+    lastName: Pipa
+    title: PHP developer & consultant
+    twitter: michalpipa
+    linkedIn: https://www.linkedin.com/in/michalpipa
+    description: >
+       Programista PHP od zawsze. Współinicjator spotkań PHPowych na Śląsku.
+       Prelegent na wielu meetupach i konferencjach krajowych i zagranicznych.
+       Skarbnica wiedzy na temat PHP i Symfony, które zna od podszewki i z ich zakresu prowadzi szkolenia.
+       Zawsze skory do pomocy i służenia radą potrzbującym tego kolegom po fachu.
+       Dba o kwestie merytoryczne na śląskich spotkaniach.
+    image: /images/staff/michal_pipa.jpg
+  dariuszDrobisz:
+    firstName: Dariusz
+    lastName: Drobisz
+    title: PHP developer
+    twitter: daryush_d
+    linkedIn: https://www.linkedin.com/in/dariuszdrobisz
+    description: >
+      Jeden z organizatorów spotkań na Śląsku.
+      Dba o aspekty lokalowe i gastronomiczne podczas śląskich spotkań.
+      Od początku związany ze śląskimi spotkaniami środowiska PHP, po wyjeździe pierwszego organizatora przejął jego pałeczkę.
+      Programista PHP i pasjonat rajdów samochodowych.
+    image: /images/staff/darek_drobisz.jpg
+  pawelSkotnicki:
+    firstName: Paweł
+    lastName: Skotnicki
+    title: PHP developer
+    twitter: pawelskotnicki
+    linkedIn: https://www.linkedin.com/pub/pawe%C5%82-skotnicki/88/36/2ab
+    description: >
+      Śląski chop od kamery ;) Jego przygoda z PHPers zaczęła się od roli prelegenta,
+      ale szybko zagościł na stałe zajmując się realizacją nagrań i streamingu.
+      Dba o to, aby każda prezentacja się zachowała i poszła w świat.
+      Raz się nie udało - kiedy sam miał prezentację :-D
+      Programista PHP oraz entuzjasta górskich wędrówek.
+    image: /images/staff/pawel_skotnikci.jpg
+  kacperGunia:
+    firstName: Kacper
+    lastName: Gunia
+    title: PHP developer
+    twitter: cakper
+    linkedIn: https://www.linkedin.com/in/cakper/pl
+    blog: http://kacper.gunia.me/
+    description: >
+      Praojciec śląskich spotkań PHP.
+      Programista PHP z wieloletnim doświadczeniem, a z krajowego podwórka szybko wyszedł na szerokie,
+      zagraniczne wody, zarówno jako programista jak i prelegent.
+      Od pewnego czasu wspiera nas zdalnie jako developer i założyciel w SourceMinistry oraz szerzy wieść o PHPers
+      jako prelegent na licznych międzynarodowych konferencjach. Z zamiłowania fotograf.
+    image: /images/staff/kacper_gunia.jpeg
+  norbertOrzechowicz:
+    firstName: Norbert
+    lastName: Orzechowicz
+    title: PHP developer
+    twitter: norzechowicz
+    description: >
+      Organizator krakowskich PHPersów.
+      Programista PHP. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+      ex ea commodo consequat.
+    image: /images/staff/norbert_orzechowicz.jpg
+  filipGolonka:
+    firstName: Filip
+    lastName: Golonka
+    title: PHP developer & Team Leader
+    twitter: FilipGolonka
+    description: >
+      Organizator krakowskich PHPersów.
+      Programista PHP. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+      ex ea commodo consequat.
+    image: /images/staff/filip_golonka.jpg
+  sebastianDudek:
+    firstName: Sebastian
+    lastName: Dudek
+    title: PHP developer
+    twitter: d3dik_pl
+    description: >
+      Organizator poznańskich PHPersów.
+      Programista PHP. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+      ex ea commodo consequat.
+    image: /images/staff/sebastian_dudek.jpg
+  szymonSkowronski:
+    firstName: Szymon
+    lastName: Skowroński
+    title: PHP developer
+    twitter: skowii
+    description: >
+      Organizator PHPersów w Toruniu.
+      Programista PHP. Na co dzień udowadnia, że projektowanie kodu poprzez „Test Driven Development” jest bardzo skuteczne i efektywne.
+      Zainteresowainteresowany technikami programowania obiektowego, wzorcami projektowymi oraz technikami BDD i DDD.
+    image: /images/staff/szymon_skowronski.jpg
+
