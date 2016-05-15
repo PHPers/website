@@ -8,6 +8,11 @@ class MeetupTest extends \PHPUnit_Framework_TestCase
      * @var Meetup $meetup
      */
     private $meetup = [];
+
+    /**
+     * @var Meetup $incompleteMeetup
+     */
+    private $incompleteMeetup = [];
     
     public function setUp()
     {
@@ -59,6 +64,45 @@ Spotykamy się w środę, 13 kwietnia o godzinie 18.00 w <a href="http://ii.uni.
                 ],
             ]
         );
+
+        $this->incompleteMeetup = Meetup::fromArray(
+            [
+                'layout' => 'meetup',
+                'categories' => ['wroclaw'],
+                'title' => 'PHPers Kraków #4',
+                'time' => '18:30',
+                'facebook' => 'https://www.facebook.com/events/593879660761271/',
+                'city' => 'Kraków',
+                'talks' => [
+                    [
+                        'title' => 'TBD',
+                    ],
+                    [
+                        'title' => '',
+                        'speaker' => '',
+                        'description' => '',
+                    ],
+                ],
+                'venue' => [
+                    'location' => '51.1118232,17.0524678',
+                    'short' => 'Instytut Informatyki Uniwersytetu Wrocławskiego, sala 25',
+                    'description' => 'Tym razem mamy okazję współorganizować PHPers Wrocław #4 razem z Wrocław Symfony Group. A to wszystko pod szyldem drugiej edycji GeekWeekWro!
+Po spotkaniu, razem z <a href="https://www.facebook.com/clearcode/" target="_blank">ClearCode</a>, zapraszamy was na after party do <a href="https://www.facebook.com/Cybermachina/" target="_blank">CyberMachiny</a>, na naszą tradycyjną pizzę i piwo.
+Spotykamy się w środę, 13 kwietnia o godzinie 18.00 w <a href="http://ii.uni.wroc.pl" target="_blank">Instytucie Informatyki UWr</a>.',
+                ],
+                'sponsors' => [
+                    [
+                        'name' => 'ClearCode',
+                        'site' => 'http://clearcode.cc',
+                    ],
+                    [
+                        'name' => 'HELION',
+                        'site' => 'http://helion.pl',
+                        'logo' => '/img/sponsor/logo_helion.jpeg',
+                    ]
+                ],
+            ]
+        );
     }
 
     /**
@@ -71,6 +115,13 @@ Spotykamy się w środę, 13 kwietnia o godzinie 18.00 w <a href="http://ii.uni.
         $this->assertSame(2, count($sponsors));
         $this->assertInstanceOf(Sponsor::class, $sponsors[0]);
         $this->assertInstanceOf(Sponsor::class, $sponsors[1]);
+
+        $sponsors = $this->incompleteMeetup->sponsors();
+
+        $this->assertSame(2, count($sponsors));
+        $this->assertInstanceOf(Sponsor::class, $sponsors[0]);
+        $this->assertSame('', $sponsors[0]->logoUrl());
+        $this->assertSame('/img/sponsor/logo_helion.jpeg', $sponsors[1]->logoUrl());
     }
     
     /**
@@ -84,6 +135,12 @@ Spotykamy się w środę, 13 kwietnia o godzinie 18.00 w <a href="http://ii.uni.
         $this->assertInstanceOf(Speaker::class, $speakers[0]);
         $this->assertInstanceOf(Speaker::class, $speakers[1]);
         $this->assertInstanceOf(Speaker::class, $speakers[2]);
+
+        $speakers = $this->incompleteMeetup->speakers();
+
+        $this->assertSame(1, count($speakers));
+        $this->assertInstanceOf(Speaker::class, $speakers[0]);
+        $this->assertSame('', (string) $speakers[0]);
     }
     
     /**

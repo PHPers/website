@@ -51,11 +51,11 @@ class Meetup
         }
         
         foreach ($meetupArray['sponsors'] as $sponsor) {
-            $meetup->sponsors[] = new Sponsor(
-                $sponsor['name'],
-                $sponsor['logo'],
-                $sponsor['site']
-            );
+            $name = $sponsor['name'];
+            $logo = isset($sponsor['logo']) ? $sponsor['logo'] : '';
+            $site = isset($sponsor['lsite']) ? $sponsor['site'] : '';
+
+            $meetup->sponsors[] = new Sponsor($name, $logo, $site);
         }
     }
     
@@ -70,7 +70,9 @@ class Meetup
         }
 
         foreach ($meetupArray['talks'] as $talk) {
-            $meetup->speakers[] = new Speaker($talk['speaker']);
+            if (isset($talk['speaker'])) {
+                $meetup->speakers[] = new Speaker($talk['speaker']);
+            }
         }
     }
     
@@ -85,7 +87,9 @@ class Meetup
         }
 
         foreach ($meetupArray['talks'] as $talk) {
-            $meetup->talks[] = new Talk($talk['title'], $talk['description']);
+            if (isset($talk['description'])) {
+                $meetup->talks[] = new Talk($talk['title'], $talk['description']);
+            }
         }
     }
 
