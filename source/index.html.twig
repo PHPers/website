@@ -63,12 +63,6 @@ use:
 {% block content %}
             <section id="about">
                 <div class="row">
-
-                    <h1>Here</h1>
-                    {%  for city in data.posts | cities  %}
-                        <p><a href="/meetup?c={{ city.normalizedName }}">{{ city }}</a></p>
-                    {% endfor %}
-
                     <div class="medium-3 columns text-right hide-for-small">
                         <a href="/idea-spotkan" title="Dowiedz się więcej o PHPers">
                             <img src="images/noun_16184_cc.svg" class="blue-svg margin-top-50"
