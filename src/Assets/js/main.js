@@ -58,8 +58,6 @@
 
         console.log('TODO: set filter on page load');
         console.log('TODO: add history.js support');
-
-        // ConctactForm
         var contactForm = require('./contact.js');
         contactForm();
         

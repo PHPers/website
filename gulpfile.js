@@ -76,7 +76,7 @@ gulp.task('sass', function() {
 });
 
 // concat css
-gulp.task('concatCss', ['sass'], function() {
+gulp.task('css', ['sass'], function() {
     return gulp.src([
             options.vendor + "/owlcarousel/owl-carousel/owl.carousel.css",
             options.vendor + "/owlcarousel/owl-carousel/owl.theme.css",
@@ -117,13 +117,14 @@ gulp.task('fonts', function() {
 gulp.task('serve', function() {
     browserSync.init({
         server: {
-            baseDir: './build'
+            baseDir: './output_dev'
         }
     });
 
-    gulp.watch(options.src + '/scss/**/*.scss', ['concatCss']);
+    gulp.watch(options.src + '/scss/**/*.scss', ['css']);
     gulp.watch(options.src + '/js/**/*.js', ['js']);
 });
 
 // use gulp-sequence to finish building html, sass and js before first page load
-gulp.task('default', gulpSequence(['concatCss', 'js', 'scripts'], 'serve'));
+gulp.task('build', gulpSequence(['css', 'js', 'scripts', 'fonts']));
+gulp.task('default', gulpSequence(['build'], 'serve'));
