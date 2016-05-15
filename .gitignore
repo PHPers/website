@@ -46,5 +46,6 @@ npm-debug.log
 
 # Ignore others
 s3.conf
+bin
 /bower_components/
 /node_modules/
