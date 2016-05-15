@@ -73,6 +73,9 @@ jQuery(document).ready(function($) {
 
     //handle newsletter form
     newsletterForm();
+
+    // equalize divs
+    equalizeTo();
 });
 
 $(window).resize(function() {
@@ -91,6 +94,19 @@ function recalculate_video_size() {
     $videoFrame.attr('width', width);
 }
 
+function equalizeTo() {
+    var $eqaulize = $("[data-equalize-to]");
+    $.each($eqaulize, function (index, element) {
+        var target = $(element).data('equalizeTo'),
+            $target = $('#' + target);
+        if (!$target.length) {
+            return false;
+        }
+
+        var height = $target.outerHeight(true);
+        $(this).height(height);
+    });
+}
 
 function newsletterForm() {
     var $form = $("#newsletterForm");

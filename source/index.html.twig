@@ -153,27 +153,16 @@ use:
                     </div>
                 </div>
                 <div class="row">
-                    <div class="small-12 medium-6 large-7 columns">
+                    <div id="mapWrapper" class="small-12 medium-6 large-7 columns">
                         <div id="map"></div>
                     </div>
-                    <div class="small-12 medium-6 large-5 columns">
+                    <div id="upcommingMeetups" class="small-12 medium-6 large-5 columns" data-equalize-to="mapWrapper">
                         <div class="row">
                             <div class="small-12 medium-9 columns">
-                                {% set showed_meeting_qty = 0 %}
                                 {% set upcommingMeetups = [] %}
                                 {% for post in page.pagination.items | reverse %}
                                     {% if date(post.date) >= date('today') %}
-                                        {% set upcommingMeetups = upcommingMeetups | merge([post]) %}
-                                    {% endif %}
-                                {% endfor %}
-                                {% for post in upcommingMeetups %}
-                                    {% if showed_meeting_qty < 3 %}
-                                        {% set showed_meeting_qty = showed_meeting_qty + 1 %}
-                                        {% set next_meetup_class = '' %}
-                                        {% if date(post.date) >= date('today') %}
-                                            {% set next_meetup_class = 'next-meetup' %}
-                                        {% endif %}
-                                        <div class="meetup-event {{ next_meetup_class }}">
+                                        <div class="meetup-event next-meetup">
                                             <div class="meetup-head"><a href="{{ post.url }}">{{ post.title }}</a></div>
                                             <div class="meetup-date">{{ post.date | date('Y-m-d') }}, godz. {{ post.time }}</div>
                                             {% if post.abstract %}
@@ -182,6 +171,7 @@ use:
                                                 {{ post.venue['description']|length > 100 ? post.venue['description']|slice(0, 100) ~ '...' : post.venue['description']  }}
                                             {% endif %}
                                             <div class="meetup-more"><a href="{{ post.url }}">Więcej...</a></div>
+
                                         </div>
                                     {% endif %}
                                 {% endfor %}
