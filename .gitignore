@@ -49,3 +49,6 @@ s3.conf
 bin
 /bower_components/
 /node_modules/
+
+# Temp
+gulpfile_old.js

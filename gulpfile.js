@@ -1,152 +1,129 @@
-'use strict';
+var browserSync  = require('browser-sync');
+var watchify     = require('watchify');
+var browserify   = require('browserify');
+var source       = require('vinyl-source-stream');
+var buffer       = require('vinyl-buffer');
+var gulp         = require('gulp');
+var gutil        = require('gulp-util');
+var gulpSequence = require('gulp-sequence');
+var sass         = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
+var watch        = require('gulp-watch');
+var cleancss     = require('gulp-clean-css');
+var uglify       = require('gulp-uglify');
+var streamify    = require('gulp-streamify');
+var sourcemaps   = require('gulp-sourcemaps');
+var concat       = require('gulp-concat');
+var babel        = require('gulp-babel');
+var prod         = gutil.env.prod;
 
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var bower = require('gulp-bower');
-var mainBowerFiles = require('main-bower-files');
-var concat = require('gulp-concat');
-var minifyCss = require('gulp-minify-css');
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-
-var options = {
-    src: '.',
-    dist: './source',
-    tmp: '.tmp',
-    test: 'test/spec',
-    e2e: 'test/e2e',
-    errorHandler: function (title) {
-        return function (err) {
-            gutil.log(gutil.colors.red('[' + title + ']'), err.toString());
-            this.emit('end');
-        };
-    },
-    bower: {
-        directory: './bower_components'
-    }
+var onError = function(err) {
+    console.log(err.message);
+    this.emit('end');
 };
 
-var $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'main-bower-files']
-});
+var options = {
+    src: './src/Assets',
+    dist: './source',
+    tmp: '.tmp',
+    vendor: "./node_modules"
+};
 
-// Bower
-gulp.task('bower-dep', function() {
-    return bower()
-});
+// bundling js with browserify and watchify
+var b = watchify(browserify(options.src + '/js/main', {
+    cache: {},
+    packageCache: {},
+    fullPaths: true
+}));
 
-gulp.task('bower', ['bower-dep'], function() {
-    return gulp.src(mainBowerFiles())
-        .pipe(gulp.dest(options.tmp + "/vendor"))
-});
+gulp.task('js', bundle);
+b.on('update', bundle);
+b.on('log', gutil.log);
 
-// Javascript
-gulp.task('earlyJS', function() {
-    return gulp.src([options.bower.directory + "/modernizr/modernizr.js"])
-        .pipe(sourcemaps.init())
-        .pipe(concat('early.js'))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(options.tmp + '/js'));
-});
-
-gulp.task('vendorJS', function() {
-    return gulp.src([options.tmp + "/vendor/**/*.js", options.src + '/js/libs/**/*.js', '!' + options.src + '/vendor/jquery.js'])
-        .pipe(gulp.dest(options.tmp + '/js'));
-});
-
-//gulp.task('vendorJS', function() {
-//    return gulp.src([options.tmp + "/vendor/**/*.js", options.src + '/js/libs/**/*.js', '!' + options.src + '/vendor/jquery.js'])
-//        .pipe(sourcemaps.init())
-//        .pipe(concat('vendor.js'))
-//        .pipe(sourcemaps.write())
-//        .pipe(gulp.dest(options.tmp + '/js'));
-//});
-
-gulp.task('concatJs', function() {
-    return gulp.src([options.src + "/js/**/*.js", '!' + options.src + '/js/libs/**/*.js'])
-        .pipe(sourcemaps.init())
+function bundle() {
+    return b.bundle()
+        .on('error', onError)
+        .pipe(source('bundle.js'))
+        .pipe(buffer())
+        .pipe(!prod ? sourcemaps.init() : gutil.noop())
+        .pipe(prod ? babel({
+            presets: ['es2015']
+        }) : gutil.noop())
         .pipe(concat('main.js'))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(options.tmp + '/js'));
-});
+        .pipe(!prod ? sourcemaps.write('.') : gutil.noop())
+        .pipe(prod ? streamify(uglify()) : gutil.noop())
+        .pipe(gulp.dest(options.dist + '/js'))
+        .pipe(browserSync.stream());
+}
 
-gulp.task('javascript', ['earlyJS', 'vendorJS', 'concatJs'], function() {
-    return gulp.src([
-        options.tmp + '/js/**/*.js',
-        options.bower.directory + "/html5shiv/dist/html5shiv.js",
-        options.bower.directory + "/jquery/dist/jquery.js"
-    ])
-        .pipe(gulp.dest(options.dist + '/js'));
-});
-
-// CSS
-gulp.task('sass', function () {
+// sass
+gulp.task('sass', function() {
     return gulp.src(options.src + '/scss/**/*.scss')
         .pipe(sass({
-            includePaths: [].concat(['bower_components/foundation/scss'])
+            includePaths: [].concat(require('node-bourbon').includePaths, [
+                'node_modules/foundation-sites/scss',
+                'node_modules/spinkit/scss',
+                'node_modules/font-awesome/scss'
+            ])
         }))
-        .pipe(sass().on('error', $.sass.logError))
-        .pipe(sass({
-            outputStyle: 'expanded',
-            sourceComments: 'normal'
-        }))
+        .on('error', onError)
+        .pipe(prod ? cleancss() : gutil.noop())
+        .pipe(prod ? autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }) : gutil.noop())
         .pipe(gulp.dest(options.tmp + '/css'));
 });
 
+// concat css
 gulp.task('concatCss', ['sass'], function() {
     return gulp.src([
-        options.tmp + "/css/reset.css",
-        options.tmp + "/vendor/owl.carousel.css",
-        options.tmp + "/vendor/owl.theme.css",
-        options.src + "/css/libs/**/*.css",
-        options.tmp + "/css/main.css"
-    ])
+            options.vendor + "/owlcarousel/owl-carousel/owl.carousel.css",
+            options.vendor + "/owlcarousel/owl-carousel/owl.theme.css",
+            options.tmp + "/css/main.css"
+        ])
         .pipe(sourcemaps.init())
-        .pipe(concat('styles.css'))
+        .pipe(concat('main.css'))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(options.tmp + '/css'));
+        .pipe(gulp.dest(options.dist + '/css'))
+        .pipe(browserSync.stream());
 });
 
-gulp.task('styles', ['concatCss'], function () {
-    gulp.src(options.tmp + '/css/styles.css')
-        .pipe(gulp.dest(options.dist + '/css'));
-    gulp.src(options.src + '/css/libs/device-mockups/**/*')
-        .pipe(gulp.dest(options.dist + '/css'));
+// Others scripts
+gulp.task('scripts', function() {
+    return gulp.src([options.vendor + '/html5shiv/dist/html5shiv.min.js'
+        ])
+        .on('error', onError)
+        .pipe(!prod ? sourcemaps.init() : gutil.noop())
+        .pipe(concat('plugins.js'))
+        .pipe(!prod ? sourcemaps.write('.') : gutil.noop())
+        .pipe(gulp.dest(options.dist + '/js/'));
 });
-
 
 // Fonts
 gulp.task('fonts', function() {
-    return gulp.src([
-        options.bower.directory + '/fontawesome/fonts/*.*',
-        './fonts/*.*'
-        ])
-        .pipe(gulp.dest(options.dist + '/fonts/'));
-});
-//
-//// Images
-//gulp.task('images', function() {
-//    gulp.src('./images/**/*.{jpg,png,jpeg}')
-//        .pipe(gulp.dest(options.dist + '/images'));
-//});
-//
-
-gulp.task('sass:watch', function () {
-    return gulp.watch(options.src + '/scss/**/*.scss', ['styles']);
+    gulp.src(options.vendor + '/font-awesome/fonts/*.{eot,svg,ttf,woff,woff2}')
+        .pipe(gulp.dest(options.dist + '/fonts'));
 });
 
-gulp.task('js:watch', function () {
-    return gulp.watch(options.src + '/js/**/*.js', ['javascript']);
+// // images
+// gulp.task('img', function() {
+//     return gulp.src(options.src + './src/images/**/*')
+//         .pipe(gulp.dest('./build/img'))
+//         .pipe(browserSync.stream());
+// });
+
+// browser sync server for live reload
+gulp.task('serve', function() {
+    browserSync.init({
+        server: {
+            baseDir: './build'
+        }
+    });
+
+    gulp.watch(options.src + '/scss/**/*.scss', ['concatCss']);
+    gulp.watch(options.src + '/js/**/*.js', ['js']);
 });
 
-gulp.task('build', [
-    'bower',
-    'fonts',
-    'javascript',
-    'styles',
-    'js:watch'
-]);
-
-gulp.task('default', function () {
-    gulp.start('build', ['sass:watch']);
-});
+// use gulp-sequence to finish building html, sass and js before first page load
+gulp.task('default', gulpSequence(['concatCss', 'js', 'scripts'], 'serve'));

@@ -53,7 +53,7 @@ class Meetup
         foreach ($meetupArray['sponsors'] as $sponsor) {
             $name = $sponsor['name'];
             $logo = isset($sponsor['logo']) ? $sponsor['logo'] : '';
-            $site = isset($sponsor['lsite']) ? $sponsor['site'] : '';
+            $site = isset($sponsor['site']) ? $sponsor['site'] : '';
 
             $meetup->sponsors[] = new Sponsor($name, $logo, $site);
         }
