@@ -58,7 +58,7 @@
         <!-- End Map -->
 </section><!-- END CONTAINER -->
 {% if page.sponsors|length > 0 %}
-<section class="sponsors showcase-entry dark">
+<section class="sponsors showcase-entry {{ page.sponsorsShowcase|default('dark') }}">
     <div class="container clearfix">
         <h1 class="meeting-box">Sponsorzy</h1>
         {% for sponsor in page.sponsors %}
