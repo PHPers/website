@@ -302,7 +302,7 @@ Author URI: http://www.aetherdesign.net
 
 
 	.showcase-entry.light .screen { float: left; }
-	.showcase-entry.light .description { float: right; }
+	.showcase-entry.light .description { float: left; }
 
 	.showcase-entry.dark {
 		width: 100%;
