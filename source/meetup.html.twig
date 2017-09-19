@@ -19,7 +19,6 @@ use:
                 {% set img = '/images/warsaw-meetup.jpg' %}
                 {% if date(post.date) >= date('now') %}
                     {% set upcoming_class = 'upcoming' %}
-                    {% set img = '/images/trojmiasto-meetup.jpg' %}
                 {% endif %}
                 <a href="{{ post.url }}" class="mix meetup {{ upcoming_class }} city_{{ post_category }} month_{{ post.date | date('Y-m') }}">
                     <span class="flip">
@@ -34,7 +33,7 @@ use:
                             </span>
                         </span>
                         <span class="hover">
-                            <img alt="Gdańsk panorama" src="{{ img }}">
+                            <img alt="{{ post.city }}" src="{{ post.img|default('/images/warsaw-meetup.jpg') }}">
                             <span class="textHover">
                                 <span class="center">
                                     <span>Więcej</span>
