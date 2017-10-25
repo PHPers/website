@@ -127,4 +127,5 @@ gulp.task('serve', function() {
 
 // use gulp-sequence to finish building html, sass and js before first page load
 gulp.task('build', gulpSequence(['css', 'js', 'scripts', 'fonts']));
-gulp.task('default', gulpSequence(['build'], 'serve'));
+gulp.task('serve', gulpSequence(['build'], 'serve'));
+gulp.task('default', gulpSequence(['build']));
