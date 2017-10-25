@@ -1,0 +1,29 @@
+{
+  "name": "phpers/website",
+  "description": "Phpers.pl website",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Phpers",
+      "homepage": "https://github.com/PHPers/website/graphs/contributors"
+    }
+  ],
+  "require": {
+    "mavimo/sculpin-redirect-bundle": "@dev",
+    "ext-intl": "*",
+    "sculpin/sculpin": "^2.1@dev",
+    "dflydev/embedded-composer": "@dev"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~5.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Phpers\\": ["src/Phpers/", "tests/Phpers/"]
+    }
+  },
+  "config": {
+    "component-dir": "source/components",
+    "bin-dir": "bin"
+  }
+}

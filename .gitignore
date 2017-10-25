@@ -52,3 +52,5 @@ bin
 
 # Temp
 gulpfile_old.js
+
+/vendor/

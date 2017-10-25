@@ -7,7 +7,7 @@ Requirements
 ====================
 
 You must have
- - [Node.js](https://nodejs.org/en/) - The version should be higher than **0.10.32**.
+ - [Node.js](https://nodejs.org/en/) - The version should be higher than **4.4.4**.
  - [npm](https://docs.npmjs.com/getting-started/installing-node) - The version should be higher than **2.1.8**.
  - [php](http://php.net) - The version should be >= 5.6 but not 7.0 cause sculpin have problems with 7.0: https://github.com/sculpin/sculpin/issues/297.
  - [php intl extension](http://php.net/manual/en/intl.setup.php) - **Intl** php extension is required
@@ -23,6 +23,10 @@ Installing
 ====================
 
 Install dependencies
+
+```bash
+$ composer install
+```
 
 ```bash
 $ npm run dependencies
@@ -41,8 +45,8 @@ Running
 ====================
 
 ```bash
-sculpin install
-sculpin generate --watch --server --port=8080
+$ bin/sculpin install
+$ bin/sculpin generate --watch --server --port=8080
 ```
 
 and development server should run at [http://localhost:8080](http://localhost:8080)

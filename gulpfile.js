@@ -47,7 +47,7 @@ function bundle() {
         .pipe(buffer())
         .pipe(!prod ? sourcemaps.init() : gutil.noop())
         .pipe(prod ? babel({
-            presets: ['es2015']
+            presets: ['env']
         }) : gutil.noop())
         .pipe(concat('main.js'))
         .pipe(!prod ? sourcemaps.write('.') : gutil.noop())
