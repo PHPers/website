@@ -26,10 +26,12 @@ redirect:
                             <span class="middleBlock">
                                 <span class="date"><strong>{{ post.date | date('d') }}/</strong>{{ post.date | date('M') }}. {{ post.date | date('Y') }}</span>
                                 <span class="title">{{ post.title }}</span>
-                                <span class="place">
-                                    <i class="fa fa-map-marker"></i>
-                                    {{ post.venue.name }}
-                                </span>
+                                {% if post.venue and (post.venue.name or post.venue.short) %}
+                                    <span class="place">
+                                        <i class="fa fa-map-marker"></i>
+                                        {{ post.venue.name|default(post.venue.short) }}
+                                    </span>
+                                {% endif %}
                             </span>
                         </span>
                         <span class="hover">
