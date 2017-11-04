@@ -1,99 +1,82 @@
-var mixItUp = require('mixitup');
+var mixitup = require('mixitup');
 
-module.exports = {
-    mixItUp: {
-        conatiner: $('#pushs'),
-
-        init: function(){
-            var self = this;
-
-            self.conatiner.mixItUp({
-                controls: {
-                    enable: false,
-                    live: false
-                },
-                callbacks: {
-                    onMixStart: function(){
-                        $('.fail-message').hide();
-                        $('.loading-message').fadeOut(200);
-                    },
-                    onMixFail: function(){
-                        $('.fail-message').show();
-                    },
-                    onMixLoad: function(){
-                        self.calcHeight();
-                    }
-                },
-                //load: {
-                //    filter: '.city_trojmiasto'
-                //}
-            });
-
-            $(window).scroll(self.calcHeight);
-        },
-
-        calcHeight: function() {
-            var $text = $(".flip .text");
-            var height = $text.first().outerHeight();
-            $text.css({
-                lineHeight: height + 'px'
-            });
-        }
-    },
-    filters: {
-        $filters: null,
-        groups: [],
-        outputArray: [],
-
-        init: function(){
-            var self = this;
-
-            self.$container = $('#pushs');
-            self.$filters = $('#filters');
-
-            self.bindHandlers();
-        },
-
-        bindHandlers: function(){
-            var self = this;
-
-            self.$filters.on('click', '.filter li', function(e){
-                var $element = $(e.currentTarget);
-                var type = $element.parents('.filter').data('type');
-                var active = $element.data('id');
-                var outputString =  '';
-
-                self.groups[type] = '.' + type  + '_' + active;
-                if (!active.length || active == 'all') {
-                    active = 'all';
-                    self.groups[type] = '';
-                }
-
-                for (var key in self.groups) {
-                    outputString += self.groups[key];
-                }
-
-                if (!outputString.length) {
-                    outputString = 'all';
-                }
-                console.log(outputString);
-                self.$container.mixItUp('filter', outputString);
-            });
-        }
-    },
-    getParameterByName: function (name) {
-        var regexS = "[\\?&]"+name+"=([^&#]*)",
-            regex = new RegExp( regexS ),
-            results = regex.exec( window.location.search );
-        if( results == null ){
-            return "";
-        } else{
-            return decodeURIComponent(results[1].replace(/\+/g, " "));
-        }    
-    }
-};
+function getParameterByName(name) {
+  var regexS = "[\\?&]"+name+"=([^&#]*)",
+    regex = new RegExp( regexS ),
+    results = regex.exec( window.location.search );
+  if( results == null ){
+    return "";
+  } else{
+    return decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+}
 
 jQuery(document).ready(function($){
+    // Init mixitup
+    function calcHeight() {
+        var $text = $(".flip .text");
+        var height = $text.first().outerHeight();
+        $text.css({
+          lineHeight: height + 'px'
+        });
+    }
+
+    var mixerContainer = '#pushs';
+    var mixerFilters = '#filters';
+    if (!$(mixerContainer).length) {
+        return;
+    }
+
+    var mixer = mixitup(mixerContainer, {
+        controls: {
+            enable: false,
+            live: false
+        },
+        callbacks: {
+            onMixStart: function(){
+                // calcHeight();
+                $('.fail-message').hide();
+                $('.loading-message').fadeOut(200);
+            },
+            onMixFail: function(){
+                $('.fail-message').show();
+            }
+        },
+        //load: {
+        //    filter: '.city_trojmiasto'
+        //}
+    });
+  window.mymixer = mixer;
+
+    $(window).scroll(calcHeight);
+
+    var groups = [];
+    $(document).on('click', mixerFilters + ' .filter li', function(e){
+        var $element = $(e.currentTarget);
+        var type = $element.parents('.filter').data('type');
+        var active = $element.data('id');
+        var outputString =  '';
+
+        groups[type] = '.' + type  + '_' + active;
+        if (!active.length || active == 'all') {
+            active = 'all';
+            groups[type] = '';
+        }
+
+        for (var key in groups) {
+            outputString += groups[key];
+        }
+
+        if (!outputString.length) {
+            outputString = 'all';
+        }
+        console.log(outputString);
+        mixer.filter(outputString).then(function(state) {
+          console.log(state.totalShow); // true
+        });;
+    });
+
+    // --- //
 
     // Fill text with selected element
     $("#filters ul").each(function(){

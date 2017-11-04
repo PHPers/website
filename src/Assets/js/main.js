@@ -49,12 +49,8 @@
         // equalize divs
         equalizeTo();
 
-        // Mixituup
-        mixIt.mixItUp.init();
-        mixIt.filters.init();
-
-        var filter_location = mixIt.getParameterByName('c');
-        var filter_date = mixIt.getParameterByName('d');
+        // var filter_location = mixIt.getParameterByName('c');
+        // var filter_date = mixIt.getParameterByName('d');
 
         console.log('TODO: set filter on page load');
         console.log('TODO: add history.js support');
@@ -80,16 +76,42 @@
 
     function initSponsorCarousel() {
         var sponsorCarouselOptions = {
-            items: 4,
-            itemsDesktop: [1025, 3],
-            itemsDesktopSmall: [641, 2],
-            lazyLoad: false,
-            navigation: false,
-            pagination: true,
-            autoPlay: 8000,
-            stopOnHover: true
+            loop: true,
+            autoPlay: true,
+            autoplayTimeout: 8000,
+            margin: 10,
+            nav: false,
+            responsive: {
+              0: {
+                items: 4
+              },
+              600: {
+                items: 2
+              },
+              1000: {
+                items: 4
+              }
+            }
         };
+
         $(".sponsors-carousel").owlCarousel(sponsorCarouselOptions);
+
+        var sidebarSponsorCarouselOptions = {
+          loop: true,
+          responsive: {
+            0: {
+              items: 2
+            },
+            600: {
+              items: 2
+            },
+            1000: {
+              items: 2
+            }
+          }
+        };
+
+        $(".location .sponsors .owl-carousel").owlCarousel(sidebarSponsorCarouselOptions);
     }
 
     function initCountDown() {

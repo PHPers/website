@@ -101,7 +101,7 @@ $filters-height: 74px;
 #pushs {
   .meetup {
     width: 100%;
-    display: none;
+    //display: none;
     float: left;
     color: #ffffff;
     text-decoration: none;
@@ -111,10 +111,6 @@ $filters-height: 74px;
     text-align: center;
     position: relative;
     overflow: hidden;
-    -webkit-perspective: 1000;
-    -moz-perspective: 1000;
-    -o-perspective: 1000;
-    -ms-perspective: 1000;
     perspective: 1000;
     span {
       display: block;
@@ -125,24 +121,12 @@ $filters-height: 74px;
       @include opacity(0.5);
     }
     .flip {
-      -webkit-transition: all 300ms ease-out;
-      -moz-transition: all 300ms ease-out;
-      -ms-transition: all 300ms ease-out;
-      -o-transition: all 300ms ease-out;
       transition: all 300ms ease-out;
-      -webkit-transform-style: preserve-3d;
-      -moz-transform-style: preserve-3d;
-      -o-transform-style: preserve-3d;
-      -ms-transform-style: preserve-3d;
       transform-style: preserve-3d;
       position: relative;
       margin: 1px;
     }
     .text, .hover {
-      -webkit-backface-visibility: hidden;
-      -moz-backface-visibility: hidden;
-      -o-backface-visibility: hidden;
-      -ms-backface-visibility: hidden;
       backface-visibility: hidden;
     }
     .text {
@@ -185,10 +169,6 @@ $filters-height: 74px;
       }
     }
     .hover {
-      -webkit-transform: rotateY(180deg);
-      -moz-transform: rotateY(180deg);
-      -ms-transform: rotateY(180deg);
-      -o-transform: rotateY(180deg);
       transform: rotateY(180deg);
       overflow: hidden;
       position: relative;
@@ -232,17 +212,9 @@ $filters-height: 74px;
 html.no-touch {
   #pushs {
     .meetup {
-      -webkit-transform: translate3d(0, 0, 0);
-      -moz-transform: translate3d(0, 0, 0);
-      -ms-transform: translate3d(0, 0, 0);
-      -o-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
       &:hover {
         .flip {
-          -webkit-transform: rotateY(180deg);
-          -moz-transform: rotateY(180deg);
-          -ms-transform: rotateY(180deg);
-          -o-transform: rotateY(180deg);
           transform: rotateY(180deg);
         }
       }

@@ -8,7 +8,6 @@ var gutil        = require('gulp-util');
 var gulpSequence = require('gulp-sequence');
 var sass         = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
-var watch        = require('gulp-watch');
 var cleancss     = require('gulp-clean-css');
 var uglify       = require('gulp-uglify');
 var streamify    = require('gulp-streamify');
@@ -63,7 +62,8 @@ gulp.task('sass', function() {
             includePaths: [].concat(require('node-bourbon').includePaths, [
                 'node_modules/foundation-sites/scss',
                 'node_modules/spinkit/scss',
-                'node_modules/font-awesome/scss'
+                'node_modules/font-awesome/scss',
+                options.vendor + "/owl.carousel/src/scss/"
             ])
         }))
         .on('error', onError)
@@ -78,8 +78,6 @@ gulp.task('sass', function() {
 // concat css
 gulp.task('css', ['sass'], function() {
     return gulp.src([
-            options.vendor + "/owlcarousel/owl-carousel/owl.carousel.css",
-            options.vendor + "/owlcarousel/owl-carousel/owl.theme.css",
             options.tmp + "/css/main.css"
         ])
         .pipe(sourcemaps.init())
@@ -127,5 +125,5 @@ gulp.task('serve', function() {
 
 // use gulp-sequence to finish building html, sass and js before first page load
 gulp.task('build', gulpSequence(['css', 'js', 'scripts', 'fonts']));
-gulp.task('serve', gulpSequence(['build'], 'serve'));
+gulp.task('watch', gulpSequence(['build'], 'serve'));
 gulp.task('default', gulpSequence(['build']));
