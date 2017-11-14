@@ -53,7 +53,7 @@ $primary-footer-color: #8f9296;
 $second-footer-color: #33383b;
 $footer-headline-color: #e8e8e8;
 
-// fonts 
+// fonts
 
 $primary-font: 'Open Sans', sans-serif;
 $nav-font: 'Merriweather', serif;
@@ -64,17 +64,6 @@ $body-font-color: #555;
 
 $rwd-factor-medium: .75;
 $rwd-factor-small: .55;
-
-$h1-font-size: rem-calc(42);
-$h2-font-size: rem-calc(32);
-
-// We use these to control header size reduction on small screens
- $h1-font-reduction: rem-calc(18);
- $h2-font-reduction: rem-calc(12);
- $h3-font-reduction: rem-calc(8);
- $h4-font-reduction: rem-calc(5);
-// $h5-font-reduction: 0;
-// $h6-font-reduction: 0;
 
 // animation
 
@@ -102,7 +91,7 @@ $spinkit-spinner-color: $primary-footer-color !default;
 $topbar-bg: $header-bg;
 
 // Height and margin
-$topbar-height: rem-calc(60);
+$topbar-height: rem-calc(60px);
 
 //// Controlling the styles for the title in the top bar
 //$topbar-title-font-size: rem-calc(17);
@@ -119,7 +108,7 @@ $topbar-height: rem-calc(60);
 //$topbar-link-color-hover: $third-font-color;
 $topbar-link-color-active: $anchor-font-color;
 $topbar-link-color-active-hover: $anchor-font-color-hover;
-$topbar-link-font-size: rem-calc(16);
+$topbar-link-font-size: rem-calc(16px);
 $topbar-link-padding: $topbar-height / 2;
 
 //$topbar-link-bg-hover: $topbar-bg;

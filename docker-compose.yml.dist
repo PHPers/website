@@ -8,3 +8,11 @@ services:
     volumes:
       - .:/app
     working_dir: /app
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile-node
+    tty: true
+    volumes:
+      - .:/app
+    working_dir: /app

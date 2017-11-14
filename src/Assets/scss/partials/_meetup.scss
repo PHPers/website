@@ -45,7 +45,7 @@ $filters-height: 74px;
     text-transform: uppercase;
     border-right: 1px solid darken($intro-bg, 5%);
     cursor: pointer;
-    @include transition(background $color-animation-duration ease-in-out);
+    transition: background $color-animation-duration ease-in-out;
     ul {
       position: absolute;
       left: 0;
@@ -55,7 +55,7 @@ $filters-height: 74px;
       overflow: hidden;
       display: none;
       -webkit-backface-visibility: hidden;
-      @include box-shadow(1px, 1px, 5px, $elephant-back);
+      box-shadow: 1px, 1px, 5px, $elephant-back;
     }
     .selected {
       padding: 0 60px 0 20px;

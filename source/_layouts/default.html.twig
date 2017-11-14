@@ -52,7 +52,8 @@
           rel='stylesheet'
           type='text/css'>
 
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/assets/vendor.css">
+    <link rel="stylesheet" href="/assets/main.css">
     <!--[if lt IE 9]>
         <script src="/js/html5shiv.min.js"></script>
     <![endif]-->
@@ -92,10 +93,10 @@
                 </div>
 
                 <!-- Left Nav Section -->
-                <ul class="left">
+                <ul class="left dropdown menu" data-dropdown-menu>
                     <li class="has-dropdown {{ current_url == '/meetup' ? 'active' }}">
                         <a href="/meetup">Spotkania</a>
-                        <ul class="dropdown">
+                        <ul class="menu vertical">
                             {%  for city in data.posts | cities  %}
                                 <li><a href="/meetup?c={{ city.normalizedName }}">{{ city }}</a></li>
                             {% endfor %}
@@ -103,7 +104,7 @@
                     </li>
                     <li class="has-dropdown {{ current_url == '/idea-spotkan' ? 'active' }}">
                         <a href="/idea-spotkan">O projekcie</a>
-                        <ul class="dropdown">
+                        <ul class="menu vertical">
                             <li><a href="/idea-spotkan">Idea spotkań</a></li>
                             <li><a href="/idea-spotkan#organizatorzy" data-scroll-to>Organizatorzy</a></li>
                         </ul>
@@ -298,7 +299,7 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKDElgtkdaNnJdk2l3pxKerU7j70kOL6U"></script>
     <script src="/js/plugins.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/assets/app.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

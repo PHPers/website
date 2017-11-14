@@ -1,0 +1,15 @@
+@import "mixins";
+@import "settings";
+@import "variables";
+//@import "reset";
+
+@import 'font-awesome';
+
+// Foundation components.
+@import 'foundation';
+
+@include foundation-everything(false, true);
+
+// Other
+@import "owl.carousel";
+@import "owl.theme.default";

@@ -3,7 +3,7 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
   li {
-    @include transition(all $color-animation-duration ease-in-out);
+    transition :all $color-animation-duration ease-in-out;
     display: inline-table;
     font-size: 1rem;
     line-height: 1rem;
@@ -27,7 +27,7 @@
   }
   .time-counter {
     text-shadow: 0 0 1px $intro-bg;
-    @include transition(all $color-animation-duration ease-in-out);
+    transition :all $color-animation-duration ease-in-out;
     font-size: 1.725rem;
     line-height: 2.5rem;
     display: block;

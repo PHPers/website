@@ -11,24 +11,24 @@ nav {
 
 header {
   z-index: 3;
-  @include transform(translateZ(0));
+  transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   background: $header-bg;
   -webkit-box-shadow: 0 0 3px 1px $nav-bg-color;
   -moz-box-shadow: 0 0 3px 1px $nav-bg-color;
   box-shadow: 0 0 3px 1px $nav-bg-color;
-  @include transition(transform $animation-duration);
-  @include transition-timing-function(cubic-bezier(.91,.01,.6,.99));
-  @include transition(background $animation-duration);
+  transition: transform $animation-duration;
+  transition-timing-function: cubic-bezier(.91,.01,.6,.99);
+  transition: background $animation-duration;
   .navigation-is-open & {
     background: $nav-bg-color;
     a.el-nav-trigger {
       color: rgba($nav-font-color, .4);
       border-color: rgba($nav-font-color, .4);
-      @include transition(color $color-animation-duration);
+      transition: color $color-animation-duration;
       .el-nav-icon, .el-nav-sep {
-        @include transition(background $color-animation-duration);
+        transition: background $color-animation-duration;
         background-color: rgba($nav-font-color, .4);
       }
       .no-touch &:hover {
@@ -45,22 +45,22 @@ header {
 
 //header {
 //  z-index: 3;
-//  @include transform(translateZ(0));
+//  transform: translateZ(0);
 //  -webkit-backface-visibility: hidden;
 //  backface-visibility: hidden;
 //  background: $nav-bg-color;
 //  box-shadow: 0 0 1px $nav-bg-color;
-//  @include transition(transform $animation-duration);
-//  @include transition-timing-function(cubic-bezier(.91,.01,.6,.99));
-//  @include transition(background $animation-duration);
+//  transition: transform $animation-duration;
+//  transition-timing-function: cubic-bezier(.91,.01,.6,.99);
+//  transition: background $animation-duration;
 //  .navigation-is-open & {
 //    background: $nav-bg-color;
 //    a.el-nav-trigger {
 //      color: rgba($nav-font-color, .4);
 //      border-color: rgba($nav-font-color, .4);
-//      @include transition(color $color-animation-duration);
+//      transition: color $color-animation-duration;
 //      .el-nav-icon, .el-nav-sep {
-//        @include transition(background $color-animation-duration);
+//        transition: background $color-animation-duration;
 //        background-color: rgba($nav-font-color, .4);
 //      }
 //      .no-touch &:hover {
@@ -105,7 +105,7 @@ header {
 //  border: 2px solid $second-font-color;
 //  font-weight: bold;
 //  text-transform: uppercase;
-//  @include transition(transform $animation-duration - 0.2s);
+//  transition: transform $animation-duration - 0.2s;
 //  &:hover {
 //    color: $second-font-color;
 //  }
@@ -113,7 +113,7 @@ header {
 //    position: absolute;
 //    @include center(y);
 //    left: rem-calc(20px);
-//    @include transform(translateX(0%));
+//    transform: translateX(0%);
 //    width: rem-calc(20px);
 //    height: rem-calc(3px);
 //    background-color: $second-font-color;
@@ -127,18 +127,18 @@ header {
 //      width: 100%;
 //      height: 100%;
 //      background-color: inherit;
-//      @include transform(translateZ(0));
+//      transform: translateZ(0);
 //      -webkit-backface-visibility: hidden;
 //      backface-visibility: hidden;
-//      @include transition(transform $animation-duration - 0.2s, width $animation-duration - 0.2s, top .3s);
+//      transition: transform $animation-duration - 0.2s, width $animation-duration - 0.2s, top .3s;
 //    }
 //    &::before {
-//      @include transform-origin(right top);
-//      @include transform(translateY(-(rem-calc(5px))));
+//    transform: origin(right top;
+//    transform: translateY(-(rem-calc(5px)));
 //    }
 //    &::after {
-//      @include transform-origin(right bottom);
-//      @include transform(translateY(rem-calc(5px)));
+//     transform: origin(right bottom;
+//     transform: translateY(rem-calc(5px));
 //    }
 //  }
 //
@@ -171,20 +171,20 @@ header {
 //  }
 //
 //  circle {
-//    @include transition(stroke-dashoffset $animation-duration - 0.3s 0s);
+//    transition: stroke-dashoffset $animation-duration - 0.3s 0s;
 //  }
 //
 //  .navigation-is-open & {
 //    .el-nav-icon::after,
 //    .el-nav-icon::before {
 //      width: 50%;
-//      @include transition(transform $animation-duration - 0.2s, width $animation-duration - 0.2s);
+//      transition: transform $animation-duration - 0.2s, width $animation-duration - 0.2s;
 //    }
 //    .el-nav-icon::before {
-//      @include transform(rotate(45deg));
+//      transform: rotate(45deg);
 //    }
 //    .el-nav-icon::after {
-//      @include transform(rotate(-45deg));
+//      transform: rotate(-45deg);
 //    }
 //    .no-touch &:hover .el-nav-icon::after,
 //    .no-touch &:hover .el-nav-icon::before {
@@ -200,11 +200,11 @@ main, .intro {
   //-webkit-backface-visibility: hidden;
   //backface-visibility: hidden;
 
-  @include transition(transform $animation-duration);
-  @include transition-timing-function(cubic-bezier(.91,.01,.6,.99));
+  transition: transform $animation-duration;
+  transition-timing-function: cubic-bezier(.91,.01,.6,.99);
 
   .navigation-is-open & {
-    @include transform(translateX(-100%));
+    transform: translateX(-100%);
   }
 }
 
@@ -215,19 +215,47 @@ main {
   -webkit-overflow-scrolling: touch;
 }
 .top-bar {
+  background: #ffffff;
+  height: 3.75rem;
+  line-height: 3.75rem;
+  margin-bottom: 0;
+  overflow: hidden;
+  position: relative;
+  .name {
+    font-size: 16px;
+    height: 3.75rem;
+    margin: 0;
+    h1 {
+      a {
+        color: #ffffff;
+        display: block;
+        font-weight: normal;
+        padding: 0 1.875rem;
+      }
+    }
+  }
+  .title-area {
+    margin: 0;
+    position: relative;
+    list-style: none;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.6;
+    background: transparent;
+  }
   .toggle-topbar.menu-icon a {
-    right: $column-gutter/2;
+    right: 0.9375rem;
     border: 2px solid $anchor-font-color;
     padding: 0 ($topbar-link-padding/2)+rem-calc(25) 0 ($topbar-link-padding/2);
     line-height: 30px;
-    @include transition(all, $color-animation-duration);
+    transition: all, $color-animation-duration;
     span::after {
       right: rem-calc(12px);
       margin-top: -(rem-calc(6px));
       box-shadow: 0 0 0 1px $anchor-font-color,
       0 6px 0 1px $anchor-font-color,
       0 12px 0 1px $anchor-font-color;
-      @include transition(all, $color-animation-duration);
+      transition: all, $color-animation-duration;
     }
   }
   &.expanded {
@@ -247,7 +275,7 @@ main {
 .el-nav-trigger, .top-bar .toggle-topbar a.el-nav-trigger {
   position: relative;
   z-index: 3;
-  right: $column-gutter/2;
+  right: 15px;
   top: 1em;
   margin-left: -(rem-calc(100px));
   padding-top: rem-calc(5px);
@@ -260,7 +288,7 @@ main {
   text-transform: uppercase;
   height: auto;
   line-height: inherit;
-  @include transition(transform $animation-duration - 0.2s);
+  transition: transform $animation-duration - 0.2s;
   &:hover {
     color: scale-color($anchor-font-color, $lightness: -14%);
   }
@@ -268,7 +296,7 @@ main {
     position: absolute;
     @include center(y);
     left: rem-calc(10px);
-    @include transform(translateX(0%));
+    transform: translateX(0%);
     width: rem-calc(18px);
     height: rem-calc(2px);
     background-color: $anchor-font-color;
@@ -281,19 +309,19 @@ main {
       width: 100%;
       height: 100%;
       background-color: inherit;
-      @include transform(translateZ(0));
+      transform: translateZ(0);
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
-      @include transition(transform width top, $animation-duration - 0.2s);
+      transition: transform width top, $animation-duration - 0.2s;
       box-shadow: none;
     }
     &::before {
-      @include transform-origin(right top);
-      @include transform(translateY(-(rem-calc(5px))));
+      transform: origin(right top);
+      transform: translateY(-(rem-calc(5px)));
     }
     &::after {
-      @include transform-origin(right bottom);
-      @include transform(translateY(rem-calc(5px)));
+      transform: origin(right bottom);
+      transform: translateY(rem-calc(5px));
     }
   }
 
@@ -326,20 +354,20 @@ main {
   }
 
   circle {
-    @include transition(stroke-dashoffset $animation-duration - 0.3s 0s);
+    transition: stroke-dashoffset $animation-duration - 0.3s 0s;
   }
 
   .top-bar.expanded .toggle-topbar &, .navigation-is-open & {
     .el-nav-icon::after,
     .el-nav-icon::before {
       width: 50%;
-      @include transition(transform $animation-duration - 0.2s, width $animation-duration - 0.2s);
+      transition: transform $animation-duration - 0.2s, width $animation-duration - 0.2s;
     }
     .el-nav-icon::before {
-      @include transform(rotate(45deg));
+      transform: rotate(45deg);
     }
     .el-nav-icon::after {
-      @include transform(rotate(-45deg));
+      transform: rotate(-45deg);
     }
     .no-touch &:hover .el-nav-icon::after,
     .no-touch &:hover .el-nav-icon::before {
@@ -384,7 +412,7 @@ main {
   padding-top: 0;
   padding-bottom: 100px;
   letter-spacing: 0.05rem;
-  @include transition(visibility 0s $animation-duration);
+  transition: visibility 0s $animation-duration;
   .header-stick & {
     padding-top: 100px;
     padding-bottom: 0;
@@ -395,23 +423,23 @@ main {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     padding: 40px 5% 40px calc(5% + 80px);
-    @include transform(translateZ(0));
+    transform: translateZ(0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 
-    @include transform(translateX(50%));
-    @include transition(transform $animation-duration);
-    @include transition-timing-function(cubic-bezier(.86,.01,.77,.78));
+    transform: translateX(50%);
+    transition: transform $animation-duration;
+    transition-timing-function: cubic-bezier(.86,.01,.77,.78);
   }
 
   .navigation-is-open & {
     visibility: visible;
-    @include transition(visibility 0s 0s);
+    transition: visibility 0s 0s;
 
     .navigation-wrapper {
-      @include transform(translateX(0));
-      @include transition(transform $animation-duration - 0.2s);
-      @include transition-timing-function(cubic-bezier(.82,.01,.77,.78));
+      transform: translateX(0);
+      transition: transform $animation-duration - 0.2s;
+      transition-timing-function: cubic-bezier(.82,.01,.77,.78);
     }
   }
 
@@ -469,6 +497,7 @@ main {
   .top-bar-section ul.right {
     width: 50%;
     padding-left: 110px;
+    float: right;
   }
 
   .top-bar-section ul.right li {
@@ -479,6 +508,7 @@ main {
   .top-bar-section ul.left {
     width:  50%;
     padding-right: 110px;
+    float: left;
   }
 
   .top-bar-section ul.left li {
@@ -487,10 +517,19 @@ main {
 
   .top-bar-section {
     > ul {
+      list-style: none;
+      display: inline;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
       > li, .has-dropdown {
         > a {
           letter-spacing: 0.5px;
           position: relative;
+          background: #ffffff;
+          line-height: 3.75rem;
+          padding: 0 1.875rem;
           &:after {
             content: "";
             position: absolute;
@@ -499,7 +538,7 @@ main {
             width: 0;
             height: 1px;
             background: $third-font-color;
-            @include transition(width left color, $color-animation-duration, ease);
+            transition: width left color, $color-animation-duration, ease;
           }
         }
         &:hover {
@@ -524,7 +563,7 @@ main {
         }
       }
     }
-    .dropdown {
+    .menu .dropdown {
       padding-top: $header-padding;
       li:not(.has-form):not(.active) {
         > a:not(.button) {

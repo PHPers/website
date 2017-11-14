@@ -51,7 +51,7 @@
       font-size: 1.25rem;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
-      @include transition(opacity 400ms);
+      transition: opacity 400ms;
       z-index: 1;
       p {
         font-size: rem-calc(14px);
@@ -89,7 +89,7 @@
       }
       img {
         @include opacity(0.85);
-        @include transition(opacity 400ms);
+        transition: opacity 400ms;
       }
       figcaption {
         position: absolute;
@@ -97,8 +97,8 @@
         left: 0;
         p {
           opacity: 0;
-          @include transition(opacity 400ms, transform 400ms);
-          @include translate3d(0,-10px,0);
+          transition: opacity 400ms, transform 400ms;
+          transform: translate3d(0,-10px,0);
           letter-spacing: 1px;
         }
         p.links {
@@ -117,8 +117,8 @@
           height: 2.25rem;
           background: #fff;
           content: '';
-          @include transition(opacity 400ms, -webkit-transform 400ms);
-          @include transform(translate3d(0,3rem,0) scale3d(1,0.023,1));
+          transition: opacity 400ms, -webkit-transform 400ms;
+          transform: translate3d(0,3rem,0) scale3d(1,0.023,1);
           -webkit-transform-origin: 50% 0;
           transform-origin: 50% 0;
         }
@@ -126,7 +126,7 @@
       &:hover {
         p {
           @include opacity(1);
-          @include transform(translate3d(0,0,0));
+          transform: translate3d(0,0,0);
         }
         img {
           @include opacity(0.55)
@@ -134,7 +134,7 @@
         figcaption {
           &:before {
             @include opacity(0.7);
-            @include transform(translate3d(0,4.8rem,0) scale3d(1,1,1));
+            transform: translate3d(0,4.8rem,0) scale3d(1,1,1);
           }
         }
       }

@@ -2,7 +2,7 @@
 .intro {
   background-color: $intro-bg;
   font-family: $headline-font;
-  @include transition(margin 300ms);
+  transition: margin 300ms;
   .h1, .h2, .h3, .h4, .h5, .h6, p {
     text-transform: uppercase;
     font-family: $headline-font;

@@ -1,56 +1,8 @@
 @import "mixins";
 @import "settings";
 @import "variables";
-@import "reset";
-
-@import 'bourbon';
-@import 'font-awesome';
-
-// Foundation components.
-@import 'foundation/components/grid';
-@import 'foundation/components/accordion';
-@import 'foundation/components/alert-boxes';
-@import 'foundation/components/block-grid';
-@import 'foundation/components/breadcrumbs';
-@import 'foundation/components/button-groups';
-@import 'foundation/components/buttons';
-@import 'foundation/components/clearing';
-@import 'foundation/components/dropdown';
-@import 'foundation/components/dropdown-buttons';
-@import 'foundation/components/flex-video';
-@import 'foundation/components/forms';
-@import 'foundation/components/icon-bar';
-@import 'foundation/components/inline-lists';
-@import 'foundation/components/joyride';
-@import 'foundation/components/keystrokes';
-@import 'foundation/components/labels';
-@import 'foundation/components/magellan';
-@import 'foundation/components/orbit';
-@import 'foundation/components/pagination';
-@import 'foundation/components/panels';
-@import 'foundation/components/pricing-tables';
-@import 'foundation/components/progress-bars';
-@import 'foundation/components/range-slider';
-@import 'foundation/components/reveal';
-@import 'foundation/components/side-nav';
-@import 'foundation/components/split-buttons';
-@import 'foundation/components/sub-nav';
-@import 'foundation/components/switches';
-@import 'foundation/components/tables';
-@import 'foundation/components/tabs';
-@import 'foundation/components/thumbs';
-@import 'foundation/components/tooltips';
-@import 'foundation/components/top-bar';
-@import 'foundation/components/type';
-@import 'foundation/components/offcanvas';
-@import 'foundation/components/visibility';
-
-// Other
-@import "owl.carousel";
-@import "owl.theme.default";
 
 // PHPers partials
-@import "partials/mixins";
 @import "partials/buttons";
 @import "partials/404";
 @import "partials/layout";
@@ -526,7 +478,7 @@ main {
   margin: 0;
   li {
     list-style: none;
-    @include transition(all 200ms ease-out);
+    transition: all 200ms ease-out;
     color: $light-gray;
     &.active {
       font-weight: 600;
@@ -565,7 +517,7 @@ main {
 
 .translucent-image {
   @include opacity(0.8);
-  @include transition(opacity 300ms ease-in-out);
+  transition: opacity 300ms ease-in-out;
   .alternative:hover & {
     @include opacity(1);
   }
@@ -600,13 +552,13 @@ footer {
       width: 2.250rem;
       height: 2.250rem;
       background-color: $second-footer-color;
-      @include border-radius(5px);
+      border-radius: 5px;
       font-size: 1.5rem;
       color: #fff;
       text-align: center;
       line-height: 2rem;
       margin: 0 3px 0 0;
-      @include transition(all, $color-animation-duration, ease);
+      transition: all, $color-animation-duration, ease;
       &:hover {
         background-color: lighten($second-footer-color, 10%);
       }
@@ -776,17 +728,9 @@ xfilter
   box-shadow: 4px 4px 20px transparent;
   z-index: 2;
   /* Force Hardware Acceleration in WebKit */
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transform: translateX(-100%);
-  -moz-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
   transform: translateX(-100%);
   -webkit-transition: -webkit-transform 0.3s, box-shadow 0.3s;
   -moz-transition: -moz-transform 0.3s, box-shadow 0.3s;
@@ -832,10 +776,6 @@ xfilter
 }
 
 .cd-filter.filter-is-visible {
-  -webkit-transform: translateX(0);
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -o-transform: translateX(0);
   transform: translateX(0);
   box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
 }
@@ -865,7 +805,7 @@ xfilter
   text-indent: 100%;
   color: transparent;
   white-space: nowrap;
-  background: transparent url("../img/cd-icon-filter.svg") no-repeat center center;
+  //background: transparent url("../img/cd-icon-filter.svg") no-repeat center center;
   z-index: 3;
 }
 
@@ -884,8 +824,6 @@ xfilter
     font-weight: 700;
     padding-left: 24px;
     background-position: left center;
-    -webkit-transition: color 0.3s;
-    -moz-transition: color 0.3s;
     transition: color 0.3s;
   }
   .no-touch .cd-filter-trigger:hover {

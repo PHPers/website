@@ -5,12 +5,12 @@
 }
 
 .speaker, .location {
-  padding-top: $column-gutter / 2;
-  padding-bottom: $column-gutter;
+  padding-top: 30px / 2;
+  padding-bottom: 30px;
 }
 
 .speaker, .row.speaker {
-  padding-top: $column-gutter;
+  padding-top: 30px;
   margin-bottom: 30px;
   background: $content-box-background;
   border: 1px solid $content-box-border-color;
@@ -38,7 +38,7 @@
     }
     .no-touch & {
       @include opacity(.45);
-      @include transition(opacity .4s);
+      transition: opacity .4s;
     }
     .no-touch &:hover {
       @include opacity(.8);
@@ -49,12 +49,12 @@
 .location {
   background-color: $content-box-background;
   address {
-    margin-top: $column-gutter;
-    margin-bottom: $column-gutter;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
   address a {
     color: #000;
-    @include transition(color 250ms);
+    transition: color 250ms;
   }
   &:hover, &:focus {
     address a {
@@ -74,7 +74,7 @@
   img {
     @include desaturate();
     height: 50px;
-    @include transition(all 450ms ease-out);
+    transition: all 450ms ease-out;
     &:hover {
       @include saturate();
     }
