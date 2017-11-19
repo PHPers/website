@@ -1,3 +1,5 @@
+var $ = require('$');
+
 module.exports = function(element){
     var offset = 50;
     if (typeof element == 'string') {

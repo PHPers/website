@@ -1,4 +1,4 @@
-module.exports = eventHeightRelocate;
+var $ = require('$');
 
 //set the height of your section which makes sticky sit below it
 // windowHeight alone will push it outside the window so do
@@ -15,3 +15,5 @@ function eventHeightRelocate() {
         $(".js-full-height").css({'height': 'auto'});
     }
 }
+
+module.exports = eventHeightRelocate;

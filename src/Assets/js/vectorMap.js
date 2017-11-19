@@ -1,5 +1,7 @@
-require('vectormap');
-require('vectormapPl');
+var $ = require('jquery');
+
+require('./vectormap/jquery.jvectormap.min');
+require('./vectormap/jquery-jvectormap-pl-merc-en');
 
 module.exports = function (e) {
     var $map = $('#map');

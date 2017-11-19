@@ -1,30 +1,30 @@
-var $ = require('jquery');
+var $ = require('$');
 
 module.exports = function (e) {
     $(document).ready(function(){
-        if (jQuery('#contactform').length) {
-            jQuery('#contactform').submit(function(){
+        if ($('#contactform').length) {
+            $('#contactform').submit(function(){
 
-                var action = jQuery(this).attr('action');
+                var action = $(this).attr('action');
 
-                jQuery("#alert").slideUp(750,function() {
-                    jQuery('#alert').hide();
+                $("#alert").slideUp(750,function() {
+                    $('#alert').hide();
 
-                    jQuery('#submit')
+                    $('#submit')
                         .after('<img src="images/ajax-loader.gif" class="loader" />')
                         .attr('disabled','disabled');
 
-                    jQuery.post(action, {
-                            name: jQuery('#name').val(),
-                            email: jQuery('#email').val(),
-                            message: jQuery('#message').val()
+                    $.post(action, {
+                            name: $('#name').val(),
+                            email: $('#email').val(),
+                            message: $('#message').val()
                         },
                         function(data){
                             document.getElementById('alert').innerHTML = data;
-                            jQuery('#alert').slideDown('slow');
-                            jQuery('#contactform img.loader').fadeOut('slow',function(){jQuery(this).remove()});
-                            jQuery('#submit').removeAttr('disabled');
-                            if(data.match('success') != null) jQuery('#contactform').slideUp('slow');
+                            $('#alert').slideDown('slow');
+                            $('#contactform img.loader').fadeOut('slow',function(){$(this).remove()});
+                            $('#submit').removeAttr('disabled');
+                            if(data.match('success') != null) $('#contactform').slideUp('slow');
 
                         }
                     );

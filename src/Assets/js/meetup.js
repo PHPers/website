@@ -1,4 +1,5 @@
-var mixitup = require('mixitup');
+var $          = require('jquery');
+var mixitup    = require('mixitup');
 
 function getParameterByName(name) {
   var regexS = "[\\?&]"+name+"=([^&#]*)",
@@ -11,7 +12,7 @@ function getParameterByName(name) {
   }
 }
 
-jQuery(document).ready(function($){
+$(document).ready(function($){
     // Init mixitup
     function calcHeight() {
         var $text = $(".flip .text");

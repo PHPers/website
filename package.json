@@ -25,19 +25,29 @@
     "browsernizr": "^2.2.0",
     "font-awesome": "^4.7.0",
     "foundation-sites": "^6.4.3",
-    "jquery": "^3.2.1",
+    "gmaps": "^0.4.24",
+    "jquery": "^2.2.4",
     "jquery-countdown": "^2.2.0",
     "jquery-countto": "^1.2.0",
     "mixitup": "^3.2.2",
     "node-sass": "^4.6.1",
     "owl.carousel": "^2.2.0",
     "sass-loader": "^6.0.6",
-    "spinkit": "^1.2.5"
+    "spinkit": "^1.2.5",
+    "viewport-units-buggyfill": "^0.6.2"
   },
-  "browser": {},
+  "browser": {
+    "$": "./node_modules/jquery/dist/jquery.js",
+    "jquery": "./node_modules/jquery/dist/jquery.js",
+    "foundation": "./node_modules/foundation-sites/js/foundation.js",
+    "owlCarousel": "./node_modules/owl.carousel/dist/owl.carousel.js",
+    "countdown": "./node_modules/jquery-countdown/src/countdown.js",
+    "gmaps": "./node_modules/gmaps/gmaps.js",
+    "mixitup": "./node_modules/mixitup/dist/mixitup.js"
+  },
   "browserify-shim": {},
   "browserify": {},
   "engines": {
-    "node": ">=4.8.0"
+    "node": ">=8.9"
   }
 }
