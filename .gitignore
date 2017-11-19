@@ -25,7 +25,6 @@ yarn-error.log
 /bower_components
 
 # Ignore compiled/copied files
-/source/css
 /source/js
 /source/fonts
 

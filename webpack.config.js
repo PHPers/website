@@ -23,6 +23,8 @@ Encore
       'node_modules/owl.carousel/src/scss/',
       'node_modules/spinkit/scss'
     ];
+  }, {
+    resolveUrlLoader: true
   })
 
   // allow legacy applications to use $/jQuery as a global variable
