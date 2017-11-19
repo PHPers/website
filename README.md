@@ -7,8 +7,8 @@ Requirements
 ====================
 
 You must have
- - [Node.js](https://nodejs.org/en/) - The version should be higher than **4.4.4**.
- - [npm](https://docs.npmjs.com/getting-started/installing-node) - The version should be higher than **2.1.8**.
+ - [Node.js](https://nodejs.org/en/) - The version should be higher than **8.9**.
+ - [Yarn](https://yarnpkg.com/en/docs/install) - The version should be higher than **1.3.2**.
  - [php intl extension](http://php.net/manual/en/intl.setup.php) - **Intl** php extension is required
 
 If you use docker and docker-compose:
