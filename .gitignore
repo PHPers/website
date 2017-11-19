@@ -16,6 +16,7 @@
 # Ignore NPM debug
 .npm-debug.log
 npm-debug.log
+yarn-error.log
 
 # Ignore temp directory
 .tmp
