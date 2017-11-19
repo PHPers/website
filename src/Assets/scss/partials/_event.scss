@@ -84,13 +84,13 @@
   }
 }
 
-@media #{$small-only} {
+@include breakpoint(small only) {
   #locationMap {
     width: 90%;
   }
 }
 
-@media #{$large-up} {
+@include breakpoint(large up) {
   .location {
     > .row {
       padding-top: 3rem;
@@ -98,7 +98,7 @@
   }
 }
 
-@media #{$large-up} and (min-height: 320px) {
+@media screen and #{breakpoint(large up)} and (min-height: 320px) {
   .location {
     border-left: 1px solid $content-box-border-color;
     position: fixed;

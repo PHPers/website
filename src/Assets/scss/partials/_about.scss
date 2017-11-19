@@ -1,5 +1,5 @@
 .staff {
-  @media #{$medium-up} {
+  @include breakpoint(medium only) {
     margin-bottom: 4rem;
   }
   figure {
@@ -29,7 +29,7 @@
       span {
         font-weight: 800;
       }
-      @media #{$large-up} {
+      @include breakpoint(large up) {
         word-spacing: -0.15rem;
       }
     }

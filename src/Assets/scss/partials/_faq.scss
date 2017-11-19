@@ -52,7 +52,7 @@ Main components
   box-shadow: 0 1px 5px rgba(#000, .1);
   @include clearfix;
 
-  @media #{$medium-up} {
+  @include breakpoint(medium only) {
     position: relative;
     margin-top: 0;
     box-shadow: none;
@@ -90,7 +90,7 @@ Main components
     border-bottom: none;
   }
 
-  @media #{$medium-up} {
+  @include breakpoint(medium only) {
     width: 200px;
     z-index: 2;
 
@@ -281,7 +281,7 @@ Main components
   margin: 1.6em 0 .4em;
   line-height: 1.2;
 
-  @media #{$medium-up} {
+  @include breakpoint(medium only) {
     @include font-size(24px);
     font-weight: 300;
     margin: 0;

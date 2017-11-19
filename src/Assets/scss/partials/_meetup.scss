@@ -222,7 +222,7 @@ html.no-touch {
   }
 }
 
-@media #{$small-only} {
+@include breakpoint(small only) {
   #filters {
     .filterWrapper {
       line-height: rem-calc(40px);
@@ -252,7 +252,7 @@ html.no-touch {
   //}
 }
 
-@media #{$medium-up} {
+@include breakpoint(medium only) {
   #pushs {
     .meetup {
       width: 25%;
@@ -270,7 +270,7 @@ html.no-touch {
   }
 }
 
-@media #{$xlarge-up} {
+@include breakpoint(xlarge up) {
   #pushs {
     .meetup {
       width: 20%;

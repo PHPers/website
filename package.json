@@ -22,9 +22,12 @@
   "dependencies": {},
   "devDependencies": {
     "@symfony/webpack-encore": "^0.17.0",
+    "browsernizr": "^2.2.0",
     "font-awesome": "^4.7.0",
     "foundation-sites": "^6.4.3",
     "jquery": "^3.2.1",
+    "jquery-countdown": "^2.2.0",
+    "jquery-countto": "^1.2.0",
     "mixitup": "^3.2.2",
     "node-sass": "^4.6.1",
     "owl.carousel": "^2.2.0",

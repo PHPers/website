@@ -28,7 +28,7 @@
   }
 }
 
-@media #{$medium-up} {
+@include breakpoint(medium only) {
   .intro {
     .banner {
       top: 15%;
@@ -42,7 +42,7 @@
   }
 }
 
-@media #{$xlarge-up} {
+@include breakpoint(xlarge up) {
   .intro {
     .banner {
       top: 25%;

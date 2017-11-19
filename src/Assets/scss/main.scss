@@ -80,7 +80,7 @@ h1, .h1 {
   font-size: $h6-font-size - $h6-font-reduction;
 }
 
-@media #{$medium-up} {
+@include breakpoint(medium only) {
   .h1, .h2, .h3, .h4, .h5, .h6 {
     line-height: $header-line-height;
   }
@@ -150,7 +150,7 @@ header {
     margin-top: 10px;
     margin-bottom: -13px;
   }
-  @media #{$small-only} {
+  @include breakpoint(small only) {
     padding: 0;
   }
 }
@@ -158,7 +158,7 @@ header {
 section, footer {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  @media #{$medium-up} {
+  @include breakpoint(medium only) {
     &.fullscreen {
       padding-bottom: 0;
       padding-top: 0;
@@ -172,7 +172,7 @@ section, footer {
       }
     }
   }
-  @media #{$large-up} {
+  @include breakpoint(large up) {
     padding-top: 3rem;
     padding-bottom: 3rem;
     &.fullscreen {
@@ -197,7 +197,7 @@ header, section, footer {
 }
 
 
-@media #{$large-up} {
+@include breakpoint(large up) {
   header, section, footer {
     > .row {
       max-width: none;
@@ -206,7 +206,7 @@ header, section, footer {
   }
 }
 
-@media #{$xlarge-up} {
+@include breakpoint(xlarge up) {
   header, section, footer {
     > .row {
       padding: 0 7%;
@@ -222,7 +222,7 @@ header, section, footer {
   .button {
     margin: rem-calc(6px) 0;
   }
-  @media #{$medium-only} {
+  @include breakpoint(medium only) {
     .button {
       margin: rem-calc(15px) 0;
     }
@@ -241,7 +241,7 @@ main {
       @include font-size-rwd(2.75rem);
       text-transform: uppercase;
       margin-bottom: 1.5rem;
-      @media #{$small-only} {
+      @include breakpoint(small only) {
         margin-top: 1.5rem;
       }
       padding-bottom: rem-calc(8px);
@@ -309,7 +309,7 @@ main {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
-    @media #{$small-up} {
+    @include breakpoint(small up) {
       margin-top: 25px;
     }
     &:hover {
@@ -355,7 +355,7 @@ main {
 .parallax {
   background-position: top center;
   background-size: cover;
-  @media #{$medium-up} {
+  @include breakpoint(medium only) {
     background-attachment: fixed;
   }
 }
@@ -409,7 +409,7 @@ main {
   letter-spacing: 0.8px;
   > .columns {
     &:before, &:after {
-      @media #{$medium-up} {
+      @include breakpoint(medium only) {
         content: '';
         height: 2px;
         width: 20px;
@@ -417,11 +417,11 @@ main {
         position: absolute;
         bottom: 45%;
       }
-      @media #{$large-up} {
+      @include breakpoint(large up) {
         width: 75px;
       }
     }
-    @media #{$medium-up} {
+    @include breakpoint(medium only) {
       &:before {
         left: 0;
       }
@@ -441,11 +441,11 @@ main {
     //border: 2px solid $background;
     padding: 12px 0 15px;
     margin: 0 auto;
-    @media #{$medium-up} {
+    @include breakpoint(medium only) {
       width: 120px;
       height: 150px;
     }
-    @media #{$large-up} {
+    @include breakpoint(large up) {
       padding: 25px 0 30px;
       width: 180px;
       height: 200px;
@@ -456,7 +456,7 @@ main {
     line-height: rem-calc(50px);
     margin: 15px 0 10px;
     display: inline-block;
-    @media #{$large-up} {
+    @include breakpoint(large up) {
       font-size: rem-calc(60px);
       line-height: rem-calc(60px);
     }
@@ -563,10 +563,10 @@ footer {
         background-color: lighten($second-footer-color, 10%);
       }
     }
-    @media #{$medium-up} {
+    @include breakpoint(medium only) {
       margin: 0;
     }
-    @media #{$small-only} {
+    @include breakpoint(small only) {
       text-align: center;
     }
   }
@@ -603,17 +603,17 @@ footer {
   color: $primary-footer-color;
   .thanks-for {
     text-align: right;
-    @media #{$small-only} {
+    @include breakpoint(small only) {
       padding: 6px 0;
     }
   }
-  @media #{$small-only} {
+  @include breakpoint(small only) {
     font-size: rem-calc(12px);
     text-align: center;
   }
 }
 
-@media #{$small-only} {
+@include breakpoint(small only) {
   .copyright {
     .thanks-for {
       text-align: center;

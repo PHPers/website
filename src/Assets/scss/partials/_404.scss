@@ -54,7 +54,7 @@
     .action {
       text-align: right;
     }
-    @media #{$small-only} {
+    @include breakpoint(small only) {
       > div {
         width: 100%;
         padding: 10px 5px;

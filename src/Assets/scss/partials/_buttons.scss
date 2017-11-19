@@ -19,7 +19,7 @@
   margin-bottom: rem-calc(10px);
   margin-top: rem-calc(10px);
   width: 100%;
-  @media #{$medium-up} {
+  @include breakpoint(medium only) {
     width: auto;
     border-width: 3px;
     margin: rem-calc(10px) rem-calc(10px) rem-calc(10px) rem-calc(15px);
@@ -43,10 +43,10 @@
     &:hover, &:focus {
       background: none;
     }
-    @media #{$medium-up} {
+    @include breakpoint(medium only) {
       padding: rem-calc(10px) rem-calc(25px);
     }
-    @media #{$large-up} {
+    @include breakpoint(large up) {
       padding: rem-calc(15px) rem-calc(40px);
     }
   }
@@ -111,7 +111,7 @@
     padding: rem-calc(5px) rem-calc(10px);
     border-width: 2px;
     font-size: 80%;
-    @media #{$large-up} {
+    @include breakpoint(large up) {
       padding: rem-calc(8px) rem-calc(16px);
       font-size: 95%;
     }

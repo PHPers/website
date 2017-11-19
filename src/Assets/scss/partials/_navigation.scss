@@ -376,7 +376,7 @@ main {
   }
 }
 
-@media #{$small-only} {
+@include breakpoint(small only) {
   .el-nav-trigger {
     top: 0;
     font-size: rem-calc(14px);

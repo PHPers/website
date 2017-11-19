@@ -33,14 +33,14 @@
     display: block;
     font-weight: 700;
     letter-spacing: 0.1rem;
-    @media #{$medium-up} {
+    @include breakpoint(medium only) {
       font-size: 2.15rem;
       line-height: 3rem;
     }
   }
 }
 
-@media #{$medium-up} {
+@include breakpoint(medium only) {
   #counter {
     li {
       a {
@@ -56,7 +56,7 @@
   }
 }
 
-@media #{$xlarge-up} {
+@include breakpoint(xlarge up) {
   #counter {
     li {
       font-size: 1.125rem;

@@ -66,10 +66,10 @@
 
 @mixin font-size-rwd($size) {
   font-size: $size;
-  @media #{$medium-only} {
+  @include breakpoint(medium only) {
     font-size: $size * $rwd-factor-medium;
   }
-  @media #{$small-only} {
+  @include breakpoint(small only) {
     font-size: max($size * $rwd-factor-small, 1rem);
   }
 }
@@ -77,10 +77,10 @@
 @mixin line-height-rwd($size) {
   line-height: $size;
   @if not unitless($size) {
-    @media #{$medium-only} {
+    @include breakpoint(medium only) {
       line-height: $size * $rwd-factor-medium;
     }
-    @media #{$small-only} {
+    @include breakpoint(small only) {
       line-height: max($size * $rwd-factor-small, 1rem);
     }
   }
