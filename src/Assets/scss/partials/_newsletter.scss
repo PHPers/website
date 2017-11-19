@@ -15,7 +15,7 @@
       padding-bottom: 0;
       padding-top: 0;
       border: 3px solid $white;
-      @include breakpoint(medium only) {
+      @include breakpoint(medium up) {
         border-left: none;
         margin: 0 0 0 -2px;
       }
@@ -53,7 +53,7 @@
         font-size: 0.825rem;
         margin-bottom: 0;
       }
-      @include breakpoint(medium only) {
+      @include breakpoint(medium up) {
         left: 30px;
       }
     }

@@ -19,7 +19,7 @@
   margin-bottom: rem-calc(10px);
   margin-top: rem-calc(10px);
   width: 100%;
-  @include breakpoint(medium only) {
+  @include breakpoint(medium up) {
     width: auto;
     border-width: 3px;
     margin: rem-calc(10px) rem-calc(10px) rem-calc(10px) rem-calc(15px);
@@ -43,7 +43,7 @@
     &:hover, &:focus {
       background: none;
     }
-    @include breakpoint(medium only) {
+    @include breakpoint(medium up) {
       padding: rem-calc(10px) rem-calc(25px);
     }
     @include breakpoint(large up) {

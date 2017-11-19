@@ -252,7 +252,7 @@ html.no-touch {
   //}
 }
 
-@include breakpoint(medium only) {
+@include breakpoint(medium up) {
   #pushs {
     .meetup {
       width: 25%;

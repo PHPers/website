@@ -1,5 +1,5 @@
 .staff {
-  @include breakpoint(medium only) {
+  @include breakpoint(medium up) {
     margin-bottom: 4rem;
   }
   figure {

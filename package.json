@@ -26,7 +26,7 @@
     "font-awesome": "^4.7.0",
     "foundation-sites": "^6.4.3",
     "gmaps": "^0.4.24",
-    "jquery": "^2.2.4",
+    "jquery": "^3.2.1",
     "jquery-countdown": "^2.2.0",
     "jquery-countto": "^1.2.0",
     "mixitup": "^3.2.2",

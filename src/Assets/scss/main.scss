@@ -80,7 +80,7 @@ h1, .h1 {
   font-size: $h6-font-size - $h6-font-reduction;
 }
 
-@include breakpoint(medium only) {
+@include breakpoint(medium up) {
   .h1, .h2, .h3, .h4, .h5, .h6 {
     line-height: $header-line-height;
   }
@@ -158,7 +158,7 @@ header {
 section, footer {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  @include breakpoint(medium only) {
+  @include breakpoint(medium up) {
     &.fullscreen {
       padding-bottom: 0;
       padding-top: 0;
@@ -355,7 +355,7 @@ main {
 .parallax {
   background-position: top center;
   background-size: cover;
-  @include breakpoint(medium only) {
+  @include breakpoint(medium up) {
     background-attachment: fixed;
   }
 }
@@ -409,7 +409,7 @@ main {
   letter-spacing: 0.8px;
   > .columns {
     &:before, &:after {
-      @include breakpoint(medium only) {
+      @include breakpoint(medium up) {
         content: '';
         height: 2px;
         width: 20px;
@@ -421,7 +421,7 @@ main {
         width: 75px;
       }
     }
-    @include breakpoint(medium only) {
+    @include breakpoint(medium up) {
       &:before {
         left: 0;
       }
@@ -441,7 +441,7 @@ main {
     //border: 2px solid $background;
     padding: 12px 0 15px;
     margin: 0 auto;
-    @include breakpoint(medium only) {
+    @include breakpoint(medium up) {
       width: 120px;
       height: 150px;
     }
@@ -563,7 +563,7 @@ footer {
         background-color: lighten($second-footer-color, 10%);
       }
     }
-    @include breakpoint(medium only) {
+    @include breakpoint(medium up) {
       margin: 0;
     }
     @include breakpoint(small only) {

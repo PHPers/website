@@ -28,7 +28,7 @@
   }
 }
 
-@include breakpoint(medium only) {
+@include breakpoint(medium up) {
   .intro {
     .banner {
       top: 15%;

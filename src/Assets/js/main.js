@@ -16,7 +16,7 @@ console.log('Hello world');
   require('countdown');
   require('jquery-countto');
 
-  var vectorMap = require('./vectorMap');
+  // var vectorMap = require('./vectorMap');
   var eventHeightRelocate = require('./event.js');
   var mixIt = require('./meetup.js');
   var map = require('./map');
@@ -37,7 +37,7 @@ console.log('Hello world');
     initFoundation();
     initCountDown();
     initCountTo();
-    vectorMap();
+    // vectorMap();
     initSponsorCarousel();
     map();
 
