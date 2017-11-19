@@ -1,5 +1,3 @@
-console.log('Hello world');
-
 var $          = require('jquery');
 
 (function($) {
@@ -34,7 +32,8 @@ var $          = require('jquery');
   $(document).ready(function($) {
     "use strict";
 
-    // var map = require('./map');
+    var map = require('./map');
+    var browserScrollTo = require('./browserScrollTo');
 
     initFoundation();
     initCountDown();
@@ -42,6 +41,7 @@ var $          = require('jquery');
     // vectorMap();
     initSponsorCarousel();
     map();
+    browserScrollTo();
 
     // video size in device-mockup
     recalculateVideoSize();
@@ -57,8 +57,8 @@ var $          = require('jquery');
 
     console.log('TODO: set filter on page load');
     console.log('TODO: add history.js support');
-    // var contactForm = require('./contact.js');
-    // contactForm();
+    var contactForm = require('./contact.js');
+    contactForm();
   });
 
   function sidebarPadding() {

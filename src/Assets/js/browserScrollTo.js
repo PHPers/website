@@ -2,8 +2,7 @@ var $               = require('jquery');
 var scrollToElement = require('./scrollTo');
 
 module.exports = function (e) {
-
-    $(window).load(function(){
+    $(window).on('load', function(){
         // Remove the # from the hash, as different browsers may or may not include it
         var hash = location.hash.replace('#','');
         if(hash != '') {
@@ -13,7 +12,6 @@ module.exports = function (e) {
 
     $(document).ready(function(){
         $("[data-scroll-to]").each( function(index, element) {
-            console.log($(element));
             $(element).on('click', function(e){
                 e.preventDefault();
                 var href = $(this).attr('href');
