@@ -1,0 +1,77 @@
+#counter {
+  list-style: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  li {
+    transition :all $color-animation-duration ease-in-out;
+    display: inline-table;
+    font-size: 1rem;
+    line-height: 1rem;
+    margin: 0.3125rem;
+    color: $intro-bg;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    background-color: rgba($nav-font-color, 0.45);
+    a {
+      display: block;
+      height: 6rem;
+      width: 6rem;
+      padding-top: 1rem;
+    }
+    a, a:hover {
+      color: $intro-bg;
+    }
+    &:hover{
+      background-color: rgba($nav-font-color, 0.8);
+    }
+  }
+  .time-counter {
+    text-shadow: 0 0 1px $intro-bg;
+    transition :all $color-animation-duration ease-in-out;
+    font-size: 1.725rem;
+    line-height: 2.5rem;
+    display: block;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    @include breakpoint(medium up) {
+      font-size: 2.15rem;
+      line-height: 3rem;
+    }
+  }
+}
+
+@include breakpoint(medium up) {
+  #counter {
+    li {
+      a {
+        height: 6.25rem;
+        width: 6.25rem;
+      }
+    }
+    .time-counter {
+      font-size: 2.65rem;
+      line-height: 3rem;
+      letter-spacing: 0.1rem;
+    }
+  }
+}
+
+@include breakpoint(xlarge up) {
+  #counter {
+    li {
+      font-size: 1.125rem;
+      line-height: 1.125rem;
+      margin: 0.5rem;
+      a {
+        padding-top: 1.125rem;
+        height: 7.5rem;
+        width: 7.5rem;
+      }
+    }
+    .time-counter {
+      font-size: 3rem;
+      line-height: 3.75rem;
+      letter-spacing: 0.1rem;
+    }
+  }
+}

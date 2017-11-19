@@ -52,14 +52,14 @@
           rel='stylesheet'
           type='text/css'>
 
-    <link rel="stylesheet" href="/css/styles.css">
-    <script src="/js/early.js"></script>
+    <link rel="stylesheet" href="/assets/vendor.css">
+    <link rel="stylesheet" href="/css/device-mockups.css">
+    <link rel="stylesheet" href="/assets/main.css">
     <!--[if lt IE 9]>
-    <script src="/js/html5shiv.js"></script>
+        <script src="/js/html5shiv.min.js"></script>
     <![endif]-->
 </head>
 <body class="{% if page.homepage %}homepage{% else %} {% endif %}{% if page.body_class %}{{ page.body_class }}{% endif %}">
-    <!--<body class="navigation-is-open">-->
     <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
         your browser</a> to improve your experience.</p>
@@ -94,24 +94,18 @@
                 </div>
 
                 <!-- Left Nav Section -->
-                <ul class="left">
+                <ul class="left dropdown menu" data-dropdown-menu>
                     <li class="has-dropdown {{ current_url == '/meetup' ? 'active' }}">
                         <a href="/meetup">Spotkania</a>
-                        <ul class="dropdown">
-                            <li><a href="/meetup?c=krakow">Kraków</a></li>
-                            <li><a href="/meetup?c=slask">Śląsk</a></li>
-                            <li><a href="/meetup?c=trojmiasto">Trójmiasto</a></li>
-                            <li><a href="/meetup?c=warszawa">Warszawa</a></li>
-                            <li><a href="/meetup?c=wroclaw">Wrocław</a></li>
-                            <li><a href="/meetup?c=torun">Toruń</a></li>
-                            <li><a href="/meetup?c=poznan">Poznań</a></li>
-                            <li><a href="/meetup?c=lodz">Łódź</a></li>
-                            <li><a href="/meetup?c=bielsko-biala">Bielsko-Biała</a></li>
+                        <ul class="menu vertical">
+                            {%  for city in data.posts | cities  %}
+                                <li><a href="/meetup?c={{ city.normalizedName }}">{{ city }}</a></li>
+                            {% endfor %}
                         </ul>
                     </li>
                     <li class="has-dropdown {{ current_url == '/idea-spotkan' ? 'active' }}">
                         <a href="/idea-spotkan">O projekcie</a>
-                        <ul class="dropdown">
+                        <ul class="menu vertical">
                             <li><a href="/idea-spotkan">Idea spotkań</a></li>
                             <li><a href="/idea-spotkan#organizatorzy" data-scroll-to>Organizatorzy</a></li>
                         </ul>
@@ -142,10 +136,9 @@
                         </div>
                         <ul class="menu-dropdown">
                             <li data-id="all" class="default"><span class="link">Wszystkie</span></li>
-                            <li data-id="trojmiasto" ><span class="link">Trójmiast</span></li>
-                            <li data-id="poznan" ><span class="link">Poznań</span></li>
-                            <li data-id="warszawa" ><span class="link">Warszawa</span></li>
-                            <li data-id="krakow" ><span class="link">Kraków</span></li>
+                            {%  for city in data.posts | cities  %}
+                                <li data-id="{{ city.normalizedName }}" ><span class="link">{{ city }}</span></li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -161,9 +154,18 @@
                         </div>
                         <ul class="menu-dropdown">
                             <li data-id="all" class="default"><span class="link">Wszystkie</span></li>
-                            <li data-id="2015-11" ><span class="link">Listopad 2015</span></li>
-                            <li data-id="2015-10" ><span class="link">Październik 2015</span></li>
-                            <li data-id="2015-09" ><span class="link">Wrzesień 2015</span></li>
+                            {% set postMonths = [] %}
+                            {% for post in data.posts  %}
+                                {% set currentMonth = post.date | date('Y-m') %}
+                                {% if currentMonth not in postMonths %}
+                                    {% set postMonths = postMonths | merge([currentMonth]) %}
+                                {% endif %}
+                            {% endfor %}
+                            {% for date in postMonths %}
+                                <li data-id="{{ date }}" >
+                                    <span class="link">{{ date | localizeddate('none', 'none', 'pl', null, 'MMMM YY') }}</span>
+                                </li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -188,14 +190,19 @@
                         <div class="form-wrap newsletter-cont" data-perspective>
                             <div id="newsletterFormWrap" class="newsletter-wrap">
                                 <div class="content">
-                                    <form id="newsletterForm" data-wrap="newsletterFormWrap" class="row collapse">
-                                        <div class="small-12 medium-9 columns">
-                                            <input type="email" placeholder="Subskrybuj aktualizacje" name="subscriber_email">
-                                        </div>
-                                        <div class="small-12 medium-3 columns">
-                                            <button type="submit" class="button postfix elephant-btn elephant-slide-left-btn">
-                                                Zapisz się
-                                            </button>
+                                    <form id="newsletterForm" data-wrap="newsletterFormWrap"
+                                          action="//phpers.us10.list-manage.com/subscribe/post?u=33c98079a6e39b706e5e58063&amp;id=a80c0f624d"
+                                          method="post" name="mc-embedded-subscribe-form"
+                                    >
+                                        <div id="mc_embed_signup_scroll" class="row collapse">
+                                            <div class="small-12 medium-9 columns">
+                                                <input type="email" placeholder="Subskrybuj aktualizacje" name="subscriber_email">
+                                            </div>
+                                            <div class="small-12 medium-3 columns">
+                                                <button type="submit" class="button postfix elephant-btn elephant-slide-left-btn">
+                                                    Zapisz się
+                                                </button>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -210,7 +217,6 @@
                                         <span class="h4">
                                             Thank you!
                                         </span>
-
                                             <p>Your message has been successfully sent. We will contact you very soon!</p>
                                         </div>
                                     </div>
@@ -285,266 +291,15 @@
         {% endif %}
     </main>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-    <script>window.jQuery || document.write('<script src="/js/jquery.js"><\/script>')</script>
-    <!--<script src="/js/vendor.js"></script>-->
-
-    <script src="/js/fastclick.js"></script>
-    <script src="/js/foundation.js"></script>
-    <script src="/js/owl.carousel.js"></script>
-
-    <script src="/js/mobile-detect.js"></script>
-    <script src="/js/mobile-detect-modernizr.js"></script>
-    <script src="/js/viewport-units-buggyfill.js"></script>
-    <script src="/js/jquery.countTo.js"></script>
-    <script src="/js/jquery.countdown.js"></script>
-    <script src="/js/jquery.mixitup.js"></script>
-    <script src="/js/jquery.appear.js"></script>
-    <script src="/js/gmaps.js"></script>
-    <script src="/js/jquery.jvectormap.min.js"></script>
-    <script src="/js/jquery-jvectormap-pl-merc-en.js"></script>
-    <script src="/js/jquery.history.js"></script>
-
-    <script>
-        $(document).foundation({
-            topbar: {
-                custom_back_text: true,
-                back_text: 'Wstecz'
-            }
-        });
-    </script>
-
-    <script>
-        //    $(window).stellar();
-    </script>
-
-    <script>
-        $(".owl-carousel").owlCarousel({
-            items: 2,
-            itemsDesktop: [1025, 4],
-            itemsDesktopSmall: [641, 3],
-            lazyLoad: false,
-            navigation: false,
-            pagination: true,
-            autoPlay: 8000,
-            stopOnHover: true
-        });
-    </script>
-
-    <script>window.viewportUnitsBuggyfill.init();</script>
-
-    <script>
-
-        var scrollToElement = function(element){
-            var offset = 50;
-            if (typeof element == 'string') {
-                element = $("[data-scroll-target='" + element + "']");
-            }
-            if(element.length){
-                // Clear the hash in the URL
-                // location.hash = '';   // delete front "//" if you want to change the address bar
-                var elOffset = $(element).offset().top;
-                $('html, body').animate({ scrollTop: elOffset - offset}, 750);
-            }
-        };
-
-            $(window).load(function(){
-                // Remove the # from the hash, as different browsers may or may not include it
-                var hash = location.hash.replace('#','');
-                if(hash != '') {
-                    scrollToElement(hash);
-                }
-            });
-
-        jQuery(document).ready(function(){
-            $("[data-scroll-to]").each( function(index, element) {
-                $(element).on('click', function(e){
-                    e.preventDefault();
-                    var href = $(this).attr('href');
-                    var locator = href.split("#").slice(-1)[0];
-                    var el = $("[data-scroll-target='" + locator + "']");
-
-                    if(el.length) {
-                        return scrollToElement(locator);
-                    } else {
-                        return window.location = href;
-                    }
-                });
-            });
-        });
-
-
-    </script>
-
-    <script type="text/javascript">
-        jQuery(function ($) {
-
-            if (!Modernizr.mobile) {
-                // start all the timers
-                $('.timer').each(count);
-                // restart a timer when a button is clicked
-                function count(options) {
-                    var $this = $(this);
-                    options = $.extend({}, options || {}, $this.data('countToOptions') || {});
-                    $this.countTo(options);
-                }
-            }
-        });
-    </script>
     <script language="javascript">
-
-        var $map = $('#map');
-        if ($map.length) {
-            var markerStyle = {image: '/images/elephpant-small.png',};
-            var regionStyle = {
-                fill: 'white',
-                stroke: 'gray',
-                "stroke-width": 1,
-                "stroke-opacity": 1,
-                cursor: 'arrow'
-            };
-
-            var phpers = [
-                {latLng: [52.13, 21.00], name: 'Warszawa', slug: 'warszawa', style: markerStyle},
-                {latLng: [54.20, 18.38], name: 'Trójmiasto', slug: 'trojmiasto', style: markerStyle},
-                {latLng: [50.50, 18.70], name: 'Śląsk', slug: 'slask', style: markerStyle},
-                {latLng: [49.85, 18.60], name: 'Bielsko-Biała', slug: 'bielsko-biala', style: markerStyle},
-                {latLng: [51.06, 17.01], name: 'Wrocław', slug: 'wroclaw', style: markerStyle},
-                {latLng: [50.10, 20.05], name: 'Kraków', slug: 'krakow', style: markerStyle},
-                {latLng: [53.01, 18.36], name: 'Toruń', slug: 'torun', style: markerStyle},
-                {latLng: [52.24, 16.56], name: 'Poznań', slug: 'poznan', style: markerStyle},
-                {latLng: [51.77, 19.48], name: 'Łódź', slug: 'lodz', style: markerStyle},
-                {latLng: [50.00, 21.91], name: 'Rzeszów', slug: 'rzeszow', style: markerStyle}
-            ];
-
-            $('#map').vectorMap({
-                map: 'pl_merc_en',
-                zoomButtons: false,
-                zoomOnScroll: false,
-                backgroundColor: '#f9f9f9',
-                labels: {
-                    markers: {
-                        render: function (i) {
-                            return phpers[i].name;
-                        },
-                    },
-                },
-                regionStyle: {
-                    initial: regionStyle,
-                    hover: regionStyle,
-                    selected: regionStyle,
-                },
-                markers: phpers,
-                onRegionTipShow: function (e, el, code) {
-                    e.preventDefault();
-                },
-                onMarkerTipShow: function (e, el, code) {
-                    e.preventDefault();
-                    console.log(e, el, code);
-                    console.log(phpers[code]);
-                },
-                onMarkerClick: function (e, code) {
-                    var url = document.location.protocol + '//' + document.domain;
-                    if (document.location.port) {
-                        url += ':' + document.location.port;
-                    }
-                    url += '/meetup/?c=' + phpers[code].slug;
-                    window.location = url;
-                }
-            });
-        }
+        var phpersMarkers = [
+            {% for city in data.posts | cities %}
+            {latLng: [{{ city.latitude }}, {{ city.longitude }}], name: '{{ city }}', slug: '{{ city.normalizedName }}'},
+            {% endfor %}
+        ];
     </script>
-
-    <script src="/js/main.js"></script>
-
-    <script>
-        // CONTACT FORM
-
-        jQuery(document).ready(function(){
-            if (jQuery('#contactform').length) {
-                jQuery('#contactform').submit(function(){
-
-                    var action = jQuery(this).attr('action');
-
-                    jQuery("#alert").slideUp(750,function() {
-                        jQuery('#alert').hide();
-
-                        jQuery('#submit')
-                                .after('<img src="images/ajax-loader.gif" class="loader" />')
-                                .attr('disabled','disabled');
-
-                        jQuery.post(action, {
-                                    name: jQuery('#name').val(),
-                                    email: jQuery('#email').val(),
-                                    message: jQuery('#message').val()
-                                },
-                                function(data){
-                                    document.getElementById('alert').innerHTML = data;
-                                    jQuery('#alert').slideDown('slow');
-                                    jQuery('#contactform img.loader').fadeOut('slow',function(){jQuery(this).remove()});
-                                    jQuery('#submit').removeAttr('disabled');
-                                    if(data.match('success') != null) jQuery('#contactform').slideUp('slow');
-
-                                }
-                        );
-
-                    });
-
-                    return false;
-                });
-            }
-        });
-    </script>
-
-    <script type="text/javascript">
-        var $counter = $('#counter');
-        if ($counter.length) {
-            var datetime = $counter.data('date');
-            var time = $counter.data('time');
-            if (time) {
-                datetime = datetime.concat(" ").concat(time);
-            }
-            $('#counter').countdown(datetime).on('update.countdown', function (event) {
-                $("#days").text(event.offset.totalDays);
-                $("#hours").text(event.offset.hours);
-                $("#minutes").text(event.offset.minutes);
-                $("#seconds").text(event.offset.seconds);
-            });
-        }
-    </script>
-
-    <script>
-        var mapCont = document.getElementById('locationMap');
-        if (mapCont) {
-            var venue_location = mapCont.getAttribute('data-latlng').replace(" ", "").split(',');
-            var lat = venue_location[0];
-            var lng = venue_location[1];
-            var map = new GMaps({
-                scrollwheel: false,
-                el: '#locationMap',
-                lat: lat,
-                lng: lng,
-                styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}],
-                zoomControl: true,
-                mapTypeControl: false,
-                scaleControl: false,
-                streetViewControl: false,
-                rotateControl: false
-            });
-
-            map.addMarker({
-                lat: lat,
-                lng: lng,
-                title: 'PHPers',
-                icon: 'http://phpers.pl/favicon.ico',
-                infoWindow: {
-                    content: '<p>PHPers</p>'
-                }
-            });
-        }
-
-    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKDElgtkdaNnJdk2l3pxKerU7j70kOL6U"></script>
+    <script src="/assets/app.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

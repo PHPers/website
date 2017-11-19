@@ -16,6 +16,7 @@
 # Ignore NPM debug
 .npm-debug.log
 npm-debug.log
+yarn-error.log
 
 # Ignore temp directory
 .tmp
@@ -24,7 +25,6 @@ npm-debug.log
 /bower_components
 
 # Ignore compiled/copied files
-/source/css
 /source/js
 /source/fonts
 
@@ -46,6 +46,13 @@ npm-debug.log
 
 # Ignore others
 s3.conf
+bin
 /bower_components/
 /node_modules/
 /vendor/
+
+# Temp
+gulpfile_old.js
+
+# Docker
+docker-compose.yml

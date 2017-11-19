@@ -97,8 +97,7 @@ use:
             </div>
         </div>
     </section>
-    <section id="organizers" data-scroll-target="organizatorzy" class="alternative">
-
+    <section id="organizatorzy" data-scroll-target="organizatorzy" class="alternative">
         <div class="row">
             <div class="small-12 medium-10 columns">
                 <h3 class="headline">Organizatorzy</h3>
@@ -112,247 +111,28 @@ use:
                 <br>
             </div>
         </div>
-
         <div class="row staff" data-equalizer="staff">
-            <div class="small-12 medium-3 columns" data-equalizer-watch="staff">
-                <figure class="">
-                    <img src="/images/staff/karol_sojko.jpg" alt="Karol Sójko - Programista PHP Gdańsk">
-                    <figcaption>
-                        <h4>Karol <span>Sójko</span></h4>
-                        <h5>PHP Developer & Team Lead</h5>
+            {% for organizer in site.organizers %}
+                <div class="small-12 medium-3 columns {% if loop.last %} end{% endif %}" data-equalizer-watch="staff">
+                    <figure class="">
+                        <img src="{{ organizer.image }}" alt="{{ organizer.firstName }} {{ organizer.lastName }} - {{ organizer.title }}">
+                        <figcaption>
+                            <h4>{{ organizer.firstName }} <span>{{ organizer.lastName }}</span></h4>
+                            <h5>{{ organizer.title }}</h5>
 
-                        <p class="links">
-                            <a href="#"><i class="fa fa-fw fa-home"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
+                            <p class="links">
+                                <a href="#"><i class="fa fa-fw fa-home"></i></a>
+                                <a href="#"><i class="fa fa-fw fa-download"></i></a>
+                                <a href="#"><i class="fa fa-fw fa-heart"></i></a>
+                                <a href="#"><i class="fa fa-fw fa-share"></i></a>
+                            </p>
+                        </figcaption>
+                        <p class="description">
+                            {{ organizer.description }}
                         </p>
-                    </figcaption>
-                    <p class="description">
-                        Programista, architekt i team leader. Na co dzień gorący orędownik BDD i pasjonat
-                        usprawniania pracy w zespołach.
-                    </p>
-                </figure>
-            </div>
-            <div class="small-12 medium-3 columns" data-equalizer-watch="staff">
-                <figure class="dark">
-                    <img src="/images/staff/leszek_krupinski.jpg" alt="Leszek Krupiński - Programista PHP od roku 2000">
-                    <figcaption>
-                        <h4>Leszek <span>Krupiński</span></h4>
-                        <h5>PHP Developer</h5>
-
-                        <p class="links">
-                            <a href="#"><i class="fa fa-fw fa-home"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
-                        </p>
-                    </figcaption>
-                    <p class="description">
-                        Programista PHP od roku 2000, autor kursu PHP i kilku artykułów na tematy związane z PHP.
-                        Organizator i prelegent konferencji WebClusters (pierwsza polska konferencja na temat web
-                        scalability). Uczestnik kilku projektów open-source. Architekt rozwiązań wysokowydajnych,
-                        analityk bezpieczeństwa aplikacji sieciowych, konsultant.
-                    </p>
-                </figure>
-            </div>
-            <div class="small-12 medium-3 columns" data-equalizer-watch="staff">
-                <figure class="dark">
-                    <img src="/images/staff/mariusz_gil.jpeg" alt="Mariusz Gil - Architekt, tech-lead i developer">
-                    <figcaption>
-                        <h4>Mariusz <span>Gil</span></h4>
-                        <h5>Architekt, tech-lead</h5>
-
-                        <p class="links">
-                            <a href="#"><i class="fa fa-fw fa-home"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
-                        </p>
-                    </figcaption>
-                    <p class="description">
-                        Architekt, tech-lead i developer z wieloletnim doświadczeniem w projektowaniu i
-                        implementacji skalowalnych i wydajnych aplikacji webowych, także z wykorzystaniem PHP.
-                    </p>
-                </figure>
-            </div>
-            <div class="small-12 medium-3 columns" data-equalizer-watch="staff">
-                <figure class="dark">
-                    <img src="/images/staff/michal_pipa.jpg" alt="Michał Pipa - Programista PHP od zawsze">
-                    <figcaption>
-                        <h4>Michał <span>Pipa</span></h4>
-                        <h5>Programista PHP</h5>
-
-                        <p class="links">
-                            <a href="#"><i class="fa fa-fw fa-home"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
-                        </p>
-                    </figcaption>
-                    <p class="description">
-                        Programista PHP od zawsze. Współinicjator spotkań PHPowych na Śląsku. Prelegent na wielu
-                        meetupach i konferencjach krajowych i zagranicznych. Skarbnica wiedzy na temat PHP i
-                        Symfony, które zna od podszewki i z ich zakresu prowadzi szkolenia. Zawsze skory do pomocy i
-                        służenia radą potrzbującym tego kolegom po fachu. Dba o kwestie merytoryczne na śląskich
-                        spotkaniach.
-                    </p>
-                </figure>
-            </div>
+                    </figure>
+                </div>
+            {% endfor %}
         </div>
-
-        <div class="row staff" data-equalizer="staff">
-            <div class="small-12 medium-3 columns" data-equalizer-watch="staff">
-                <figure class="">
-                    <img src="/images/staff/karol_sojko.jpg" alt="img17">
-                    <figcaption>
-                        <h4>Karol <span>Sójko</span></h4>
-                        <h5>PHP Developer & Team Lead</h5>
-
-                        <p class="links">
-                            <a href="#"><i class="fa fa-fw fa-home"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
-                        </p>
-                    </figcaption>
-                    <p class="description">
-                        Programista, architekt i team leader. Na co dzień gorący orędownik BDD i pasjonat
-                        usprawniania pracy w zespołach.
-                    </p>
-                </figure>
-            </div>
-            <div class="small-12 medium-3 columns" data-equalizer-watch="staff">
-                <figure class="dark">
-                    <img src="/images/staff/leszek_krupinski.jpg" alt="Leszek Krupiński - Programista PHP od roku 2000">
-                    <figcaption>
-                        <h4>Leszek <span>Krupiński</span></h4>
-                        <h5>PHP Developer</h5>
-
-                        <p class="links">
-                            <a href="#"><i class="fa fa-fw fa-home"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
-                        </p>
-                    </figcaption>
-                    <p class="description">
-                        Programista PHP od roku 2000, autor kursu PHP i kilku artykułów na tematy związane z PHP.
-                        Organizator i prelegent konferencji WebClusters (pierwsza polska konferencja na temat web
-                        scalability). Uczestnik kilku projektów open-source. Architekt rozwiązań wysokowydajnych,
-                        analityk bezpieczeństwa aplikacji sieciowych, konsultant.
-                    </p>
-                </figure>
-            </div>
-            <div class="small-12 medium-3 columns" data-equalizer-watch="staff">
-                <figure class="dark">
-                    <img src="/images/staff/mariusz_gil.jpeg" alt="Mariusz Gil - Architekt, tech-lead i developer">
-                    <figcaption>
-                        <h4>Mariusz <span>Gil</span></h4>
-                        <h5>Architekt, tech-lead</h5>
-
-                        <p class="links">
-                            <a href="#"><i class="fa fa-fw fa-home"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
-                        </p>
-                    </figcaption>
-                    <p class="description">
-                        Architekt, tech-lead i developer z wieloletnim doświadczeniem w projektowaniu i
-                        implementacji skalowalnych i wydajnych aplikacji webowych, także z wykorzystaniem PHP.
-                    </p>
-                </figure>
-            </div>
-            <div class="small-12 medium-3 columns" data-equalizer-watch="staff">
-                <figure class="dark">
-                    <img src="/images/staff/michal_pipa.jpg" alt="Michał Pipa - Programista PHP od zawsze">
-                    <figcaption>
-                        <h4>Michał <span>Pipa</span></h4>
-                        <h5>Programista PHP</h5>
-
-                        <p class="links">
-                            <a href="#"><i class="fa fa-fw fa-home"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
-                        </p>
-                    </figcaption>
-                    <p class="description">
-                        Programista PHP od zawsze. Współinicjator spotkań PHPowych na Śląsku. Prelegent na wielu
-                        meetupach i konferencjach krajowych i zagranicznych. Skarbnica wiedzy na temat PHP i
-                        Symfony, które zna od podszewki i z ich zakresu prowadzi szkolenia. Zawsze skory do pomocy i
-                        służenia radą potrzbującym tego kolegom po fachu. Dba o kwestie merytoryczne na śląskich
-                        spotkaniach.
-                    </p>
-                </figure>
-            </div>
-        </div>
-
-        <div class="row staff" data-equalizer="staff">
-            <div class="small-12 medium-3 columns" data-equalizer-watch="staff">
-                <figure class="">
-                    <img src="/images/staff/karol_sojko.jpg" alt="img17">
-                    <figcaption>
-                        <h4>Karol <span>Sójko</span></h4>
-                        <h5>PHP Developer & Team Lead</h5>
-
-                        <p class="links">
-                            <a href="#"><i class="fa fa-fw fa-home"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
-                        </p>
-                    </figcaption>
-                    <p class="description">
-                        Programista, architekt i team leader. Na co dzień gorący orędownik BDD i pasjonat
-                        usprawniania pracy w zespołach.
-                    </p>
-                </figure>
-            </div>
-            <div class="small-12 medium-3 columns" data-equalizer-watch="staff">
-                <figure class="dark">
-                    <img src="/images/staff/leszek_krupinski.jpg" alt="Leszek Krupiński - Programista PHP od roku 2000">
-                    <figcaption>
-                        <h4>Leszek <span>Krupiński</span></h4>
-                        <h5>PHP Developer</h5>
-
-                        <p class="links">
-                            <a href="#"><i class="fa fa-fw fa-home"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
-                        </p>
-                    </figcaption>
-                    <p class="description">
-                        Programista PHP od roku 2000, autor kursu PHP i kilku artykułów na tematy związane z PHP.
-                        Organizator i prelegent konferencji WebClusters (pierwsza polska konferencja na temat web
-                        scalability). Uczestnik kilku projektów open-source. Architekt rozwiązań wysokowydajnych,
-                        analityk bezpieczeństwa aplikacji sieciowych, konsultant.
-                    </p>
-                </figure>
-            </div>
-            <div class="small-12 medium-3 columns end" data-equalizer-watch="staff">
-                <figure class="dark">
-                    <img src="/images/staff/mariusz_gil.jpeg" alt="Mariusz Gil - Architekt, tech-lead i developer">
-                    <figcaption>
-                        <h4>Mariusz <span>Gil</span></h4>
-                        <h5>Architekt, tech-lead</h5>
-
-                        <p class="links">
-                            <a href="#"><i class="fa fa-fw fa-home"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
-                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
-                        </p>
-                    </figcaption>
-                    <p class="description">
-                        Architekt, tech-lead i developer z wieloletnim doświadczeniem w projektowaniu i
-                        implementacji skalowalnych i wydajnych aplikacji webowych, także z wykorzystaniem PHP.
-                    </p>
-                </figure>
-            </div>
-        </div>
-
     </section>
 {% endblock content %}

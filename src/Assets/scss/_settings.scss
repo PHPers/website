@@ -1,0 +1,75 @@
+// Sass utilities
+@import 'util/util';
+
+// Global variables and styles
+@import 'global';
+
+$white: #FFFFFF;
+$oil: #333333;
+$jet: #222222;
+
+@include add-foundation-colors;
+
+// We use these to define default font stacks
+$font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+$font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+$font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
+
+// We use these to define default font weights
+$font-weight-normal: normal;
+$font-weight-bold: bold;
+
+$base-font-size: 16px;
+$base-line-height: 24px;
+$base-unit: rem;
+
+//$base-line-height: 150%;
+
+// We use these to control various global styles
+$body-bg: $white;
+$body-font-color: $jet;
+$body-font-family: $font-family-sans-serif;
+$body-font-weight: $font-weight-normal;
+$body-font-style: normal;
+
+// We use this to control font-smoothing
+$font-smoothing: antialiased;
+
+
+// We use these to control header font styles
+$header-font-family: $body-font-family;
+$header-font-weight: $font-weight-normal;
+$header-font-style: normal;
+$header-font-color: $jet;
+//$header-line-height: 1.4;
+$header-top-margin: .2rem;
+$header-bottom-margin: .5rem;
+$header-text-rendering: optimizeLegibility;
+
+// We use these to control header font sizes
+$h1-font-size: 44px;
+$h2-font-size: 37px;
+$h3-font-size: 27px;
+$h4-font-size: 23px;
+$h5-font-size: 18px;
+$h6-font-size: 16px;
+
+// We use these to control header size reduction on small screens
+$h1-font-reduction: 10px;
+$h2-font-reduction: 10px;
+$h3-font-reduction: 5px;
+$h4-font-reduction: 5px;
+$h5-font-reduction: 0;
+$h6-font-reduction: 0;
+
+// A general <small> styling
+$small-font-size: 60%;
+$small-font-color: scale-color($header-font-color, $lightness: 35%);
+
+$row-width: 1000px;
+//$total-columns: 12;
+$column-gutter: 30px;
+
+$header-line-height: 1.4;
+$header-top-margin: .2rem;
+$header-bottom-margin: .5rem;

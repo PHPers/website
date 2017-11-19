@@ -1,0 +1,10 @@
+FROM node:8.9
+
+# Yarn
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash
+
+# Don't regenerate `yarn.lock` on build
+COPY package.json yarn.lock ./
+RUN yarn --pure-lockfile
+
+CMD ["bash"]

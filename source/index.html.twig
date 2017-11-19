@@ -9,50 +9,56 @@ use:
 ---
 
 {% block intro %}
+    {% set upcommingMeetups = [] %}
     {% for post in page.pagination.items | reverse %}
-        {% if date(post.date) >= date('today') and loop.last %}
-            <section class="intro">
-                <div class="row banner">
-                    <div class="small-12 columns">
-                        <p class="h1">Kolejny meetup za</p>
-                        <ul id="counter" class="row" data-date="{{ post.date | date('Y-m-d') }}" data-time="{{ post.time }}">
-                            <li>
-                                <a href="{{ post.url }}">
-                                    <span id="days" class="time-counter">&nbsp;</span>dni
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ post.url }}">
-                                    <span id="hours" class="time-counter">&nbsp;</span>godz<span class="ending">in</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ post.url }}">
-                                    <span id="minutes" class="time-counter">&nbsp;</span>min<span class="ending">ut</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ post.url }}">
-                                    <span id="seconds" class="time-counter">&nbsp;</span>sek<span class="ending">und</span>
-                                </a>
-                            </li>
-                        </ul>
-                        {% if post.venue['city'] %}
-                            {% set city = post.venue['city'] %}
-                        {% elseif post.city %}
-                            {% set city = post.city %}
-                        {% endif %}
-
-                        {% if city is defined %}
-                            <p class="h2 meetup-location">{{ city }}</a>
-                        {% endif %}
-                        {#<p class="h2 meetup-location">Rawa Mazowiecka</a>#}
-                        </p>
-                    </div>
-                </div>
-            </section>
+        {% if date(post.date) >= date('today') %}
+            {% set upcommingMeetups = upcommingMeetups | merge([post]) %}
         {% endif %}
     {% endfor %}
+
+    {% set nextUpcommingMeetup = upcommingMeetups | first %}
+    {% if nextUpcommingMeetup %}
+        <section class="intro">
+            <div class="row banner">
+                <div class="small-12 columns">
+                    <p class="h1">Kolejny meetup za</p>
+                    <ul id="counter" class="row" data-date="{{ nextUpcommingMeetup.date | date('Y-m-d') }}" data-time="{{ nextUpcommingMeetup.time }}">
+                        <li>
+                            <a href="{{ nextUpcommingMeetup.url }}">
+                                <span id="days" class="time-counter">&nbsp;</span>dni
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ nextUpcommingMeetup.url }}">
+                                <span id="hours" class="time-counter">&nbsp;</span>godz<span class="ending">in</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ nextUpcommingMeetup.url }}">
+                                <span id="minutes" class="time-counter">&nbsp;</span>min<span class="ending">ut</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ nextUpcommingMeetup.url }}">
+                                <span id="seconds" class="time-counter">&nbsp;</span>sek<span class="ending">und</span>
+                            </a>
+                        </li>
+                    </ul>
+                    {% if nextUpcommingMeetup.venue['city'] %}
+                        {% set city = nextUpcommingMeetup.venue['city'] %}
+                    {% elseif nextUpcommingMeetup.city %}
+                        {% set city = nextUpcommingMeetup.city %}
+                    {% endif %}
+
+                    {% if city is defined %}
+                        <p class="h2 meetup-location">{{ city }}</a>
+                    {% endif %}
+                    {#<p class="h2 meetup-location">Rawa Mazowiecka</a>#}
+                    </p>
+                </div>
+            </div>
+        </section>
+    {% endif %}
 {% endblock %}
 {% block content %}
             <section id="about">
@@ -97,7 +103,9 @@ use:
                         <div class="counter text-center">
                             <i class="fa fa-2x fa fa-map-marker"></i>
                             <br>
-                            <b class="timer" data-to="10" data-speed="2500">10</b>
+                            <b class="timer" data-to="{{ data.posts | cities | length }}" data-speed="2500">
+                                {{ data.posts | cities | length }}
+                            </b>
                             <br>
                             <span>miast</span>
                         </div>
@@ -106,7 +114,7 @@ use:
                         <div class="counter text-center">
                             <i class="fa fa-2x fa-table"></i>
                             <br>
-                            <b class="timer" data-to="20" data-speed="1750">20</b>
+                            <b class="timer" data-to="{{ data.posts | length }}" data-speed="1750">{{ data.posts | length }}</b>
                             <br>
                             <span>spotkań</span>
                         </div>
@@ -115,7 +123,7 @@ use:
                         <div class="counter text-center">
                             <i class="fa fa-2x fa-users"></i>
                             <br>
-                            <b class="timer" data-to="66" data-speed="1250">66</b>
+                            <b class="timer" data-to="{{ data.posts | speakers | length }}" data-speed="1750">{{ data.posts | speakers | length }}</b>
                             <br>
                             <span>prelegentów</span>
                         </div>
@@ -124,9 +132,9 @@ use:
                         <div class="counter text-center">
                             <i class="fa fa-2x fa-microphone"></i>
                             <br>
-                            <b class="timer" data-to="180" data-speed="750">180</b>
+                            <b class="timer" data-to="{{ data.posts | talks | length }}" data-speed="1750">{{ data.posts | talks | length }}</b>
                             <br>
-                            <span>tematów</span>
+                            <span>tematy</span>
                         </div>
                     </div>
                 </div>
@@ -145,21 +153,16 @@ use:
                     </div>
                 </div>
                 <div class="row">
-                    <div class="small-12 medium-6 large-7 columns">
+                    <div id="mapWrapper" class="small-12 medium-6 large-7 columns">
                         <div id="map"></div>
                     </div>
-                    <div class="small-12 medium-6 large-5 columns">
+                    <div id="upcommingMeetups" class="small-12 medium-6 large-5 columns" data-equalize-to="mapWrapper">
                         <div class="row">
                             <div class="small-12 medium-9 columns">
-                                {% set showed_meeting_qty = 0 %}
-                                {% for post in page.pagination.items %}
-                                    {% if showed_meeting_qty < 3 %}
-                                        {% set showed_meeting_qty = showed_meeting_qty + 1 %}
-                                        {% set next_meetup_class = '' %}
-                                        {% if date(post.date) >= date('today') %}
-                                            {% set next_meetup_class = 'next-meetup' %}
-                                        {% endif %}
-                                        <div class="meetup-event {{ next_meetup_class }}">
+                                {% set upcommingMeetups = [] %}
+                                {% for post in page.pagination.items | reverse %}
+                                    {% if date(post.date) >= date('today') %}
+                                        <div class="meetup-event next-meetup">
                                             <div class="meetup-head"><a href="{{ post.url }}">{{ post.title }}</a></div>
                                             <div class="meetup-date">{{ post.date | date('Y-m-d') }}, godz. {{ post.time }}</div>
                                             {% if post.abstract %}
@@ -168,6 +171,7 @@ use:
                                                 {{ post.venue['description']|length > 100 ? post.venue['description']|slice(0, 100) ~ '...' : post.venue['description']  }}
                                             {% endif %}
                                             <div class="meetup-more"><a href="{{ post.url }}">Więcej...</a></div>
+
                                         </div>
                                     {% endif %}
                                 {% endfor %}
@@ -181,9 +185,7 @@ use:
                     <div class="small-12 medium-7 medium-push-1 large-8 large-push-2 columns text-center">
                         <h3 class="headline">Zgłoś się</h3>
                         <h4 class="subhead">Podziel się z nami swoją wiedzą i doświadczeniem</h4>
-                        <a href="#" class="button elephant-btn elephant-slant-btn" data-reveal-id="wantBeSpeaker">Zgłoś swoją
-                            prezentację!</a>
-
+                        <button class="button elephant-btn elephant-slant-btn" data-open="wantBeSpeaker" type="button">Zgłoś swoją prezentację!</button>
                         {{ include('want-be-speaker.html.twig') }}
                     </div>
                     <div class="hide-for-small medium-4 columns">
@@ -199,7 +201,7 @@ use:
                     </div>
                 </div>
                 <div class="row">
-                    <div class="small-10 small-push-1 medium-reset-order medium-6 large-5 columns">
+                    <div class="small-10 small-push-1 medium-reset-order medium-push-0 medium-6 large-5 columns">
                         <a class="twitter-timeline" href="https://twitter.com/PHPersPL" data-widget-id="646003991520911360">
                             Tweety użytkownika @PHPersPL
                         </a>
@@ -253,9 +255,9 @@ use:
                 </div>
             </section>
 
-            <section id="gallery" class="alternative">
-                <h2>Galerry</h2>
-            </section>
+            {#<section id="gallery" class="alternative">#}
+                {#<h2>Galerry</h2>#}
+            {#</section>#}
 
             <section id="sponsors">
                 <div class="row">
@@ -270,17 +272,17 @@ use:
                 </div>
                 <br>
 
-                <div class="row sponsors owl-carousel">
+                <div class="row sponsors sponsors-carousel owl-carousel owl-theme">
                     <div class="sponsor-row item">
                         <a href="#">
-                            <img src="http://cocoders.com/img/logo.png" alt="PHP and Symfony developers">
+                            <img src="//cocoders.com/img/logo.png" alt="PHP and Symfony developers">
                             <br>
                             Cocoders
                         </a>
                     </div>
                     <div class="sponsor-row item">
                         <a href="#">
-                            <img src="http://www.megiteam.pl/wp-content/themes/megiteam/img/logo.png"
+                            <img src="//www.megiteam.pl/wp-content/themes/megiteam/img/logo.png"
                                  alt="platformy hostingowej, serwery dedykowane">
                             <br>
                             MEgiTeam
@@ -288,7 +290,7 @@ use:
                     </div>
                     <div class="sponsor-row item">
                         <a href="#">
-                            <img src="http://ventureday.pl/wp-content/uploads/2014/10/gpnt-logo-kolor.png"
+                            <img src="/images/logo.svg"
                                  alt="platformy hostingowej, serwery dedykowane">
                             <br>
                             GPNT
@@ -296,14 +298,14 @@ use:
                     </div>
                     <div class="sponsor-row item">
                         <a href="#">
-                            <img src="http://cocoders.com/img/logo.png" alt="PHP and Symfony developers">
+                            <img src="//cocoders.com/img/logo.png" alt="PHP and Symfony developers">
                             <br>
                             Cocoders
                         </a>
                     </div>
                     <div class="sponsor-row item">
                         <a href="#">
-                            <img src="http://www.megiteam.pl/wp-content/themes/megiteam/img/logo.png"
+                            <img src="//www.megiteam.pl/wp-content/themes/megiteam/img/logo.png"
                                  alt="platformy hostingowej, serwery dedykowane">
                             <br>
                             MEgiTeam
@@ -311,7 +313,7 @@ use:
                     </div>
                     <div class="sponsor-row item">
                         <a href="#">
-                            <img src="http://ventureday.pl/wp-content/uploads/2014/10/gpnt-logo-kolor.png"
+                            <img src="/images/logo.svg"
                                  alt="platformy hostingowej, serwery dedykowane">
                             <br>
                             GPNT
@@ -319,14 +321,14 @@ use:
                     </div>
                     <div class="sponsor-row item">
                         <a href="#">
-                            <img src="http://cocoders.com/img/logo.png" alt="PHP and Symfony developers">
+                            <img src="//cocoders.com/img/logo.png" alt="PHP and Symfony developers">
                             <br>
                             Cocoders
                         </a>
                     </div>
                     <div class="sponsor-row item">
                         <a href="#">
-                            <img src="http://www.megiteam.pl/wp-content/themes/megiteam/img/logo.png"
+                            <img src="//www.megiteam.pl/wp-content/themes/megiteam/img/logo.png"
                                  alt="platformy hostingowej, serwery dedykowane">
                             <br>
                             MEgiTeam
@@ -334,7 +336,7 @@ use:
                     </div>
                     <div class="sponsor-row item">
                         <a href="#">
-                            <img src="http://ventureday.pl/wp-content/uploads/2014/10/gpnt-logo-kolor.png"
+                            <img src="/images/logo.svg"
                                  alt="platformy hostingowej, serwery dedykowane">
                             <br>
                             GPNT

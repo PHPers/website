@@ -1,0 +1,143 @@
+.staff {
+  @include breakpoint(medium up) {
+    margin-bottom: 4rem;
+  }
+  figure {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    margin: 10px 1%;
+    width: 100%;
+    cursor: pointer;
+    background: $elephant-front-leg;
+    text-align: left;
+    padding-bottom: 2rem;
+    h4, h5,  p {
+      margin: 0;
+      color: $background;
+    }
+    p {
+      font-size: rem-calc(15px);
+    }
+    a {
+      color: $background;
+      font-size: rem-calc(18px);
+    }
+    h4 {
+      font-weight: 300;
+      text-transform: uppercase;
+      span {
+        font-weight: 800;
+      }
+      @include breakpoint(large up) {
+        word-spacing: -0.15rem;
+      }
+    }
+    .links {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+    }
+    img {
+      position: relative;
+      display: block;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    figcaption {
+      width: 100%;
+      height: 100%;
+      color: $background;
+      font-size: 1.25rem;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      transition: opacity 400ms;
+      z-index: 1;
+      p {
+        font-size: rem-calc(14px);
+        letter-spacing: 1px;
+      }
+    }
+    &.bright {
+      background: $background;
+      h4, p {
+        color: $elephant-back;
+      }
+      figcaption {
+        color: $elephant-back;
+      }
+    }
+    figcaption, .description {
+      padding: 1rem;
+    }
+    figcaption {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.no-touch {
+  .staff {
+    figure {
+      padding-bottom: 0;
+      h4, h5,  p {
+        text-shadow: 1px 1px 1px rgba(1, 88, 140, 0.5);
+      }
+      a {
+        color: $elephant-back;
+        text-shadow: none;
+      }
+      img {
+        @include opacity(0.85);
+        transition: opacity 400ms;
+      }
+      figcaption {
+        position: absolute;
+        top: 0;
+        left: 0;
+        p {
+          opacity: 0;
+          transition: opacity 400ms, transform 400ms;
+          transform: translate3d(0,-10px,0);
+          letter-spacing: 1px;
+        }
+        p.links {
+          position: initial;
+          padding: 0.5rem;
+          font-weight: 600;
+          font-size: rem-calc(20px);
+          line-height: 1.5;
+        }
+        &:before {
+          position: absolute;
+          top: 0;
+          right: 1rem;
+          left: 1rem;
+          z-index: -1;
+          height: 2.25rem;
+          background: #fff;
+          content: '';
+          transition: opacity 400ms, -webkit-transform 400ms;
+          transform: translate3d(0,3rem,0) scale3d(1,0.023,1);
+          -webkit-transform-origin: 50% 0;
+          transform-origin: 50% 0;
+        }
+      }
+      &:hover {
+        p {
+          @include opacity(1);
+          transform: translate3d(0,0,0);
+        }
+        img {
+          @include opacity(0.55)
+        }
+        figcaption {
+          &:before {
+            @include opacity(0.7);
+            transform: translate3d(0,4.8rem,0) scale3d(1,1,1);
+          }
+        }
+      }
+    }
+  }
+}

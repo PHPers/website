@@ -1,0 +1,110 @@
+#locationMap {
+  width: 100%;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.speaker, .location {
+  padding-top: 30px / 2;
+  padding-bottom: 30px;
+}
+
+.speaker, .row.speaker {
+  padding-top: 30px;
+  margin-bottom: 30px;
+  background: $content-box-background;
+  border: 1px solid $content-box-border-color;
+  border-bottom: 2px solid $content-box-second-border-color;
+  .name {
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 1.4rem;
+  }
+  .topic {
+    font-weight: bold;
+    img {
+      float: right;
+      width: rem-calc(32);
+      height: rem-calc(32);
+    }
+  }
+  .social {
+    margin-bottom: 0;
+  }
+  .speach-level {
+    text-align: center;
+    img {
+      max-width: 65%;
+    }
+    .no-touch & {
+      @include opacity(.45);
+      transition: opacity .4s;
+    }
+    .no-touch &:hover {
+      @include opacity(.8);
+    }
+  }
+}
+
+.location {
+  background-color: $content-box-background;
+  address {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  address a {
+    color: #000;
+    transition: color 250ms;
+  }
+  &:hover, &:focus {
+    address a {
+      color: $anchor-font-color;
+    }
+  }
+}
+
+.sponsors {
+  .column + .column:last-child, .columns + .columns:last-child {
+    float: left;
+  }
+  .sponsor-row {
+    width: 80%;
+    margin: 0 auto 10px auto;
+  }
+  img {
+    @include desaturate();
+    height: 50px;
+    transition: all 450ms ease-out;
+    &:hover {
+      @include saturate();
+    }
+  }
+  a {
+    color: $primary-footer-color;
+  }
+}
+
+@include breakpoint(small only) {
+  #locationMap {
+    width: 90%;
+  }
+}
+
+@include breakpoint(large up) {
+  .location {
+    > .row {
+      padding-top: 3rem;
+    }
+  }
+}
+
+@media screen and #{breakpoint(large up)} and (min-height: 320px) {
+  .location {
+    border-left: 1px solid $content-box-border-color;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+}

@@ -1,0 +1,314 @@
+// responsive grid and media queries
+
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+
+body {
+  &::after {
+    /* overlay layer visible on small devices when the right panel slides in */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color-1, .8);
+    visibility: hidden;
+    @include opacity(0);
+    transition: opacity .3s 0s, visibility 0s .3s;
+  }
+
+  &.cd-overlay::after {
+    visibility: visible;
+    @include opacity(1);
+    transition: opacity .3s 0s, visibility 0s 0s;
+  }
+
+  @include MQ(M) {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+
+.cd-faq {
+  *::after, *::before {
+     content: '';
+  }
+  *, *::after, *::before {
+    box-sizing: border-box;
+  }
+  width: 90%;
+  max-width: $L; // breakpoints inside partials > _layout.scss
+  margin: 2em auto;
+  box-shadow: 0 1px 5px rgba(#000, .1);
+  @include clearfix;
+
+  @include breakpoint(medium up) {
+    position: relative;
+    margin-top: 0;
+    box-shadow: none;
+  }
+}
+
+.cd-faq-categories {
+  position: fixed;
+  min-width: initial;
+  a {
+    padding-left: 14px;
+    height: 50px;
+    &::after {
+      /* plus icon on the right */
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      display: inline-block;
+      height: 1px;
+      width: 10px;
+      background-color: lighten($anchor-font-color, 20%);
+    }
+
+    &::after {
+      transform: rotate(90deg);
+    }
+
+  }
+
+  &.fixed {
+    margin-left: 50px;
+  }
+
+  li:last-child a {
+    border-bottom: none;
+  }
+
+  @include breakpoint(medium up) {
+    width: 200px;
+    z-index: 2;
+
+    a::after {
+      display: none;
+    }
+    a::before {
+      /* decorative rectangle on the left visible for the selected item */
+      position: absolute;
+      display: block;
+      top: 0;
+      right: auto;
+      left: 0;
+      height: 100%;
+      width: 3px;
+      background-color: $anchor-font-color;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+
+    .selected {
+      background: darken($color-1, 5%) !important;
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    .no-js & {
+      position: relative;
+    }
+  }
+}
+
+.cd-faq-items {
+  position: fixed;
+  height: 100%;
+  width: 90%;
+  top: 0;
+  right: 0;
+  background: $color-5;
+  padding: 0 5% 1em;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0) translateX(100%);
+  -webkit-transition: -webkit-transform .3s;
+  -moz-transition: -moz-transform .3s;
+  transition: transform .3s;
+
+  &.slide-in {
+    transform: translateZ(0) translateX(0%);
+  }
+
+  .no-js & {
+    position: static;
+    height: auto;
+    width: 100%;
+    transform: translateX(0);
+  }
+
+  @include MQ(M) {
+    position: static;
+    height: auto;
+    width: 78%;
+    float: right;
+    overflow: visible;
+    transform: translateZ(0) translateX(0);
+    padding: 0;
+    background: transparent;
+  }
+
+  @include MQ(L) {
+    float: none;
+    width: 100%;
+    padding-left: 220px;
+
+    .no-js & {
+      padding-left: 0;
+    }
+  }
+}
+
+.cd-close-panel {
+  position: fixed;
+  top: 5px;
+  right: -100%;
+  display: block;
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  z-index: 2;
+  /* Force Hardware Acceleration in WebKit */
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: right .4s;
+
+  &::before, &::after {
+    /* close icon in CSS */
+    position: absolute;
+    top: 16px;
+    left: 12px;
+    display: inline-block;
+    height: 3px;
+    width: 18px;
+    background: $color-4;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  &.move-left {
+    right: 2%;
+  }
+
+  @include MQ(M) {
+    display: none;
+  }
+}
+
+.cd-faq-group {
+  /* hide group not selected */
+  display: none;
+
+  &.selected {
+    display: block;
+  }
+
+  .cd-faq-title {
+    text-transform: uppercase;
+    @include font-size(12px);
+    font-weight: 700;
+    color: darken($color-3, 20%);
+  }
+
+  .no-js & {
+    display: block;
+  }
+
+  @include MQ(M) {
+    /* all groups visible */
+    display: block;
+
+    > li {
+      background: $color-5;
+      margin-bottom: 6px;
+      box-shadow: 0 1px 2px rgba(#000, .08);
+      transition: box-shadow .2s;
+
+      .no-touch &:hover {
+        box-shadow: 0 1px 10px rgba($color-4, .3);
+      }
+    }
+
+    .cd-faq-title {
+      margin: 2em 0 1em;
+    }
+
+    &:first-child .cd-faq-title {
+      margin-top: 0;
+    }
+  }
+}
+
+.cd-faq-trigger {
+  position: relative;
+  display: block;
+  margin: 1.6em 0 .4em;
+  line-height: 1.2;
+
+  @include breakpoint(medium up) {
+    @include font-size(24px);
+    font-weight: 300;
+    margin: 0;
+    padding: 24px 72px 24px 24px;
+
+    .content-visible &::before {
+      transform: rotate(-45deg);
+    }
+
+    .content-visible &::after {
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.cd-faq-content {
+
+  p {
+    @include font-size(14px);
+    line-height: 1.4;
+    color: $color-4;
+  }
+
+  @include MQ(M) {
+    display: none;
+    padding: 0 24px 30px;
+
+    p {
+      line-height: 1.6
+    }
+
+    .no-js & {
+      display: block;
+    }
+  }
+}
+
+.cd-faq-items.slide-in, .cd-close-panel {
+  margin-top: rem-calc($header-height);
+}
