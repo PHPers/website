@@ -25,13 +25,13 @@ $ composer install
 ```
 
 ```bash
-$ npm install
+$ yarn install
 ```
 
 Run build and watch webpack server. It compile SCSS and do some other stuff.
 
 ```bash
-$ npm start
+$ yarn start
 ```
 
 Running
