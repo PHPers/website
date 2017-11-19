@@ -4,10 +4,22 @@ namespace Phpers\Website;
 
 class Meetup
 {
+    private static $categoriesToCityNames = [
+        'bielsko-biala' => 'Bielsko-Biała',
+        'trojmiasto' => 'Trójmiasto',
+        'slask' => 'Śląsk',
+        'lodz' => 'Łódź',
+        'krakow' => 'Kraków',
+        'warszawa' => 'Warszawa',
+        'rzeszow' => 'Rzeszów',
+        'poznan' => 'Poznań',
+        'torun' => 'Toruń'
+    ];
+
     private $sponsors = [];
     private $speakers = [];
     private $talks = [];
-    private $city = '';
+    private $city = null;
     
     private function __construct()
     {
@@ -29,10 +41,8 @@ class Meetup
         }
         
         $meetup = new Meetup();
-        $meetup->city = isset($meetupArray['city']) ?
-            new City($meetupArray['city'], $latitude, $longitude) :
-            new City('')
-        ;
+        $cityName = self::getCityName($meetupArray);
+        $meetup->city = new City($cityName, $latitude, $longitude);
         self::addSponsors($meetup, $meetupArray);
         self::addSpeakers($meetup, $meetupArray);
         self::addTalks($meetup, $meetupArray);
@@ -42,11 +52,11 @@ class Meetup
     
     private static function addSponsors(Meetup $meetup, array $meetupArray)
     {
-        if (! isset($meetupArray['sponsors'])) {
+        if (!isset($meetupArray['sponsors'])) {
             return;
         }
         
-        if (! is_array($meetupArray['sponsors'])) {
+        if (!is_array($meetupArray['sponsors'])) {
             return;
         }
         
@@ -61,11 +71,11 @@ class Meetup
     
     private static function addSpeakers(Meetup $meetup, array $meetupArray)
     {
-        if (! isset($meetupArray['talks'])) {
+        if (!isset($meetupArray['talks'])) {
             return;
         }
 
-        if (! is_array($meetupArray['talks'])) {
+        if (!is_array($meetupArray['talks'])) {
             return;
         }
 
@@ -78,11 +88,11 @@ class Meetup
     
     private static function addTalks(Meetup $meetup, array $meetupArray)
     {
-        if (! isset($meetupArray['talks'])) {
+        if (!isset($meetupArray['talks'])) {
             return;
         }
 
-        if (! is_array($meetupArray['talks'])) {
+        if (!is_array($meetupArray['talks'])) {
             return;
         }
 
@@ -123,5 +133,31 @@ class Meetup
     public function talks()
     {
         return $this->talks;
+    }
+
+    private static function getCityName($meetupArray)
+    {
+        if (!is_array($meetupArray)) {
+            return '';
+        }
+
+        if (isset($meetupArray['city'])) {
+            return $meetupArray['city'];
+        }
+
+        return isset($meetupArray['categories'][0]) ? self::getCityNameFromCategoryName($meetupArray['categories'][0]) : '';
+    }
+
+    private static function getCityNameFromCategoryName($categoryName)
+    {
+        if (!$categoryName) {
+            return '';
+        }
+
+        if (!isset(self::$categoriesToCityNames[$categoryName])) {
+            return '';
+        }
+
+        return self::$categoriesToCityNames[$categoryName];
     }
 }
