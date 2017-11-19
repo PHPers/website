@@ -230,20 +230,10 @@ Main components
   }
 
   .cd-faq-title {
-    background: transparent;
-    box-shadow: none;
-    margin: 1em 0;
-
-    .no-touch &:hover {
-      box-shadow: none;
-    }
-
-    h2 {
-      text-transform: uppercase;
-      @include font-size(12px);
-      font-weight: 700;
-      color: darken($color-3, 20%);
-    }
+    text-transform: uppercase;
+    @include font-size(12px);
+    font-weight: 700;
+    color: darken($color-3, 20%);
   }
 
   .no-js & {
@@ -286,29 +276,6 @@ Main components
     font-weight: 300;
     margin: 0;
     padding: 24px 72px 24px 24px;
-
-    &::before, &::after {
-      /* arrow icon on the right */
-      position: absolute;
-      right: 24px;
-      top: 50%;
-      height: 2px;
-      width: 13px;
-      background: lighten($anchor-font-color, 10%);
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      transition-property: transform;
-      transition-duration: .2s;
-    }
-
-    &::before {
-      transform: rotate(45deg);
-      right: 32px;
-    }
-
-    &::after {
-      transform: rotate(-45deg);
-    }
 
     .content-visible &::before {
       transform: rotate(-45deg);
