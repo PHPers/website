@@ -2662,10 +2662,6 @@ jquery-countto@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/jquery-countto/-/jquery-countto-1.2.0.tgz#49f17fcb24a746a168b84321e50e9b7751819660"
 
-"jquery-legacy@https://github.com/jquery/jquery.git#1.8.2":
-  version "1.8.2"
-  resolved "https://github.com/jquery/jquery.git#9e6393b0bcb52b15313f88141d0bd7dd54227426"
-
 jquery@>=1.8.3, jquery@>=3.0.0, jquery@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
