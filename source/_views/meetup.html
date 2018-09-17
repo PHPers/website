@@ -55,6 +55,7 @@
             var mymap = L.map('map_canvas').setView(venue_location, 17);
             L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 20,
+                scrollWheelZoom: false,
                 attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, ' +
                 '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
                 'Imagery © <a href="https://mapbox.com">Mapbox</a>',
