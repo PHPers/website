@@ -223,7 +223,7 @@ Author URI: http://www.aetherdesign.net
 
   #map {
 		width: 620px;
-    height: 450px;
+    height: 400px;
     margin-bottom: 20px;
     background: white;
   }
@@ -312,7 +312,11 @@ Author URI: http://www.aetherdesign.net
 	}
 
 	.showcase-entry.dark h1 { color: white; }
-
+	.showcase-entry.dark a {
+		transition: color 0.5s;
+		color: #d8d8d8;
+	}
+	.showcase-entry.dark a:hover { color: #ffffff; }
 
 
 /***********************
