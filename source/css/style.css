@@ -92,18 +92,14 @@ Author URI: http://www.aetherdesign.net
 		margin-top: 30px;
 		z-index: 10000;
 		background: #221e1e;
-		margin-left: -20px;
 		line-height: 100%;
 		-webkit-border-radius: 3px;
 		-moz-border-radius: 3px;
 		border-radius: 3px;
+		margin-top: 0 !important;
 	}
 
 	#navigation .dropdown li { float: none; margin: 0; padding: 0; }
-
-	#navigation li.drop { padding-bottom: 30px; }
-
-	#navigation li.drop:hover { cursor: pointer; background: url('../img/nav-drop.png') no-repeat bottom center; padding-bottom: 30px!important; }
 
 	#navigation .dropdown li a {
 		color: white;
