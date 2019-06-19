@@ -1,3 +1,11 @@
 sculpin_content_types:
   posts:
     permalink: meetup/:year/:month/:day/:slug_title/
+sculpin_twig:
+  extensions:
+    - ''
+    - 'twig'
+    - 'html'
+    - 'html.twig'
+    - 'twig.html'
+    - 'ical'
