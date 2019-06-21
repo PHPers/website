@@ -11,13 +11,13 @@ X-WR-CALNAME:PHPers Meetups
 X-WR-TIMEZONE:Europe/Warsaw
 {% for post in data.posts | reverse %}
 BEGIN:VEVENT
-DTSTART:{{ post.date | date(timezone="Europe/Warsaw") | date_modify(post.time) | date('Ymd\\THis\\Z', 'UTC') }}
-DTEND:{{ post.date | date(timezone="Europe/Warsaw") | date_modify(post.time) | date_modify('+3 hours') | date('Ymd\\THis\\Z', 'UTC') }}
-DTSTAMP:{{ "now" | date(timezone="Europe/Warsaw") | date('Ymd\\THis\\Z', 'UTC') }}
+DTSTART:{{ post.date | date('Ymd\\THis\\Z', 'UTC') }}
+DTEND:{{ post.date | date_modify('+3 hours') | date('Ymd\\THis\\Z', 'UTC') }}
+DTSTAMP:{{ "now" | date('Ymd\\THis\\Z', 'UTC') }}
 UID:{{ post.url }}@phpers.pl
-CREATED:{{ post.date | date(timezone="Europe/Warsaw") | date_modify('-2 months') | date('Ymd\\THis\\Z', 'UTC') }}
+CREATED:{{ post.date | date_modify('-2 months') | date('Ymd\\THis\\Z', 'UTC') }}
 DESCRIPTION:
-LAST-MODIFIED:{{ "1 hour ago" | date(timezone="Europe/Warsaw") | date('Ymd\\THis\\Z', 'UTC') }}
+LAST-MODIFIED:{{ "1 hour ago" | date('Ymd\\THis\\Z', 'UTC') }}
 LOCATION: {{ post.venue.short }}
 SEQUENCE:0
 STATUS:CONFIRMED
