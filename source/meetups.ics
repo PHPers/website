@@ -1,6 +1,6 @@
 ---
 use: ["posts"]
-permalink: phpers.ics
+permalink: meetups.ics
 ---
 BEGIN:VCALENDAR
 PRODID:-//PHPers//PHPers website//EN
