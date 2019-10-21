@@ -1,0 +1,28 @@
+---
+use: ["posts"]
+permalink: meetups.ics
+---
+BEGIN:VCALENDAR
+PRODID:-//PHPers//PHPers website//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:PHPers Meetups
+X-WR-TIMEZONE:Europe/Warsaw
+{% for post in data.posts | reverse %}
+BEGIN:VEVENT
+DTSTART:{{ post.date | date('Ymd\\THis\\Z', 'UTC') }}
+DTEND:{{ post.date | date_modify('+3 hours') | date('Ymd\\THis\\Z', 'UTC') }}
+DTSTAMP:{{ "now" | date('Ymd\\THis\\Z', 'UTC') }}
+UID:{{ post.url }}@phpers.pl
+CREATED:{{ post.date | date_modify('-2 months') | date('Ymd\\THis\\Z', 'UTC') }}
+DESCRIPTION:
+LAST-MODIFIED:{{ "1 hour ago" | date('Ymd\\THis\\Z', 'UTC') }}
+LOCATION: {{ post.venue.short }}
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:{{ post.title }}
+TRANSP:OPAQUE
+END:VEVENT
+{% endfor %}
+END:VCALENDAR
