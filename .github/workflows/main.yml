@@ -15,8 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Checkout composer
-        run: composer install --prefer-source --no-interaction --dev
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+        with:
+          php_version: "7.3"
+          version: 1
 
       - name: Build
         run: |
