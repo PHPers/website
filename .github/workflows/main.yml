@@ -10,10 +10,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v2
+      
+      - name: PHP env
+        run: php -v
 
       - name: Install dependencies
         uses: php-actions/composer@v6
