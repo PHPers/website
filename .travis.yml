@@ -7,7 +7,7 @@ before_script:
 
 script:
     - php vendor/bin/sculpin generate -vvv -n --env=prod > build_output.log
-    - if grep -iq "notice\|error\|warning" build_output.log ; then return 1; fi
+    - if grep -iq " ! \|notice\|error\|warning" build_output.log ; then return 1; fi
 
 after_script:
     - cat build_output.log
