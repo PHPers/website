@@ -13,3 +13,6 @@ build:
 
 serve:
 	docker run -it --rm -p 8000:8000 -v ${CURRENT_DIR}:/app -u ${ID} leafnode/phpers:latest vendor/bin/sculpin generate --watch --server
+
+prod:
+	vendor/bin/sculpin generate --env prod
