@@ -1,5 +1,6 @@
 ---
 use: ["posts"]
+title: PHPers
 permalink: meetups.ics
 ---
 BEGIN:VCALENDAR
