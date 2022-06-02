@@ -83,5 +83,5 @@ nami, na pewno się dogadamy.
 ### Czego potrzebujecie?
 
 Sprzętu audio/video, materiałów propagandowych (kubków, koszulek, naklejek,
-rollupów), jedzenia i picie na spotkaniach...
+rollupów), jedzenia i picia na spotkaniach...
 
