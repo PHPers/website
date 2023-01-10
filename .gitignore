@@ -9,3 +9,4 @@ s3.conf
 /bower_components/
 /node_modules/
 /vendor/
+/.idea
