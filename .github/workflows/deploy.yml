@@ -10,12 +10,12 @@ on:
 
 jobs:
   docker:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       -
         name: Checkout
         uses: actions/checkout@v4
-        
+
       - name: Install dependencies
         uses: php-actions/composer@v6
         with:
