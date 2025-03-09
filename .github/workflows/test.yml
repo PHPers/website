@@ -1,0 +1,28 @@
+name: Test build
+
+on:
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+        with:
+          php_version: "7.4"
+          version: 2
+
+      - name: Build
+        run: |
+          php7.4 vendor/bin/sculpin generate -vvv -n --env=prod > build_output.log
+          if grep -iq "notice\|error\|warning" build_output.log ; then return 1; fi
+      
+      - name: Output
+        run: cat build_output.log

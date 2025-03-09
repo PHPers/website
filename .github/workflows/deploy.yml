@@ -1,9 +1,7 @@
-name: Test build
+name: Deploy build
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
     branches: [ master ]
 
   workflow_dispatch:
