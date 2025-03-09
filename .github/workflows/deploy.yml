@@ -3,6 +3,8 @@ name: Deploy build
 on:
   push:
     branches: [ master ]
+  pull_request: # Temporarily!
+    branches: [ master ]
 
   workflow_dispatch:
 
