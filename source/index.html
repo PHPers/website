@@ -18,7 +18,7 @@ use:
                     <div class="list-one four columns next-meetup">
                       <div class="next-meetup-head"><a href="{{ post.url }}">{{ post.title }}</a></div>
                       <div class="next-meetup-date">{{ post.date | date('Y-m-d') }}, godz. {{ post.time }}</div>
-                      <div>{{ post.venue.description|raw }}</div>
+                      <div>{{ post.venue.description[:300] ~ '...'|raw }}</div>
                       <div class="next-meetup-more"><a href="{{ post.url }}">Więcej...</a></div>
                     </div>
                {% endif %}
