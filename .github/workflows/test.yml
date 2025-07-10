@@ -16,12 +16,12 @@ jobs:
       - name: Install dependencies
         uses: php-actions/composer@v6
         with:
-          php_version: "7.4"
+          php_version: "8.4"
           version: 2
 
       - name: Build
         run: |
-          php7.4 vendor/bin/sculpin generate -vvv -n --env=prod > build_output.log
+          php8.4 vendor/bin/sculpin generate -vvv -n --env=prod > build_output.log
           if grep -iq "notice\|error\|warning" build_output.log ; then return 1; fi
       
       - name: Output
