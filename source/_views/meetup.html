@@ -26,8 +26,15 @@
             <h3>{{ talk.title }}</h3>
             <p class="meta">{{ talk.speaker }}</p>
             <p>{{ talk.description|raw}}</p>
-            {% if talk.youtube_url %}
-                <a target="_blank" href="{{ talk.youtube_url }}" title="Youtube Video">Nagranie prezentacji</a>
+            {% if talk.youtube_url or talk.slides_url %}
+            <div class="talk-links">
+                {% if talk.youtube_url %}
+                    <a class="button" target="_blank" href="{{ talk.youtube_url }}" title="Youtube Video">Nagranie prezentacji</a>
+                {% endif %}
+                {% if talk.slides_url %}
+                    <a class="button" target="_blank" href="{{ talk.slides_url }}" title="Slajdy">Slajdy</a>
+                {% endif %}
+            </div>
             {% endif %}
         </li>
         {% endfor %}
